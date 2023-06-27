@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ReuseLCA - Hobelwerk new construction</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+    <div class="navbar">
+        <nav>
+            <ul>
+                <li><a href="html_pages\methodology.html" class="nav-active">Methodology</a></li>
+                <li class="dropdown">
+                    <a href="#">Case Studies</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="html_pages\Bistoquette_case_study.html">La Bistoquette</a></li>
+                        <li><a href="html_pages\Faraday_case_study.html">Faraday</a></li>
+                        <li><a href="html_pages\Hobelwerk_case_study.html">Hobelwerk</a></li>
+                        <li><a href="html_pages\K118_case_study.html">K118</a></li>
+                    </ul>
+                </li>
+                <li><a href="#meta-analysis">Meta-analysis</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<footer>
+    <p>Reuse-LCA - HEIG-VD/LESBAT</p>
+    <a href="https://github.com/LESBAT-HEIG-VD/Reuse-LCA-Hobelwerk">Code on github</a>
+</footer>
+
+
+<script>
+    function loadMatSunburst(url) {
+      document.getElementById("material_sunburst").src = url;
+    }
+    function loadBuildingImpTable(url) {
+      document.getElementById("building-lca").src = url;
+    }
+    function loadBarCompar(url) {
+      document.getElementById("bar_comparison").src = url;
+    }
+
+    function setActiveButtonsBImpTable(buttonId) {
+      // Remove the "active" class from all buttons
+      var buttons = document.querySelectorAll("#button_1_ad, #button_1_nv");
+      for (var i = 0; i < buttons.length; i++) {
+        buttons[i].classList.remove("active");
+      }
+      // Add the "active" class to the clicked button
+      var button = document.getElementById(buttonId);
+      button.classList.add("active");
+    }
+    function setActiveButtonsMatSunBurst(buttonId) {
+      // Remove the "active" class from all buttons
+      var buttons = document.querySelectorAll("#button_mat_component, #button_mat_ebkp");
+      for (var i = 0; i < buttons.length; i++) {
+        buttons[i].classList.remove("active");
+      }
+      // Add the "active" class to the clicked button
+      var button = document.getElementById(buttonId);
+      button.classList.add("active");
+    }
+    function setActiveButtonsBarCompar(buttonId) {
+      // Remove the "active" class from all buttons
+      var buttons = document.querySelectorAll("#button_comparison_gwp, #button_comparison_ubp, #button_comparison_penr");
+      for (var i = 0; i < buttons.length; i++) {
+        buttons[i].classList.remove("active");
+      }
+      // Add the "active" class to the clicked button
+      var button = document.getElementById(buttonId);
+      button.classList.add("active");
+    }
+
+    // Load the default page when the page first loads
+    window.onload = function() {
+      loadBuildingImpTable('Hobelwerk_building_impacts_table_actual.html');
+      setActiveButtonsBImpTable("button_1_ad");
+      loadMatSunburst('Hobelwerk_share_materials.html');
+      setActiveButtonsMatSunBurst("button_mat_component");
+      loadBarCompar('Hobelwerk_bar_GWP_reused_components.html');
+      setActiveButtonsBarCompar('button_comparison_gwp')
+    };
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,355 @@
+A;Land
+A 1;Land, superficies rights
+A 1.1;Acquisition of the land
+A 1.2;Acquisition of superficies rights
+A 1.3;Acquisition of buildings and structures
+A 1.4;Participation of neighbors
+A 2;Additional costs related to the acquisition of land and superficies rights
+A 2.1;Transfer taxes, real estate gains taxes
+A 2.2;Notary fees
+A 2.3;Land registry fees
+A 2.4;Attorney fees, legal fees
+A 2.5;Commission for intermediaries
+A 2.6;Indemnities, servitudes
+A 2.7;Topography, boundary marking
+B;Preparatory work
+B 1;Analysis, surveys, measurements
+B 1.1;Geotechnical studies
+B 1.2;Surveys
+B 1.3;Environmental measurements
+B 1.4;Monitoring
+B 2;Construction site installations
+B 2.1;Site access
+B 2.2;Supply, evacuation
+B 2.3;Workshops, dining rooms
+B 2.4;Lifting, loading, transport and storage equipment
+B 2.5;Material treatment equipment
+B 2.6;Winter measures
+B 3;Temporary facilities
+B 3.1;Temporary retaining devices
+B 3.2;Temporary pipelines and conduits
+B 3.3;Temporary buildings
+B 3.4;Temporary transport infrastructures
+B 3.5;Temporary furniture
+B 4;Connection to networks
+B 4.1;Pipelines
+B 4.2;Electrical conduits
+B 4.3;Telecommunication lines
+B 4.4;Heating, cooling conduits
+B 4.5;Water pipelines
+B 4.6;Gas pipelines
+B 5;Demolition of structures
+B 5.1;Demolition of non-contaminated structures
+B 5.2;Demolition of contaminated structures
+B 6;Excavation
+B 6.1;Deforestation, clearing
+B 6.2;Excavation, non-contaminated excavation
+B 6.3;Excavation, contaminated excavation
+B 6.4;Slope stabilization
+B 6.5;Excavation enclosures
+B 6.6;Backfilling
+B 6.7;Water drainage
+B 7;Foundation soil improvement, protection of structures
+B 7.1;Foundation soil improvement
+B 7.2;Foundation piles
+B 7.3;Underpinning of the structure
+B 7.4;Structure protection
+B 8;Scaffolding
+B 8.1;Façade scaffolding
+B 8.2;Service scaffolding
+C;Structural work
+C 1;Slabs, foundations
+C 1.1;Pipelines under buildings
+C 1.2;Waterproofing and insulation under slabs and foundations
+C 1.3;Foundation blocks, continuous footings
+C 1.4;Slabs
+C 1.5;Foundations
+C 2;Load-bearing walls
+C 2.1;External load-bearing walls
+C 2.2;Internal load-bearing walls
+C 3;Pillars
+C 3.1;Exterior pillars
+C 3.2;Interior pillars
+C 4;Load-bearing structures
+C 4.1;Floors
+C 4.2;Stairs, ramps
+C 4.3;Balconies
+C 4.4;Roofs
+C 5;Additional services
+C 5.1;Perforations and grooves
+C 5.2;Machine bases, incorporated
+D;Installations
+D 1;Electrical installations
+D 1.1;High current equipment
+D 1.2;High-current installations
+D 1.3;Lighting
+D 1.4;Electrical appliances
+D 1.5;Low current equipment
+D 1.6;Low-current installations
+D 2;Building automation
+D 2.1;Management level
+D 2.2;Automation level
+D 2.3;Peripheral level
+D 2.4;Room automation
+D 2.5;Automation network
+D 2.6;Device assembly
+D 2.7;Integration
+D 3;Security installations
+D 3.1;Burglary and aggression detection installations
+D 3.2;Access control installations
+D 3.3;Video surveillance installations
+D 3.4;Perimeter and surroundings surveillance installations
+D 4;Fire protection installations
+D 4.1;Fire detection installations
+D 4.2;Gas detection installations
+D 4.3;Water-based extinguishing installations
+D 4.4;Dry extinguishing installations
+D 4.5;Fire extinguishers
+D 4.6;Smoke and heat evacuation installations
+D 5;Heating installations
+D 5.1;Fuel storage
+D 5.2;Heat production
+D 5.3;Heat distribution
+D 5.4;Heat emission
+D 6;Refrigeration installations
+D 6.1;Refrigerant storage
+D 6.2;Cold production
+D 6.3;Cold distribution
+D 6.4;Cold emission
+D 7;Ventilation and air conditioning installations
+D 7.1;Air supply, air extraction
+D 7.2;Air conditioning packaging
+D 7.3;Main air distribution
+D 7.4;Air introduction
+D 7.5;Small ventilation systems
+D 8;Water, gas, and compressed air distribution installations
+D 8.1;Faucets, devices
+D 8.2;Technical elements
+D 8.3;Water treatment installations
+D 8.4;Feeding pipes
+D 8.5;Drain pipes
+D 8.6;Gas distribution installations
+D 8.7;Compressed air and vacuum generator distribution
+D 9;Transport installations
+D 9.1;Elevators
+D 9.2;Freight elevators
+D 9.3;Hospital elevators
+D 9.4;Escalators, moving sidewalks
+D 9.5;Lifting installations
+D 9.6;Parking installations
+D 9.7;Other transport installations
+E;Facade and wall coverings against the ground
+E 1;Wall coverings against the ground
+E 1.1;Ground sealing
+E 1.2;Thermal insulation against the ground
+E 1.3;Ground protection layers
+E 2;Facade coverings
+E 2.1;Plasters
+E 2.2;Exterior thermal insulation
+E 2.3;Cladding
+E 2.4;Lightweight facades
+E 2.5;Exterior ceiling coverings
+E 2.6;Anti-fall devices
+E 3;Windows, doors, protection devices
+E 3.1;Windows
+E 3.2;Doors
+E 3.3;Sun protection
+F;Roofs
+F 1;Coverings
+F 1.1;Buried waterproofing
+F 1.2;Flat roofs
+F 1.3;Sloping roofs
+F 1.4;Lightning protection
+F 2;Elements incorporated into roofs
+F 2.1;Elements incorporated into flat roofs
+F 2.2;Elements incorporated into sloping roofs
+G;Interior fittings
+G 1;Partitions, doors
+G 1.1;Fixed partitions
+G 1.2;Mobile partitions
+G 1.3;Interior windows
+G 1.4;Interior doors
+G 1.5;Blackout blinds
+G 2;Floor coverings
+G 2.1;Floor covering supports
+G 2.2;Finished floor coverings
+G 3;Wall coverings
+G 3.1;Wall covering supports
+G 3.2;Finished wall coverings
+G 4;Ceiling coverings
+G 4.1;Ceiling covering supports
+G 4.2;Finished ceiling coverings
+G 5;Fixed equipment, protection devices
+G 5.1;Cupboards, shelves
+G 5.2;Kitchen fittings
+G 5.3;Interior window dressings
+G 5.4;Protective devices
+G 5.5;Stoves, fireplaces
+G 5.6;Accessories
+G 5.7;Greenery inside buildings
+G 6;Additional services for interior fittings
+G 6.1;Drilling and grooving in interior fittings
+G 6.2;Partition walls
+G 6.3;Cleaning
+H;Specific installations
+H 1;Production and laboratory installations
+H 1.1;Supply, disposal, elimination for production and laboratory installations
+H 1.2;Devices for production and laboratory installations
+H 1.3;Controls for production and laboratory installations
+H 1.4;Incorporated elements for production and laboratory installations
+H 2;Industrial kitchens
+H 2.1;Supply, disposal, elimination for industrial kitchens
+H 2.2;Devices for industrial kitchens
+H 2.3;Controls for industrial kitchens
+H 2.4;Incorporated elements for industrial kitchens
+H 3;Laundries, cleaning installations
+H 3.1;Supply, disposal, elimination for laundries and cleaning installations
+H 3.2;Devices for laundries and cleaning installations
+H 3.3;Controls for laundries and cleaning installations
+H 3.4;Incorporated elements for laundries and cleaning installations
+H 4;Hospital installations
+H 4.1;Vital signs monitoring, diagnostics
+H 4.1.1;Vital signs monitoring
+H 4.1.2;Radiological diagnostics
+H 4.1.3;Ultrasound diagnostics
+H 4.1.4;Scintigraphy diagnostics
+H 4.1.5;Magnetic resonance diagnostics
+H 4.1.6;Electrophysiology
+H 4.1.7;Special diagnostics
+H 4.1.8;Endoscopy
+H 4.1.9;Miscellaneous combined diagnostics
+H 4.2;Care equipment
+H 4.2.1;Equipment for general and extended care
+H 4.3;Treatment equipment
+H 4.3.1;Anesthesia equipment
+H 4.3.2;Surgical equipment
+H 4.3.3;Therapy equipment
+H 4.3.4;Radiation therapy equipment
+H 4.3.5;Equipment for disabled persons and other treatments
+H 4.3.6;Medical thermotherapy equipment (hot, cold)
+H 4.4;Measuring, analysis equipment
+H 4.4.1;Substance handling
+H 4.4.2;Analyses
+H 4.4.3;Dosimetry
+H 4.5;Cleaning, disinfection, sterilization
+H 4.5.1;Cleaning, disinfection
+H 4.5.2;Sterilization
+H 4.6;Medical furniture
+H 4.6.1;Cabinets, shelves, lockers
+H 4.6.2;Tables
+H 4.6.3;Seats
+H 4.6.4;Beds, cots
+H;Installations for education and culture
+H 5;Power, evacuation, disposal for installations for education and culture
+H 5.1;Power, evacuation, disposal for installations for education and culture
+H 5.2;Devices for installations for education and culture
+H 5.3;Controls for installations for education and culture
+H 5.4;Built-in elements for installations for education and culture
+H 6;Sports and leisure installations
+H 6.1;Power, evacuation, disposal for sports and leisure installations
+H 6.2;Devices for sports and leisure installations
+H 6.3;Controls for sports and leisure installations
+H 6.4;Built-in elements for sports and leisure installations
+H 7;Other specific installations
+H 7.1;Power, evacuation, disposal for other specific installations
+H 7.2;Devices for other specific installations
+H 7.3;Controls for other specific installations
+H 7.4;Built-in elements for other specific installations
+I;Building surroundings
+I 1;Outdoor amenities
+I 1.1;Shaping of the land
+I 1.2;Stabilization of slopes
+I 1.3;Plant protection
+I 1.4;Water disposal
+I 2;Outdoor structures
+I 2.1;Retaining walls
+I 2.2;Free-standing walls
+I 2.3;Small structures
+I 3;Green spaces
+I 3.1;Plant layer
+I 3.2;Lawn
+I 3.3;Plantings
+I 3.4;Bodies of water
+I 4;Hard surfaces
+I 4.1;Foundation layers
+I 4.2;Edging
+I 4.3;Surfaces
+I 4.4;Superstructures for railways
+I 5;Exterior protective devices
+I 5.1;Retaining devices
+I 5.2;Fences
+I 5.3;Protection against emissions
+I 6;Exterior installations
+I 6.1;Electrical installations
+I 6.2;Heating installations
+I 6.3;Refrigeration installations
+I 6.4;Water, gas, and compressed air distribution installations
+I 6.5;Transport installations
+I 7;Outdoor furniture and equipment
+I 7.1;Outdoor furniture
+I 7.2;Outdoor equipment
+J;Furnishing and decoration
+J 1;Furniture
+J 1.1;Usual furniture
+J 1.2;Specific furniture
+J 1.3;Mobile lighting
+J 1.4;Signage
+J 2;Small equipment
+J 2.1;Usual small equipment
+J 2.2;Specific small equipment
+J 2.3;Mobile equipment
+J 3;Textiles
+J 3.1;Usual textiles
+J 3.2;Specific textiles
+J 4;Artworks
+J 4.1;Exhibited artworks
+J 4.2;Integrated artworks
+V;Project study
+V 1;Designers
+V 1.1;Architects
+V 1.2;Civil engineers
+V 1.3;Specialized installation engineers
+V 1.4;Specialists
+V 1.5;Project director, group of designers
+V 2;Contractors
+V 2.1;Design consultancy
+V 2.2;Commissioning, initiation of operation
+V 3;Clients
+V 3.1;Selection procedures
+V 3.2;Owners
+V 3.3;Operators
+V 3.4;Users
+V 3.5;Consultants
+W;Incidental costs during construction
+W 1;Authorizations, taxes
+W 1.1;Authorizations
+W 1.2;Taxes
+W 2;Insurance, guarantees
+W 2.1;Insurance
+W 2.2;Guarantees
+W 2.3;Refunds
+W 3;Capital costs
+W 3.1;Capital costs on land
+W 3.2;Capital costs on construction
+W 4;Restoration, public relations, compensations
+W 4.1;Restoration costs
+W 4.2;Public relations
+W 4.3;Compensations, supervision
+W 5;Commissioning
+W 5.1;Commissioning of works
+W 6;Rent, sale
+W 6.1;Commission on first rental
+W 6.2;Incidental costs on first rental
+W 6.3;Commission on sale
+W 6.4;Incidental costs on sale
+W 7;Operating results
+W 7.1;Operating expenses
+W 7.2;Operating revenues
+Y;Provisions
+Y 1;Contingencies
+Y 1.1;Contingencies
+Y 2;Price escalation
+Y 2.1;Price escalation
+Z;Value added tax
+Z 1;Value added tax
+Z 1.1;Value added tax

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Point Symbol in DataTable Example</title>
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.11.2/datatables.min.css"/>
+  <style>
+  .data-rating-dot {
+    font-size: px;
+  }
+  </style>
+</head>
+<body>
+  <table id="myTable" class="display">
+    <thead>
+      <tr>
+        <th>Column 1</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span style="color: #57e32c;" class="data-rating-dot">&bull;</span> Project specific/Not concerned</td>
+        <td><span style="color: #b7dd29;" class="data-rating-dot">&bull;</b></span> Estimation</td>
+        <td><span style="color: #ffe234;" class="data-rating-dot">&bull;</b></span> Hypothesis</td>
+        <td><span style="color: #ffa534;" class="data-rating-dot">&bull;</b></span> Default (no data)</td>
+        <td><span style="color: #ff4545;" class="data-rating-dot">&bull;</b></span> Not modelled (no data)</td>
+      </tr>
+      <!-- Add more data rows as needed -->
+    </tbody>
+  </table>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.datatables.net/v/bs4/dt-1.11.2/datatables.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      // Create the DataTable
+      $('#myTable').DataTable();
+    });
+  </script>
+</body>
+</html>

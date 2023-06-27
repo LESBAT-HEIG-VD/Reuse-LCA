@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ReuseLCA - Hobelwerk case study</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header>
+    <div class="navbar">
+        <nav>
+            <ul>
+                <li><a href="#methodology">Methodology</a></li>
+                <li class="dropdown">
+                    <a href="#" class="nav-active">Case Studies</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="hobelwerk.html">Hobelwerk</a></li>
+                    </ul>
+                </li>
+                <li><a href="#meta-analysis">Meta-analysis</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<h1>Hobelwerk</h1>
+<section class="description">
+    <div>
+      <img src=..\pictures\Hobelwerk-photo.jpg height=300px alt="Building Photo">
+    </div>
+   <div>
+    <h2>Description</h2>
+       <p>Type of project: New construction</p>
+       <p>Type of building: Residential with workshops at ground floor</p>
+       <p>Construction materials: Concrete and woods</p>
+       <p>Square meters: 2261 m²</p>
+       <p>Floors: 4</p>
+       <p>Location: Winterthur (ZH), CH</p>
+       <p>Project phase: In progress (2023)</p>
+    </div>
+</section>
+<section class="reuse-strat">
+    <div>
+        <h2>Reuse strategy</h2>
+    </div>
+    <div>
+        <p style="text-align:center;"><img src=..\pictures\Hobelwerk-map.png alt="Reuse map" width=800px></p>
+    </div>
+</section>
+<section class="material-analysis">
+    <div>
+    <h2>Material mass analysis</h2>
+    <button id="button_mat_component" onclick="loadMatSunburst('..\\html_figures\\Hobelwerk_material_sunburst.html'); setActiveButtonsMatSunBurst('button_mat_component')">Building components</button>
+    <button id="button_mat_ebkp" onclick="loadMatSunburst('..\\html_figures\\Hobelwerk_material_sunburst_ebkp.html'); setActiveButtonsMatSunBurst('button_mat_ebkp')">e-BKP categories</button>
+
+    <iframe id="material_sunburst"  src=..\\html_figures\\Hobelwerk_material_sunburst.html style="width: 100%; height: 700px; border: 0">  </iframe>
+    </div>
+</section>
+<section class="building-impacts">
+    <div>
+    <h2>Building LCA impacts</h2>
+    </div>
+    <div>
+    <button id="button_1_ad" onclick="loadBuildingImpTable('..\\html_figures\\Hobelwerk_impacts_table.html'); setActiveButtonsBImpTable('button_1_ad')">Actual design</button>
+    <button id="button_1_nv" onclick="loadBuildingImpTable('..\\html_figures\\Hobelwerk_impacts_table_new.html'); setActiveButtonsBImpTable('button_1_nv')">"Only new" variant</button>
+    </div>
+    <div>
+    <iframe id="building-lca" style="width: 1000px; height: 300px; border: 0">  </iframe>
+    </div>
+</section>
+<section class="components-impacts">
+    <div>
+    <h2>LCA of reused components</h2>
+    </div>
+    <div>
+    <button id="button_comparison_gwp" onclick="loadBarCompar('..\\html_figures\\Hobelwerk_GWP__reused_comp_bar.html'); setActiveButtonsBarCompar('button_comparison_gwp')">GHG emissions</button>
+    <button id="button_comparison_ubp" onclick="loadBarCompar('..\\html_figures\\Hobelwerk_UBP__reused_comp_bar.html'); setActiveButtonsBarCompar('button_comparison_ubp')">Ecological scarcity</button>
+    <button id="button_comparison_penr" onclick="loadBarCompar('..\\html_figures\\Hobelwerk_PE-NR__reused_comp_bar.html'); setActiveButtonsBarCompar('button_comparison_penr')">Primary energy, non-renewable</button>
+    </div>
+    <div>
+    <iframe id="bar_comparison" width="100%" style="width: 100%; height: 600px; border: 0">  </iframe>
+    </div>
+</section>
+<footer>
+    <p>Reuse-LCA - HEIG-VD/LESBAT</p>
+    <a href="https://github.com/LESBAT-HEIG-VD/Reuse-LCA-Hobelwerk">Code on github</a>
+</footer>
+
+
+<script>
+    function loadMatSunburst(url) {
+      document.getElementById("material_sunburst").src = url;
+    }
+    function loadBuildingImpTable(url) {
+      document.getElementById("building-lca").src = url;
+    }
+    function loadBarCompar(url) {
+      document.getElementById("bar_comparison").src = url;
+    }
+
+    function setActiveButtonsBImpTable(buttonId) {
+      // Remove the "active" class from all buttons
+      var buttons = document.querySelectorAll("#button_1_ad, #button_1_nv");
+      for (var i = 0; i < buttons.length; i++) {
+        buttons[i].classList.remove("active");
+      }
+      // Add the "active" class to the clicked button
+      var button = document.getElementById(buttonId);
+      button.classList.add("active");
+    }
+    function setActiveButtonsMatSunBurst(buttonId) {
+      // Remove the "active" class from all buttons
+      var buttons = document.querySelectorAll("#button_mat_component, #button_mat_ebkp");
+      for (var i = 0; i < buttons.length; i++) {
+        buttons[i].classList.remove("active");
+      }
+      // Add the "active" class to the clicked button
+      var button = document.getElementById(buttonId);
+      button.classList.add("active");
+    }
+    function setActiveButtonsBarCompar(buttonId) {
+      // Remove the "active" class from all buttons
+      var buttons = document.querySelectorAll("#button_comparison_gwp, #button_comparison_ubp, #button_comparison_penr");
+      for (var i = 0; i < buttons.length; i++) {
+        buttons[i].classList.remove("active");
+      }
+      // Add the "active" class to the clicked button
+      var button = document.getElementById(buttonId);
+      button.classList.add("active");
+    }
+
+    // Load the default page when the page first loads
+    window.onload = function() {
+      loadBuildingImpTable('..\\html_figures\\Hobelwerk_impacts_table.html');
+      setActiveButtonsBImpTable("button_1_ad");
+      loadMatSunburst('..\\html_figures\\Hobelwerk_material_sunburst.html');
+      setActiveButtonsMatSunBurst("button_mat_component");
+      loadBarCompar('..\\html_figures\\Hobelwerk_GWP__reused_comp_bar.html');
+      setActiveButtonsBarCompar('button_comparison_gwp')
+    };
+    </script>
+</body>
+
+</html>

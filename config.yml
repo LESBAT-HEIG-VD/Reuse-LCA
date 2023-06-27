@@ -1,0 +1,41 @@
+figures_folder: "html_figures"
+pictures_folder: "pictures"
+data_folder: "data"
+templates_folder: "templates"
+html_pages_folder: "html_pages"
+figures_suffix:
+  impacts_table: "_impacts_table.html"
+  impacts_table_new: "_impacts_table_new.html"
+  material_sunburst: "_material_sunburst.html"
+  material_sunburst_ebkp: "_material_sunburst_ebkp.html"
+  reused_comp_bar: "_reused_comp_bar.html"
+html_suffix:
+  case_study: "_case_study.html"
+photos_suffix: "-photo.jpg"
+maps_suffix: "-map.png"
+templates:
+  building_template: "building_template.html"
+  navigation_bar: "case_study_nav_bar.html"
+cases:
+  Faraday: \\eistore2\igt-lesbat\RaD\107020_Reuse-LCA\3. Data+calculation\BL_Faraday\20221216_Faraday_Reuse_LCA_calculation_v4.xlsx
+  Faraday_cisbat: \\eistore2\igt-lesbat\RaD\107020_Reuse-LCA\3. Data+calculation\BL_Faraday\20221216_Faraday_Reuse_LCA_calculation_vCisbat.xlsx
+  Faraday_local: C:\Users\mija.frossard\Documents\20221216_Faraday_Reuse_LCA_calculation_v4.xlsx
+  Hobelwerk: \\eistore2\igt-lesbat\RaD\107020_Reuse-LCA\3. Data+calculation\ZH_Hobelwerk\ZH_Hobelwerk_Reuse_LCA_Calculation_v5.xlsx
+  K118: \\eistore2\igt-lesbat\RaD\107020_Reuse-LCA\3. Data+calculation\ZH_K118\K118_Reuse_LCA_Calculation_v5.xlsx
+  Bistoquette: \\eistore2\\igt-lesbat\\RaD\\107020_Reuse-LCA\\3. Data+calculation\\GE_VD_Atba\\La_Bistoquette\\La_Bistoquette_Reuse_LCA_Calculation_v5_Bat_C.xlsx
+photos:
+  Faraday: pictures\\faraday-photo.jpg
+  Hobelwerk: pictures\\hobelwerk-photo.jpg
+  K118: pictures\\k118-photo.jpg
+  Bistoquette: pictures\\bistoquette-photo.jpg
+maps:
+  Faraday: pictures\\faraday-map.png
+  Hobelwerk: pictures\\hobelwerk-map.png
+  K118: pictures\\k118-map.png
+  Bistoquette: pictures\\bistoquette-photo.png
+lca_scopes:
+  construction_domain: [A1-A3, A4, B4, C1-C4, Total]
+  product_stage: [A1-A3]
+  eol_stage: [C1-C4]
+impact_categories: [GWP,UBP,PE-NR]
+excel_sheets:

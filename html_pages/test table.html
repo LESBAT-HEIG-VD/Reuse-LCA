@@ -1,40 +1,38 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Point Symbol in DataTable Example</title>
-  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.11.2/datatables.min.css"/>
-  <style>
-  .data-rating-dot {
-    font-size: px;
-  }
-  </style>
-</head>
-<body>
-  <table id="myTable" class="display">
-    <thead>
-      <tr>
-        <th>Column 1</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span style="color: #57e32c;" class="data-rating-dot">&bull;</span> Project specific/Not concerned</td>
-        <td><span style="color: #b7dd29;" class="data-rating-dot">&bull;</b></span> Estimation</td>
-        <td><span style="color: #ffe234;" class="data-rating-dot">&bull;</b></span> Hypothesis</td>
-        <td><span style="color: #ffa534;" class="data-rating-dot">&bull;</b></span> Default (no data)</td>
-        <td><span style="color: #ff4545;" class="data-rating-dot">&bull;</b></span> Not modelled (no data)</td>
-      </tr>
-      <!-- Add more data rows as needed -->
-    </tbody>
-  </table>
-
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="https://cdn.datatables.net/v/bs4/dt-1.11.2/datatables.min.js"></script>
-  <script>
+ <script>
     $(document).ready(function() {
       // Create the DataTable
-      $('#myTable').DataTable();
+      var table = $('#myTable').DataTable();
+
+      // Add download buttons
+      new $.fn.dataTable.Buttons(table, {
+        buttons: [
+          { extend: 'excel', text: 'Download Excel' },
+          { extend: 'csv', text: 'Download CSV' }
+        ]
+      }).container().appendTo($('#myTable_wrapper .col-md-6:eq(0)'));
     });
   </script>
-</body>
-</html>
+  <script>
+    $(document).ready(function() {
+      var dataTable = $('#myDataTable').DataTable({
+        // DataTables configuration options
+      });
+
+      // Add column visibility control
+      $('#myDataTable').DataTable().columns().every(function() {
+        var column = this;
+
+        // Create checkbox for each column
+        var columnCheckbox = $('<input type="checkbox" checked />')
+          .attr('data-column-index', column.index())
+          .attr('data-column-name', column.header().textContent)
+          .on('change', function() {
+            var columnIndex = $(this).data('column-index');
+            dataTable.column(columnIndex).visible($(this).is(':checked'));
+          });
+
+        // Append checkbox to a container
+        $('#columnVisibilityControls').append(columnCheckbox).append(column.header().textContent);
+      });
+    });
+  </script>

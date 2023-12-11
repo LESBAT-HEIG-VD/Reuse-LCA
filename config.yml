@@ -3,28 +3,38 @@ pictures_folder: "pictures"
 data_folder: "data"
 templates_folder: "templates"
 html_pages_folder: "html_pages"
+html_tables_folder: "html_tables"
 figures_suffix:
   impacts_table: "_impacts_table.html"
   impacts_table_new: "_impacts_table_new.html"
   material_sunburst: "_material_sunburst.html"
   material_sunburst_ebkp: "_material_sunburst_ebkp.html"
+  co2_sunburst: "_co2_sunburst.html"
   reused_comp_bar: "_reused_comp_bar.html"
 html_suffix:
   case_study: "_case_study.html"
+table_suffix:
+  gwp_total: "_gwp_total.html"
+  gwp_per_sqm: "_gwp_per_sqm.html"
+  gwp_per_kg: "_gwp_per_kg.html"
 photos_suffix: "-photo.jpg"
 maps_suffix: "-map.png"
 templates:
   building_template: "building_template.html"
   navigation_bar: "case_study_nav_bar.html"
+  reuse_table: "reuse_table_template.html"
 cases:
-  Faraday: \\eistore2\igt-lesbat\RaD\107020_Reuse-LCA\3. Data+calculation\BL_Faraday\20221216_Faraday_Reuse_LCA_calculation_v4.xlsx
-  Faraday_cisbat: \\eistore2\igt-lesbat\RaD\107020_Reuse-LCA\3. Data+calculation\BL_Faraday\20221216_Faraday_Reuse_LCA_calculation_vCisbat.xlsx
-  Faraday_local: C:\Users\mija.frossard\Documents\20221216_Faraday_Reuse_LCA_calculation_v4.xlsx
-  Hobelwerk: \\eistore2\igt-lesbat\RaD\107020_Reuse-LCA\3. Data+calculation\ZH_Hobelwerk\ZH_Hobelwerk_Reuse_LCA_Calculation_v5.xlsx
-  K118: \\eistore2\igt-lesbat\RaD\107020_Reuse-LCA\3. Data+calculation\ZH_K118\K118_Reuse_LCA_Calculation_v5.xlsx
-  Bistoquette: \\eistore2\\igt-lesbat\\RaD\\107020_Reuse-LCA\\3. Data+calculation\\GE_VD_Atba\\La_Bistoquette\\La_Bistoquette_Reuse_LCA_Calculation_v5_Bat_C.xlsx
+  Faraday: \\eistore2\igt-lesbat\RaD\107020_Reuse-LCA\3. Data+calculation\BL_Faraday\20221216_Faraday_Reuse_LCA_calculation_PostCisbat_v7.xlsx
+  Hobelwerk: \\eistore2\igt-lesbat\RaD\107020_Reuse-LCA\3. Data+calculation\ZH_Hobelwerk\ZH_Hobelwerk_Reuse_LCA_Calculation_v7.xlsx
+  K118: \\eistore2\igt-lesbat\RaD\107020_Reuse-LCA\3. Data+calculation\ZH_K118\K118_Reuse_LCA_Calculation_v10.xlsx
+  Bistoquette: \\eistore2\\igt-lesbat\\RaD\\107020_Reuse-LCA\\3. Data+calculation\\GE_VD_Atba\\La_Bistoquette\\La_Bistoquette_Reuse_LCA_Calculation_v8_Bat_C.xlsx
+names:
+  Faraday: Primeo Energy Cosmos
+  Hobelwerk: Hobelwerk - Haus D
+  K118: K 118
+  Bistoquette: La Bistoquette - B&#226;t. C
 photos:
-  Faraday: pictures\\faraday-photo.jpg
+  Faraday: pictures\\faraday-photo.png
   Hobelwerk: pictures\\hobelwerk-photo.jpg
   K118: pictures\\k118-photo.jpg
   Bistoquette: pictures\\bistoquette-photo.jpg

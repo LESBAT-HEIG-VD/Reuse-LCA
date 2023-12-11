@@ -2,16 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>ReuseLCA - Faraday case study</title>
+    <title>ReuseLCA - Primeo Energy Cosmos case study</title>
     <link rel="stylesheet" href="../style.css">
-    <link href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css" rel="stylesheet"/>
-    <link href="https://cdn.datatables.net/buttons/2.3.6/css/buttons.dataTables.min.css" rel="stylesheet"/>
-    <link href="https://cdn.datatables.net/colreorder/1.6.2/css/colReorder.dataTables.min.css" rel="stylesheet"/>
-    <link href="https://cdn.datatables.net/responsive/2.4.1/css/responsive.dataTables.min.css" rel="stylesheet"/>
-
 </head>
 <body>
-<header>
+    <header>
     <div class="navbar">
         <nav>
             <ul>
@@ -19,10 +14,10 @@
                 <li class="dropdown">
                     <a href=#case-studies" class="nav-active">Case Studies</a>
                     <ul class="dropdown-menu">
-                        <li><a href="Faraday_case_study.html">Faraday</a></li>
-                        <li><a href="Hobelwerk_case_study.html">Hobelwerk</a></li>
-                        <li><a href="K118_case_study.html">K118</a></li>
-                        <li><a href="Bistoquette_case_study.html">Bistoquette</a></li>
+                        <li><a href="Faraday_case_study.html">Primeo Energy Cosmos</a></li>
+                        <li><a href="Hobelwerk_case_study.html">Hobelwerk - Haus D</a></li>
+                        <li><a href="K118_case_study.html">K 118</a></li>
+                        <li><a href="Bistoquette_case_study.html">La Bistoquette - B&#226;t. C</a></li>
                     </ul>
                 </li>
                 <li><a href="#meta-analysis">Meta-analysis</a></li>
@@ -31,838 +26,250 @@
         </nav>
     </div>
 </header>
-<h1>Faraday</h1>
-<section class="description">
-    <div style="text-align: center">
-      <img src=..\pictures\Faraday-photo.jpg height=300px alt="Building Photo">
-    </div>
-    <div class="card">
-        <div class="card-content">
-            <h2>Description</h2>
-            <p>Type of project: New construction</p>
-            <p>Type of building: Education and training</p>
-            <p>Construction materials: Concrete, steel and wood</p>
-            <p>Square meters: 723.9 m²</p>
-            <p>Floors: 3</p>
-            <p>Location: Münchestein (BL), CH</p>
-            <p>Project phase: Completed in late 2022</p>
+    <h1>Primeo Energy Cosmos</h1>
+    <section class="description">
+        <div style="text-align: center">
+          <img src=..\pictures\Faraday-photo.jpg height=300px alt="Building Photo">
         </div>
-    </div>
-</section>
-<section>
-    <div class="card">
-        <div class="card-content">
-            <h2>Key metrics</h2>
+        <div class="card">
+            <div class="card-content">
+                <h2>Description</h2>
+                <p>Type of project: New construction</p>
+                <p>Type of building: Education and training</p>
+                <p>Construction materials: Concrete, steel and wood</p>
+                <p>Building energy reference area (ERA): 723.9 m²</p>
+                <p>Floors: 3</p>
+                <p>Location: Münchestein (BL), CH</p>
+                <p>Project phase: Completed in late 2022</p>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="card">
+            <div class="card-content">
+                <h2>Key metrics</h2>
 
-            <section class="key-numbers">
-            <div>
-                <h3>Material Intensity</h3>
-            </div>
-            <div>
-                <h3>Share of Reused Components</h3>
-            </div>
-            <div>
-                <h3>Reused Components Supply Distance</h3>
-            </div>
-            <div>
-                <h3>GHG Emissions of the construction</h3>
-            </div>
-            <div>
-                <h3>Avoided GHG Emissions due to reuse</h3>
-            </div>
-            <div>
-                <h3>Biogenic CO2 storage extended</h3>
-            </div>
-            <div>
-                <p>641</p><span>kg/sqm</span>
-            </div>
-            <div>
-                <p>11.0</p><span>% of total mass</span>
-            </div>
-            <div>
-                <p>90.1</p><span>km (weighted average)</span>
-            </div>
-            <div>
-                <p>8.1</p><span>kg CO2-eq./sqm/year</span>
-            </div>
-            <div>
-                <p>-1.3</p><span>kg CO2-eq./sqm/year</span>
-            </div>
-            <div>
-                <p>-0.33</p><span>kg CO2-eq./sqm/year</span>
-            </div>
-        </section>
-        </div>
-    </div>
-</section>
-<section class="reuse-strat">
-    <div class="card">
-        <div class="card-content">
-            <h2>Reuse strategy</h2>
-            <div>
-                <p style="text-align:center;"><img src=..\pictures\Faraday-map.png alt="Reuse map" width=800px></p>
-            </div>
-            <div class="table-container">
-              <table id="myTable" class="display">
-                <thead>
-                  <tr style="text-align: right;">
-                    <th>n°</th>
-                    <th>Element</th>
-                    <th>Category</th>
-                    <th>Origin</th>
-                    <th>Age</th>
-                    <th>Service lifespan extension</th>
-                    <th>Area (m²)</th>
-                    <th>Volume (m3)</th>
-                    <th>Mass used (kg)</th>
-                    <th>Mass before losses (kg)</th>
-                    <th>Conventional product and end-of-life</th>
-                    <th>KBOB dataset id</th>
-                    <th>Losses</th>
-                    <th>Dismantling</th>
-                    <th>Storage</th>
-                    <th>Modification</th>
-                    <th>Transport A2</th>
-                    <th>Transport A4</th>
-                    <th>GWP: Losses</th>
-                    <th>GWP: Dismantling</th>
-                    <th>GWP: Storage</th>
-                    <th>GWP: Modification</th>
-                    <th>GWP: Transport A2</th>
-                    <th>GWP: Transport A4</th>
-                    <th>GWP: Total A1-A4</th>
-                    <th>GWP: Conventional equivalent A1-A4</th>
-                    <th>GWP: Avoided, production</th>
-                    <th>GWP: Avoided, waste treatment</th>
-                    <th>GWP: Avoided, total</th>
-                    <th>GWP: difference in production (%)</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>Stone slabs</td>
-                    <td>Roof</td>
-                    <td>Ex-situ dismantling (building)</td>
-                    <td>30</td>
-                    <td><span style="color: #ffe234;" class="data-rating-dot">&bull;</b></span>60</td>
-                    <td>150</td>
-                    <td>2.25</td>
-                    <td>13500</td>
-                    <td>15000</td>
-                    <td>KBOB: Dalle en pierre naturelle rectifiée, Suisse, 15 mm (<span style="color: #ffa534;" class="data-rating-dot">&bull;</b></span>100%)</td>
-                    <td>11.015.02</td>
-                    <td><span style="color: #ffa534;" class="data-rating-dot">&bull;</b></span>10%</td>
-                    <td><span style="color: #ffa534;" class="data-rating-dot">&bull;</b></span>UVEK DQRv2 2021: deconstruction, average/CH U</td>
-                    <td><span style="color: #ffa534;" class="data-rating-dot">&bull;</b></span>1.21 a, <span style="color: #ffe234;" class="data-rating-dot">&bull;</b></span>0.700 m2, <span style="color: #b7dd29;" class="data-rating-dot">&bull;</b></span>Building hall (m2.yr)</td>
-                    <td><span style="color: #57e32c;" class="data-rating-dot">&bull;</span>No modification</td>
-                    <td><span style="color: #57e32c;" class="data-rating-dot">&bull;</span>11 km, <span style="color: #ffa534;" class="data-rating-dot">&bull;</b></span>Camion 16-32 t</td>
-                    <td><span style="color: #57e32c;" class="data-rating-dot">&bull;</span>11 km, <span style="color: #ffa534;" class="data-rating-dot">&bull;</b></span>Camion 7.5-16 t</td>
-                    <td>0.012</td>
-                    <td>0.139</td>
-                    <td>0.0035</td>
-                    <td>0</td>
-                    <td>0.044</td>
-                    <td>0.047</td>
-                    <td>0.244</td>
-                    <td>2.84</td>
-                    <td>-2.48</td>
-                    <td>-0.108</td>
-                    <td>-2.58</td>
-                    <td>-91%</td>
-                  </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>HPL panels</td>
-                    <td>Exterior wall</td>
-                    <td>Ex-situ construction surplus</td>
-                    <td>0</td>
-                    <td><span style="color: #ffe234;" class="data-rating-dot">&bull;</b></span>40</td>
-                    <td>680</td>
-                    <td>5.51</td>
-                    <td>7893</td>
-                    <td>8770</td>
-                    <td>KBOB: Panneau de façade, stratifié (HPL), 8,1 mm (<span style="color: #ffa534;" class="data-rating-dot">&bull;</b></span>100%)</td>
-                    <td>05.023</td>
-                    <td><span style="color: #ffa534;" class="data-rating-dot">&bull;</b></span>10%</td>
-                    <td><span style="color: #57e32c;" class="data-rating-dot">&bull;</span>Surplus, no dismantling</td>
-                    <td><span style="color: #ffa534;" class="data-rating-dot">&bull;</b></span>1.21 a, <span style="color: #ffa534;" class="data-rating-dot">&bull;</b></span>5.511 m3, <span style="color: #b7dd29;" class="data-rating-dot">&bull;</b></span>Building hall (m3.yr)</td>
-                    <td><span style="color: #57e32c;" class="data-rating-dot">&bull;</span>No modification</td>
-                    <td><span style="color: #57e32c;" class="data-rating-dot">&bull;</span>87 km, <span style="color: #ffa534;" class="data-rating-dot">&bull;</b></span>Camion 16-32 t</td>
-                    <td><span style="color: #57e32c;" class="data-rating-dot">&bull;</span>129 km, <span style="color: #ffa534;" class="data-rating-dot">&bull;</b></span>Camion 7.5-16 t</td>
-                    <td>1.32</td>
-                    <td>0</td>
-                    <td>0.016</td>
-                    <td>0</td>
-                    <td>0.193</td>
-                    <td>0.326</td>
-                    <td>1.85</td>
-                    <td>31.5</td>
-                    <td>-29.9</td>
-                    <td>-11.8</td>
-                    <td>-41.7</td>
-                    <td>-94%</td>
-                  </tr>
-                  <tr>
-                    <td>3</td>
-                    <td>OSB panels</td>
-                    <td>Interior wall</td>
-                    <td>Ex-situ construction surplus</td>
-                    <td>0</td>
-                    <td><span style="color: #ffe234;" class="data-rating-dot">&bull;</b></span>30</td>
-                    <td>194</td>
-                    <td>2.90</td>
-                    <td>1742</td>
-                    <td>1855</td>
-                    <td>KBOB: Panneau d'aggloméré type OSB, colle PF, zone humide (<span style="color: #ffa534;" class="data-rating-dot">&bull;</b></span>100%)</td>
-                    <td>07.013</td>
-                    <td><span style="color: #b7dd29;" class="data-rating-dot">&bull;</b></span>6%</td>
-                    <td><span style="color: #b7dd29;" class="data-rating-dot">&bull;</b></span>598 W, Electric (CH), 2.0 min/m2</td>
-                    <td><span style="color: #ffa534;" class="data-rating-dot">&bull;</b></span>1.21 a, <span style="color: #ffa534;" class="data-rating-dot">&bull;</b></span>2.903 m3, <span style="color: #b7dd29;" class="data-rating-dot">&bull;</b></span>Building hall (m3.yr)</td>
-                    <td><span style="color: #57e32c;" class="data-rating-dot">&bull;</span>No modification</td>
-                    <td><span style="color: #ffa534;" class="data-rating-dot">&bull;</b></span>50 km, <span style="color: #ffa534;" class="data-rating-dot">&bull;</b></span>Camion 16-32 t</td>
-                    <td><span style="color: #57e32c;" class="data-rating-dot">&bull;</span>2 km, <span style="color: #ffa534;" class="data-rating-dot">&bull;</b></span>Camion 16-32 t</td>
-                    <td>0.012</td>
-                    <td>0.0007</td>
-                    <td>0.0082</td>
-                    <td>0</td>
-                    <td>0.023</td>
-                    <td>0.0009</td>
-                    <td>0.046</td>
-                    <td>1.19</td>
-                    <td>-1.12</td>
-                    <td>-0.193</td>
-                    <td>-1.31</td>
-                    <td>-96%</td>
-                  </tr>
-                  <tr>
-                    <td>4</td>
-                    <td>MDF panels</td>
-                    <td>Interior wall</td>
-                    <td>Ex-situ construction surplus</td>
-                    <td>0</td>
-                    <td><span style="color: #ffe234;" class="data-rating-dot">&bull;</b></span>30</td>
-                    <td>186</td>
-                    <td>3.53</td>
-                    <td>2416</td>
-                    <td>2416</td>
-                    <td>KBOB: Panneau de fibres à densité moyenne (MDF), colle UF (<span style="color: #ffa534;" class="data-rating-dot">&bull;</b></span>100%)</td>
-                    <td>07.012</td>
-                    <td><span style="color: #ffa534;" class="data-rating-dot">&bull;</b></span>0%</td>
-                    <td><span style="color: #b7dd29;" class="data-rating-dot">&bull;</b></span>598 W, Electric (CH), 2.0 min/m2</td>
-                    <td><span style="color: #ffa534;" class="data-rating-dot">&bull;</b></span>1.21 a, <span style="color: #ffa534;" class="data-rating-dot">&bull;</b></span>3.527 m3, <span style="color: #b7dd29;" class="data-rating-dot">&bull;</b></span>Building hall (m3.yr)</td>
-                    <td><span style="color: #57e32c;" class="data-rating-dot">&bull;</span>No modification</td>
-                    <td><span style="color: #ffa534;" class="data-rating-dot">&bull;</b></span>50 km, <span style="color: #ffa534;" class="data-rating-dot">&bull;</b></span>Camion 16-32 t</td>
-                    <td><span style="color: #57e32c;" class="data-rating-dot">&bull;</span>2 km, <span style="color: #ffa534;" class="data-rating-dot">&bull;</b></span>Camion 16-32 t</td>
-                    <td>0</td>
-                    <td>0.0006</td>
-                    <td>0.010</td>
-                    <td>0</td>
-                    <td>0.031</td>
-                    <td>0.0012</td>
-                    <td>0.042</td>
-                    <td>2.89</td>
-                    <td>-2.82</td>
-                    <td>-0.334</td>
-                    <td>-3.15</td>
-                    <td>-98%</td>
-                  </tr>
-                  <tr>
-                    <td>5</td>
-                    <td>Ceramic plates</td>
-                    <td>Interior wall</td>
-                    <td>Ex-situ construction surplus</td>
-                    <td>2</td>
-                    <td><span style="color: #ffe234;" class="data-rating-dot">&bull;</b></span>30</td>
-                    <td>100</td>
-                    <td>0.500</td>
-                    <td>1800</td>
-                    <td>2000</td>
-                    <td>KBOB: Dalle en céramique/grès, 9 mm (<span style="color: #ffa534;" class="data-rating-dot">&bull;</b></span>100%)</td>
-                    <td>11.008</td>
-                    <td><span style="color: #ffa534;" class="data-rating-dot">&bull;</b></span>10%</td>
-                    <td><span style="color: #57e32c;" class="data-rating-dot">&bull;</span>Surplus, no dismantling</td>
-                    <td><span style="color: #57e32c;" class="data-rating-dot">&bull;</span>0.50 a, <span style="color: #b7dd29;" class="data-rating-dot">&bull;</b></span>0.500 m3, <span style="color: #b7dd29;" class="data-rating-dot">&bull;</b></span>Building hall (m3.yr)</td>
-                    <td><span style="color: #57e32c;" class="data-rating-dot">&bull;</span>No modification</td>
-                    <td><span style="color: #57e32c;" class="data-rating-dot">&bull;</span>102 km, <span style="color: #57e32c;" class="data-rating-dot">&bull;</span>Camion 7.5-16 t</td>
-                    <td><span style="color: #57e32c;" class="data-rating-dot">&bull;</span>5 km, <span style="color: #57e32c;" class="data-rating-dot">&bull;</span>Camion 7.5-16 t</td>
-                    <td>0.064</td>
-                    <td>0</td>
-                    <td>0.0006</td>
-                    <td>0</td>
-                    <td>0.065</td>
-                    <td>0.0029</td>
-                    <td>0.133</td>
-                    <td>1.97</td>
-                    <td>-1.82</td>
-                    <td>-0.573</td>
-                    <td>-2.39</td>
-                    <td>-93%</td>
-                  </tr>
-                  <tr>
-                    <td>6</td>
-                    <td>Toilet doors</td>
-                    <td>Doors</td>
-                    <td>Ex-situ dismantling (building)</td>
-                    <td>97</td>
-                    <td><span style="color: #ffe234;" class="data-rating-dot">&bull;</b></span>30</td>
-                    <td>2.40</td>
-                    <td>0.288</td>
-                    <td>60.0</td>
-                    <td>66.0</td>
-                    <td>KBOB: Porte intérieure, porte de chambre, bois, cadre en bois (<span style="color: #ffa534;" class="data-rating-dot">&bull;</b></span>100%)</td>
-                    <td>12.003</td>
-                    <td><span style="color: #ffa534;" class="data-rating-dot">&bull;</b></span>10%</td>
-                    <td><span style="color: #b7dd29;" class="data-rating-dot">&bull;</b></span>0 W, Manpower (CH), 5.0 min/item</td>
-                    <td><span style="color: #ffa534;" class="data-rating-dot">&bull;</b></span>1.21 a, <span style="color: #b7dd29;" class="data-rating-dot">&bull;</b></span>0.823 m3, <span style="color: #b7dd29;" class="data-rating-dot">&bull;</b></span>Building hall (m3.yr)</td>
-                    <td><span style="color: #ff4545;" class="data-rating-dot">&bull;</b></span>Grinding, painting, assembling of handles and locks</td>
-                    <td><span style="color: #57e32c;" class="data-rating-dot">&bull;</span>14 km, <span style="color: #ffa534;" class="data-rating-dot">&bull;</b></span>Camion 16-32 t</td>
-                    <td><span style="color: #57e32c;" class="data-rating-dot">&bull;</span>2 km, <span style="color: #57e32c;" class="data-rating-dot">&bull;</span>Véhicule de transport, jusqu'à 3.5 t</td>
-                    <td>0.0020</td>
-                    <td>0</td>
-                    <td>0.0023</td>
-                    <td>0</td>
-                    <td>0.0002</td>
-                    <td>0.0003</td>
-                    <td>0.0049</td>
-                    <td>0.090</td>
-                    <td>-0.085</td>
-                    <td>-0.018</td>
-                    <td>-0.103</td>
-                    <td>-95%</td>
-                  </tr>
-                  <tr>
-                    <td>7</td>
-                    <td>Toilet doors</td>
-                    <td>Doors</td>
-                    <td>Ex-situ dismantling (building)</td>
-                    <td>98</td>
-                    <td><span style="color: #ffe234;" class="data-rating-dot">&bull;</b></span>30</td>
-                    <td>3.60</td>
-                    <td>0.432</td>
-                    <td>90.0</td>
-                    <td>90.0</td>
-                    <td>KBOB: Porte intérieure, porte de chambre, bois, cadre en bois (<span style="color: #ffa534;" class="data-rating-dot">&bull;</b></span>100%)</td>
-                    <td>12.003</td>
-                    <td><span style="color: #ffa534;" class="data-rating-dot">&bull;</b></span>0%</td>
-                    <td><span style="color: #b7dd29;" class="data-rating-dot">&bull;</b></span>0 W, Manpower (CH), 5.0 min/item</td>
-                    <td><span style="color: #ffa534;" class="data-rating-dot">&bull;</b></span>1.21 a, <span style="color: #b7dd29;" class="data-rating-dot">&bull;</b></span>1.234 m3, <span style="color: #b7dd29;" class="data-rating-dot">&bull;</b></span>Building hall (m3.yr)</td>
-                    <td><span style="color: #ff4545;" class="data-rating-dot">&bull;</b></span>Grinding, painting, assembling of handles and locks</td>
-                    <td><span style="color: #57e32c;" class="data-rating-dot">&bull;</span>8 km, <span style="color: #ffa534;" class="data-rating-dot">&bull;</b></span>Camion 16-32 t</td>
-                    <td><span style="color: #57e32c;" class="data-rating-dot">&bull;</span>13 km, <span style="color: #57e32c;" class="data-rating-dot">&bull;</span>Véhicule de transport, jusqu'à 3.5 t</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0.0035</td>
-                    <td>0</td>
-                    <td>0.0002</td>
-                    <td>0.0029</td>
-                    <td>0.0066</td>
-                    <td>0.135</td>
-                    <td>-0.131</td>
-                    <td>-0.027</td>
-                    <td>-0.157</td>
-                    <td>-95%</td>
-                  </tr>
-                  <tr>
-                    <td>8</td>
-                    <td>MDF panels off-cuts</td>
-                    <td>Partition Wall</td>
-                    <td>Ex-situ dismantling (building)</td>
-                    <td>30</td>
-                    <td><span style="color: #ffe234;" class="data-rating-dot">&bull;</b></span>30</td>
-                    <td>7.58</td>
-                    <td>0.144</td>
-                    <td>98.7</td>
-                    <td>98.7</td>
-                    <td>KBOB: Panneau de fibres à densité moyenne (MDF), colle UF (<span style="color: #ffa534;" class="data-rating-dot">&bull;</b></span>100%)</td>
-                    <td>07.012</td>
-                    <td><span style="color: #b7dd29;" class="data-rating-dot">&bull;</b></span>0%</td>
-                    <td><span style="color: #b7dd29;" class="data-rating-dot">&bull;</b></span>598 W, Electric (CH), 2.0 min/m2</td>
-                    <td><span style="color: #ffa534;" class="data-rating-dot">&bull;</b></span>1.21 a, <span style="color: #ffa534;" class="data-rating-dot">&bull;</b></span>0.144 m3, <span style="color: #b7dd29;" class="data-rating-dot">&bull;</b></span>Building hall (m3.yr)</td>
-                    <td><span style="color: #ff4545;" class="data-rating-dot">&bull;</b></span>Decoupe et assemblage leporello / wood glue and screws</td>
-                    <td><span style="color: #ffa534;" class="data-rating-dot">&bull;</b></span>50 km, <span style="color: #ffa534;" class="data-rating-dot">&bull;</b></span>Camion 16-32 t</td>
-                    <td><span style="color: #57e32c;" class="data-rating-dot">&bull;</span>2 km, <span style="color: #ffa534;" class="data-rating-dot">&bull;</b></span>Camion 3.5-7.5 t</td>
-                    <td>0</td>
-                    <td>0.0000</td>
-                    <td>0.0004</td>
-                    <td>0</td>
-                    <td>0.0012</td>
-                    <td>0.0002</td>
-                    <td>0.0018</td>
-                    <td>0.118</td>
-                    <td>-0.115</td>
-                    <td>-0.014</td>
-                    <td>-0.129</td>
-                    <td>-98%</td>
-                  </tr>
-                  <tr>
-                    <td>12</td>
-                    <td>Kitchen</td>
-                    <td>Furnitures</td>
-                    <td>Ex-situ dismantling (building)</td>
-                    <td>10</td>
-                    <td><span style="color: #ffe234;" class="data-rating-dot">&bull;</b></span>60</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>250</td>
-                    <td>250</td>
-                    <td>KBOB: Cuisine, métal, 16 éléments (<span style="color: #ffa534;" class="data-rating-dot">&bull;</b></span>100%)</td>
-                    <td>21.010</td>
-                    <td><span style="color: #ffa534;" class="data-rating-dot">&bull;</b></span>0%</td>
-                    <td><span style="color: #b7dd29;" class="data-rating-dot">&bull;</b></span>598 W, Electric (CH), 30.0 min/item</td>
-                    <td><span style="color: #57e32c;" class="data-rating-dot">&bull;</span>No storage</td>
-                    <td><span style="color: #57e32c;" class="data-rating-dot">&bull;</span>No modification</td>
-                    <td><span style="color: #57e32c;" class="data-rating-dot">&bull;</span>No intermediate transport</td>
-                    <td><span style="color: #57e32c;" class="data-rating-dot">&bull;</span>10 km, <span style="color: #ffa534;" class="data-rating-dot">&bull;</b></span>Camion 16-32 t</td>
-                    <td>0</td>
-                    <td>0.0001</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0.0006</td>
-                    <td>0.0007</td>
-                    <td>3.76</td>
-                    <td>-3.76</td>
-                    <td>-0.070</td>
-                    <td>-3.83</td>
-                    <td>-100%</td>
-                  </tr>
-                  <tr>
-                    <td>9</td>
-                    <td>Wood cladding</td>
-                    <td>Interior</td>
-                    <td>Ex-situ dismantling (building)</td>
-                    <td>98</td>
-                    <td><span style="color: #ffe234;" class="data-rating-dot">&bull;</b></span>30</td>
-                    <td>102</td>
-                    <td>0.510</td>
-                    <td>344</td>
-                    <td>382</td>
-                    <td>KBOB: Bois massif hêtre / chêne, séché en cellule, raboté, production Suisse (<span style="color: #ffa534;" class="data-rating-dot">&bull;</b></span>100%)</td>
-                    <td>07.008.01</td>
-                    <td><span style="color: #ffa534;" class="data-rating-dot">&bull;</b></span>10%</td>
-                    <td><span style="color: #b7dd29;" class="data-rating-dot">&bull;</b></span>598 W, Electric (CH), 2.0 min/m2</td>
-                    <td><span style="color: #ffa534;" class="data-rating-dot">&bull;</b></span>1.21 a, <span style="color: #ffa534;" class="data-rating-dot">&bull;</b></span>0.510 m3, <span style="color: #b7dd29;" class="data-rating-dot">&bull;</b></span>Building hall (m3.yr)</td>
-                    <td><span style="color: #57e32c;" class="data-rating-dot">&bull;</span>Reuse-LCA: Huilage naturel boiserie</td>
-                    <td><span style="color: #57e32c;" class="data-rating-dot">&bull;</span>14 km, <span style="color: #ffa534;" class="data-rating-dot">&bull;</b></span>Camion 16-32 t</td>
-                    <td><span style="color: #57e32c;" class="data-rating-dot">&bull;</span>2 km, <span style="color: #57e32c;" class="data-rating-dot">&bull;</span>Véhicule de transport, jusqu'à 3.5 t</td>
-                    <td>0.0021</td>
-                    <td>0.0004</td>
-                    <td>0.0014</td>
-                    <td>0.021</td>
-                    <td>0.0014</td>
-                    <td>0.0017</td>
-                    <td>0.028</td>
-                    <td>0.044</td>
-                    <td>-0.013</td>
-                    <td>-0.019</td>
-                    <td>-0.032</td>
-                    <td>-36%</td>
-                  </tr>
-                  <tr>
-                    <td>10</td>
-                    <td>Stone cladding</td>
-                    <td>Interior</td>
-                    <td>Ex-situ construction surplus</td>
-                    <td>2</td>
-                    <td><span style="color: #ffe234;" class="data-rating-dot">&bull;</b></span>30</td>
-                    <td>20.0</td>
-                    <td>0.100</td>
-                    <td>360</td>
-                    <td>692</td>
-                    <td>KBOB: Dalle en céramique/grès, 9 mm (<span style="color: #ffa534;" class="data-rating-dot">&bull;</b></span>100%)</td>
-                    <td>11.008</td>
-                    <td><span style="color: #57e32c;" class="data-rating-dot">&bull;</span>48%</td>
-                    <td><span style="color: #57e32c;" class="data-rating-dot">&bull;</span>Surplus, no dismantling</td>
-                    <td><span style="color: #57e32c;" class="data-rating-dot">&bull;</span>No storage</td>
-                    <td><span style="color: #57e32c;" class="data-rating-dot">&bull;</span>No modification</td>
-                    <td><span style="color: #57e32c;" class="data-rating-dot">&bull;</span>100 km, <span style="color: #ffa534;" class="data-rating-dot">&bull;</b></span>Camion 16-32 t</td>
-                    <td><span style="color: #57e32c;" class="data-rating-dot">&bull;</span>2 km, <span style="color: #ffa534;" class="data-rating-dot">&bull;</b></span>Camion 16-32 t</td>
-                    <td>0.106</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0.018</td>
-                    <td>0.0002</td>
-                    <td>0.124</td>
-                    <td>0.394</td>
-                    <td>-0.266</td>
-                    <td>-0.115</td>
-                    <td>-0.381</td>
-                    <td>-69%</td>
-                  </tr>
-                  <tr>
-                    <td>14</td>
-                    <td>Dressing</td>
-                    <td>Furnitures</td>
-                    <td>Ex-situ dismantling (building)</td>
-                    <td>0</td>
-                    <td><span style="color: #ffe234;" class="data-rating-dot">&bull;</b></span>60</td>
-                    <td>10.8</td>
-                    <td>0.270</td>
-                    <td>185</td>
-                    <td>206</td>
-                    <td>KBOB: Panneau de fibres à densité moyenne (MDF), colle UF (<span style="color: #ffa534;" class="data-rating-dot">&bull;</b></span>100%)</td>
-                    <td>07.012</td>
-                    <td><span style="color: #ffa534;" class="data-rating-dot">&bull;</b></span>10%</td>
-                    <td><span style="color: #57e32c;" class="data-rating-dot">&bull;</span>No dismantling</td>
-                    <td><span style="color: #ffa534;" class="data-rating-dot">&bull;</b></span>1.21 a, <span style="color: #ffa534;" class="data-rating-dot">&bull;</b></span>0.270 m3, <span style="color: #b7dd29;" class="data-rating-dot">&bull;</b></span>Building hall (m3.yr)</td>
-                    <td><span style="color: #ff4545;" class="data-rating-dot">&bull;</b></span>Manufacturing from in-situ losses of reused MDF panels</td>
-                    <td><span style="color: #ffa534;" class="data-rating-dot">&bull;</b></span>50 km, <span style="color: #ffa534;" class="data-rating-dot">&bull;</b></span>Camion 16-32 t</td>
-                    <td><span style="color: #57e32c;" class="data-rating-dot">&bull;</span>5 km, <span style="color: #ffa534;" class="data-rating-dot">&bull;</b></span>Camion 16-32 t</td>
-                    <td>0.0028</td>
-                    <td>0</td>
-                    <td>0.0008</td>
-                    <td>0</td>
-                    <td>0.0026</td>
-                    <td>0.0002</td>
-                    <td>0.0064</td>
-                    <td>0.221</td>
-                    <td>-0.212</td>
-                    <td>-0.026</td>
-                    <td>-0.238</td>
-                    <td>-97%</td>
-                  </tr>
-                  <tr>
-                    <td>13</td>
-                    <td>PV panels</td>
-                    <td>PV panels</td>
-                    <td>Ex-situ dismantling (building)</td>
-                    <td>19</td>
-                    <td><span style="color: #ffe234;" class="data-rating-dot">&bull;</b></span>30</td>
-                    <td>30.5</td>
-                    <td>0</td>
-                    <td>405</td>
-                    <td>405</td>
-                    <td>KBOB: Installations photovoltaïque toiture plate (<span style="color: #57e32c;" class="data-rating-dot">&bull;</span>83%)</td>
-                    <td>34.026</td>
-                    <td><span style="color: #ffa534;" class="data-rating-dot">&bull;</b></span>0%</td>
-                    <td><span style="color: #b7dd29;" class="data-rating-dot">&bull;</b></span>598 W, Electric (CH), 2.0 min/m2</td>
-                    <td><span style="color: #57e32c;" class="data-rating-dot">&bull;</span>0.75 a, <span style="color: #57e32c;" class="data-rating-dot">&bull;</span>0.500 m3, <span style="color: #b7dd29;" class="data-rating-dot">&bull;</b></span>Building hall (m3.yr)</td>
-                    <td><span style="color: #57e32c;" class="data-rating-dot">&bull;</span>No modification</td>
-                    <td><span style="color: #ffa534;" class="data-rating-dot">&bull;</b></span>50 km, <span style="color: #ffa534;" class="data-rating-dot">&bull;</b></span>Camion 16-32 t</td>
-                    <td><span style="color: #57e32c;" class="data-rating-dot">&bull;</span>5 km, <span style="color: #ffa534;" class="data-rating-dot">&bull;</b></span>Camion 16-32 t</td>
-                    <td>0</td>
-                    <td>0.0001</td>
-                    <td>0.0009</td>
-                    <td>0</td>
-                    <td>0.0051</td>
-                    <td>0.0005</td>
-                    <td>0.0066</td>
-                    <td>5.30</td>
-                    <td>-4.39</td>
-                    <td>0</td>
-                    <td>-4.39</td>
-                    <td>-100%</td>
-                  </tr>
-                  <tr>
-                    <td>11</td>
-                    <td>Steel bars</td>
-                    <td>Assembly in steel</td>
-                    <td>Ex-situ dismantling (other)</td>
-                    <td>60</td>
-                    <td><span style="color: #ffe234;" class="data-rating-dot">&bull;</b></span>40</td>
-                    <td>0</td>
-                    <td>0.0068</td>
-                    <td>53.3</td>
-                    <td>59.3</td>
-                    <td>KBOB: Profil en acier, nu (<span style="color: #ffa534;" class="data-rating-dot">&bull;</b></span>100%)</td>
-                    <td>06.012</td>
-                    <td><span style="color: #ffa534;" class="data-rating-dot">&bull;</b></span>10%</td>
-                    <td><span style="color: #ffa534;" class="data-rating-dot">&bull;</b></span>UVEK DQRv2 2021: deconstruction, average/CH U</td>
-                    <td><span style="color: #57e32c;" class="data-rating-dot">&bull;</span>1.00 a, <span style="color: #57e32c;" class="data-rating-dot">&bull;</span>0.074 m2, <span style="color: #b7dd29;" class="data-rating-dot">&bull;</b></span>Exterior field (m2.yr)</td>
-                    <td><span style="color: #57e32c;" class="data-rating-dot">&bull;</span>Reuse-LCA: Préparation et assemblage structure acier - Faraday</td>
-                    <td><span style="color: #57e32c;" class="data-rating-dot">&bull;</span>60 km, <span style="color: #57e32c;" class="data-rating-dot">&bull;</span>Camion 7.5-16 t</td>
-                    <td><span style="color: #57e32c;" class="data-rating-dot">&bull;</span>5 km, <span style="color: #57e32c;" class="data-rating-dot">&bull;</span>Camion 7.5-16 t</td>
-                    <td>0.0001</td>
-                    <td>0.0005</td>
-                    <td>0</td>
-                    <td>0.013</td>
-                    <td>0.0011</td>
-                    <td>0.0001</td>
-                    <td>0.015</td>
-                    <td>0.055</td>
-                    <td>-0.039</td>
-                    <td>-0.0005</td>
-                    <td>-0.040</td>
-                    <td>-73%</td>
-                  </tr>
-                  <tr>
-                    <td>11</td>
-                    <td>Steel bars</td>
-                    <td>Assembly in steel</td>
-                    <td>Ex-situ dismantling (other)</td>
-                    <td>60</td>
-                    <td><span style="color: #ffe234;" class="data-rating-dot">&bull;</b></span>40</td>
-                    <td>0</td>
-                    <td>2.65</td>
-                    <td>20800</td>
-                    <td>80000</td>
-                    <td>KBOB: Profil en acier, nu (<span style="color: #ffa534;" class="data-rating-dot">&bull;</b></span>100%)</td>
-                    <td>06.012</td>
-                    <td><span style="color: #57e32c;" class="data-rating-dot">&bull;</span>74%</td>
-                    <td><span style="color: #ffa534;" class="data-rating-dot">&bull;</b></span>UVEK DQRv2 2021: deconstruction, average/CH U</td>
-                    <td><span style="color: #57e32c;" class="data-rating-dot">&bull;</span>1.00 a, <span style="color: #57e32c;" class="data-rating-dot">&bull;</span>100.000 m2, <span style="color: #b7dd29;" class="data-rating-dot">&bull;</b></span>Exterior field (m2.yr)</td>
-                    <td><span style="color: #57e32c;" class="data-rating-dot">&bull;</span>Reuse-LCA: Préparation et assemblage structure acier - Faraday</td>
-                    <td><span style="color: #57e32c;" class="data-rating-dot">&bull;</span>60 km, <span style="color: #57e32c;" class="data-rating-dot">&bull;</span>Camion 7.5-16 t</td>
-                    <td><span style="color: #57e32c;" class="data-rating-dot">&bull;</span>5 km, <span style="color: #57e32c;" class="data-rating-dot">&bull;</span>Camion 7.5-16 t</td>
-                    <td>0.572</td>
-                    <td>0.739</td>
-                    <td>0</td>
-                    <td>5.00</td>
-                    <td>1.54</td>
-                    <td>0.033</td>
-                    <td>7.88</td>
-                    <td>21.3</td>
-                    <td>-13.2</td>
-                    <td>-0.201</td>
-                    <td>-13.4</td>
-                    <td>-63%</td>
-                  </tr>
-                  <tr>
-                    <td>15</td>
-                    <td>WC</td>
-                    <td>Sanitary</td>
-                    <td>Ex-situ dismantling (building)</td>
-                    <td>20</td>
-                    <td><span style="color: #ffe234;" class="data-rating-dot">&bull;</b></span>30</td>
-                    <td>0</td>
-                    <td>0.480</td>
-                    <td>252</td>
-                    <td>252</td>
-                    <td>Reuse-LCA: WC céramique (<span style="color: #ffa534;" class="data-rating-dot">&bull;</b></span>100%)</td>
-                    <td>100.01</td>
-                    <td><span style="color: #ffa534;" class="data-rating-dot">&bull;</b></span>0%</td>
-                    <td><span style="color: #b7dd29;" class="data-rating-dot">&bull;</b></span>598 W, Electric (CH), 2.0 min/item</td>
-                    <td><span style="color: #57e32c;" class="data-rating-dot">&bull;</span>0.58 a, <span style="color: #57e32c;" class="data-rating-dot">&bull;</span>0.782 m3, <span style="color: #b7dd29;" class="data-rating-dot">&bull;</b></span>Building hall (m3.yr)</td>
-                    <td><span style="color: #57e32c;" class="data-rating-dot">&bull;</span>No modification</td>
-                    <td><span style="color: #57e32c;" class="data-rating-dot">&bull;</span>3 km, <span style="color: #57e32c;" class="data-rating-dot">&bull;</span>Véhicule de transport, jusqu'à 3.5 t</td>
-                    <td><span style="color: #57e32c;" class="data-rating-dot">&bull;</span>5 km, <span style="color: #57e32c;" class="data-rating-dot">&bull;</span>Véhicule de transport, jusqu'à 3.5 t</td>
-                    <td>0</td>
-                    <td>0.0000</td>
-                    <td>0.0011</td>
-                    <td>0</td>
-                    <td>0.0023</td>
-                    <td>0.0031</td>
-                    <td>0.0064</td>
-                    <td>0.857</td>
-                    <td>-0.850</td>
-                    <td>-0.0048</td>
-                    <td>-0.855</td>
-                    <td>-99%</td>
-                  </tr>
-                  <tr>
-                    <td>16</td>
-                    <td>Urinals</td>
-                    <td>Sanitary</td>
-                    <td>Ex-situ dismantling (building)</td>
-                    <td>20</td>
-                    <td><span style="color: #ffe234;" class="data-rating-dot">&bull;</b></span>30</td>
-                    <td>0</td>
-                    <td>0.160</td>
-                    <td>84.0</td>
-                    <td>84.0</td>
-                    <td>Reuse-LCA: WC céramique (<span style="color: #ffa534;" class="data-rating-dot">&bull;</b></span>100%)</td>
-                    <td>100.01</td>
-                    <td><span style="color: #ffa534;" class="data-rating-dot">&bull;</b></span>0%</td>
-                    <td><span style="color: #b7dd29;" class="data-rating-dot">&bull;</b></span>598 W, Electric (CH), 2.0 min/item</td>
-                    <td><span style="color: #57e32c;" class="data-rating-dot">&bull;</span>0.58 a, <span style="color: #57e32c;" class="data-rating-dot">&bull;</span>0.186 m3, <span style="color: #b7dd29;" class="data-rating-dot">&bull;</b></span>Building hall (m3.yr)</td>
-                    <td><span style="color: #57e32c;" class="data-rating-dot">&bull;</span>No modification</td>
-                    <td><span style="color: #57e32c;" class="data-rating-dot">&bull;</span>3 km, <span style="color: #57e32c;" class="data-rating-dot">&bull;</span>Véhicule de transport, jusqu'à 3.5 t</td>
-                    <td><span style="color: #57e32c;" class="data-rating-dot">&bull;</span>5 km, <span style="color: #57e32c;" class="data-rating-dot">&bull;</span>Véhicule de transport, jusqu'à 3.5 t</td>
-                    <td>0</td>
-                    <td>0.0000</td>
-                    <td>0.0003</td>
-                    <td>0</td>
-                    <td>0.0008</td>
-                    <td>0.0010</td>
-                    <td>0.0020</td>
-                    <td>0.286</td>
-                    <td>-0.284</td>
-                    <td>-0.0016</td>
-                    <td>-0.285</td>
-                    <td>-99%</td>
-                  </tr>
-                  <tr>
-                    <td>17</td>
-                    <td>Washtub</td>
-                    <td>Sanitary</td>
-                    <td>Ex-situ dismantling (building)</td>
-                    <td>5</td>
-                    <td><span style="color: #ffe234;" class="data-rating-dot">&bull;</b></span>30</td>
-                    <td>1.00</td>
-                    <td>0</td>
-                    <td>10.0</td>
-                    <td>10.0</td>
-                    <td>KBOB: Tôle d'acier, zinguée (<span style="color: #ffa534;" class="data-rating-dot">&bull;</b></span>100%)</td>
-                    <td>06.011</td>
-                    <td><span style="color: #ffa534;" class="data-rating-dot">&bull;</b></span>0%</td>
-                    <td><span style="color: #b7dd29;" class="data-rating-dot">&bull;</b></span>598 W, Electric (CH), 2.0 min/item</td>
-                    <td><span style="color: #57e32c;" class="data-rating-dot">&bull;</span>No storage</td>
-                    <td><span style="color: #57e32c;" class="data-rating-dot">&bull;</span>No modification</td>
-                    <td><span style="color: #57e32c;" class="data-rating-dot">&bull;</span>No intermediate transport</td>
-                    <td><span style="color: #57e32c;" class="data-rating-dot">&bull;</span>10 km, <span style="color: #57e32c;" class="data-rating-dot">&bull;</span>Véhicule de transport, jusqu'à 3.5 t</td>
-                    <td>0</td>
-                    <td>0.0000</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0.0002</td>
-                    <td>0.0002</td>
-                    <td>0.062</td>
-                    <td>-0.062</td>
-                    <td>-0.0001</td>
-                    <td>-0.062</td>
-                    <td>-100%</td>
-                  </tr>
-                  <tr>
-                    <td>18</td>
-                    <td>Sinks</td>
-                    <td>Sanitary</td>
-                    <td>Ex-situ dismantling (building)</td>
-                    <td>7</td>
-                    <td><span style="color: #ffe234;" class="data-rating-dot">&bull;</b></span>30</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>60.2</td>
-                    <td>60.2</td>
-                    <td>Reuse-LCA: Lavabo céramique (<span style="color: #ffa534;" class="data-rating-dot">&bull;</b></span>100%)</td>
-                    <td>100.02</td>
-                    <td><span style="color: #ffa534;" class="data-rating-dot">&bull;</b></span>0%</td>
-                    <td><span style="color: #b7dd29;" class="data-rating-dot">&bull;</b></span>598 W, Electric (CH), 2.0 min/item</td>
-                    <td><span style="color: #57e32c;" class="data-rating-dot">&bull;</span>No storage</td>
-                    <td><span style="color: #57e32c;" class="data-rating-dot">&bull;</span>No modification</td>
-                    <td><span style="color: #57e32c;" class="data-rating-dot">&bull;</span>No intermediate transport</td>
-                    <td><span style="color: #57e32c;" class="data-rating-dot">&bull;</span>10 km, <span style="color: #57e32c;" class="data-rating-dot">&bull;</span>Véhicule de transport, jusqu'à 3.5 t</td>
-                    <td>0</td>
-                    <td>0.0000</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0.0014</td>
-                    <td>0.0014</td>
-                    <td>0.195</td>
-                    <td>-0.194</td>
-                    <td>-0.0011</td>
-                    <td>-0.196</td>
-                    <td>-99%</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div id="columnVisibilityControls">
-    <!-- Column visibility checkboxes will be appended here -->
-            </div>
-        </div>
-    </div>
-</section>
-<section class="material-analysis">
-    <div class="card">
-        <div class="card-content">
-            <h2>Material mass analysis</h2>
+                <section class="key-numbers">
                 <div>
-                    <button id="button_mat_component" onclick="loadMatSunburst('..\\html_figures\\Faraday_material_sunburst.html'); setActiveButtonsMatSunBurst('button_mat_component')">Building components</button>
-                    <button id="button_mat_ebkp" onclick="loadMatSunburst('..\\html_figures\\Faraday_material_sunburst_ebkp.html'); setActiveButtonsMatSunBurst('button_mat_ebkp')">e-BKP categories</button>
+                    <h3>Material Intensity</h3>
                 </div>
                 <div>
-                    <iframe id="material_sunburst"  src=..\\html_figures\\Faraday_material_sunburst.html style="width: 100%; height: 700px; border: 0">  </iframe>
+                    <h3>Share of Reused Components</h3>
                 </div>
+                <div>
+                    <h3>Average Supply of Reused Components</h3>
+                </div>
+                <div>
+                    <h3>GHG Emissions of the Construction's Life Cycle</h3>
+                </div>
+                <div>
+                    <h3>GHG Emissions Avoided with Reuse</h3>
+                </div>
+                <div>
+                    <h3>Biogenic CO2 storage extended</h3>
+                </div>
+                <div>
+                    <p>533</p><span>kg/sqm</span>
+                </div>
+                <div>
+                    <p>13.0</p><span>% of total mass</span>
+                </div>
+                <div>
+                    <p>76.6</p><span>km (weighted average)</span>
+                </div>
+                <div>
+                    <p>9.1</p><span>kg CO2-eq./sqm/year</span>
+                </div>
+                <div>
+                    <p>-1.1</p><span>kg CO2-eq./sqm/year</span>
+                </div>
+                <div>
+                    <p>-0.28</p><span>kg CO2-eq./sqm/year</span>
+                </div>
+            </section>
+            </div>
         </div>
-    </div>
-</section>
-<section class="building-impacts">
-    <div class="card">
-        <div class="card-content">
-            <h2>Building LCA impacts</h2>
-            <div>
-                <button id="button_1_ad" onclick="loadBuildingImpTable('..\\html_figures\\Faraday_impacts_table.html'); setActiveButtonsBImpTable('button_1_ad')">Actual design</button>
-                <button id="button_1_nv" onclick="loadBuildingImpTable('..\\html_figures\\Faraday_impacts_table_new.html'); setActiveButtonsBImpTable('button_1_nv')">"Only new" variant</button>
-            </div>
-            <div>
-                <iframe id="building-lca" style="width: 1000px; height: 300px; border: 0">  </iframe>
-            </div>
-        </div>
-    </div>
-</section>
-<section class="components-impacts">
-    <div class="card">
-        <div class="card-content">
-            <h2>LCA of reused components</h2>
-            <div>
-                <button id="button_comparison_gwp" onclick="loadBarCompar('..\\html_figures\\Faraday_GWP__reused_comp_bar.html'); setActiveButtonsBarCompar('button_comparison_gwp')">GHG emissions</button>
-                <button id="button_comparison_ubp" onclick="loadBarCompar('..\\html_figures\\Faraday_UBP__reused_comp_bar.html'); setActiveButtonsBarCompar('button_comparison_ubp')">Ecological scarcity</button>
-                <button id="button_comparison_penr" onclick="loadBarCompar('..\\html_figures\\Faraday_PE-NR__reused_comp_bar.html'); setActiveButtonsBarCompar('button_comparison_penr')">Primary energy, non-renewable</button>
-            </div>
-            <div>
-                <iframe id="bar_comparison" width="100%" style="width: 100%; height: 600px; border: 0">  </iframe>
+    </section>
+    <section class="reuse-strat">
+        <div class="card">
+            <div class="card-content">
+                <h2>Reuse strategy</h2>
+                <div>
+                    <p style="text-align:center;"><img src=..\pictures\Faraday-map.png alt="Reuse map" width=800px></p>
+                </div>
+                  <div>
+                      <button id="button_reuse_table_tot" onclick="loadHtml('..\\html_tables\\Faraday_gwp_total.html', 'reuse_table'); setActiveButtons('button_reuse_table_tot','#button_reuse_table_tot, #button_reuse_table_kg, #button_reuse_table_sqm')">Total (kg CO2-eq.)</button>
+                      <button id="button_reuse_table_kg" onclick="loadHtml('..\\html_tables\\Faraday_gwp_per_sqm.html', 'reuse_table'); setActiveButtons('button_reuse_table_kg','#button_reuse_table_tot, #button_reuse_table_kg, #button_reuse_table_sqm')">per kg of reused product (kg CO2-eq./kg)</button>
+                      <button id="button_reuse_table_sqm" onclick="loadHtml('..\\html_tables\\Faraday_gwp_per_kg.html', 'reuse_table'); setActiveButtons('button_reuse_table_sqm','#button_reuse_table_tot, #button_reuse_table_kg, #button_reuse_table_sqm')">per sqm of building ERA (kg CO2-eq./sqm)</button>
+                      <button id="button_info_reusetable" class="info-button" onclick="showModal('reusetableDialog')">&#8505; Table Instructions</button>
+                      <button id="button_info_rating" class="info-button" onclick="showModal('ratingDialog')">&#8505; Data rating system <span style="color: #57e32c;" class="data-rating-dot">&bull;</span><span style="color: #b7dd29;" class="data-rating-dot">&bull;</b></span><span style="color: #ffe234;" class="data-rating-dot">&bull;</b></span><span style="color: #ffa534;" class="data-rating-dot">&bull;</b></span><span style="color: #ff4545;" class="data-rating-dot">&bull;</b></span></button>
+                      <p><br><span style="color: #ff4545;">&#x26A0;</span> Changing the visibility of the columns can <u>mess the table display</u>. &#x1F527;<b>To re-arrange the columns, double-click on the "n&deg;" column's title.</b></p>
+                  </div>
+                  <div>
+                      <iframe id="reuse_table" width="100%" style="width: 100%; height: 700px; border: 0"></iframe>
+                  </div>
             </div>
         </div>
-    </div>
-</section>
-<footer>
-    <p>Reuse-LCA - HEIG-VD/LESBAT</p>
-    <a href="https://github.com/LESBAT-HEIG-VD/Reuse-LCA-Hobelwerk">Code on github</a>
-</footer>
+    </section>
+    <section class="material-analysis">
+        <div class="card">
+            <div class="card-content">
+                <h2>Material mass analysis</h2>
+                    <div>
+                        <button id="button_mat_component" onclick="loadHtml('..\\html_figures\\Faraday_material_sunburst.html', 'material_sunburst'); setActiveButtons('button_mat_component', '#button_mat_component, #button_mat_ebkp')">Building components</button>
+                        <button id="button_mat_ebkp" onclick="loadHtml('..\\html_figures\\Faraday_material_sunburst_ebkp.html', 'material_sunburst'); setActiveButtons('button_mat_ebkp', '#button_mat_component, #button_mat_ebkp')">e-BKP categories</button>
+                        <button id="button_info_material" class="info-button" onclick="showModal('materialDialog')">&#8505; Graph Instructions</button>
+                    </div>
+                    <div>
+                        <iframe id="material_sunburst"  src=..\\html_figures\\Faraday_material_sunburst.html style="width: 100%; height: 700px; border: 0">  </iframe>
+                    </div>
+            </div>
+        </div>
+    </section>
+    <section class="building-impacts">
+        <div class="card">
+            <div class="card-content">
+                <h2>Building LCA impacts</h2>
+                <div>
+                    <button id="button_1_ad" onclick="loadHtml('..\\html_figures\\Faraday_impacts_table.html', 'building-lca'); setActiveButtons('button_1_ad', '#button_1_ad, #button_1_nv')">Actual design with reuse</button>
+                    <button id="button_1_nv" onclick="loadHtml('..\\html_figures\\Faraday_impacts_table_new.html', 'building-lca'); setActiveButtons('button_1_nv', '#button_1_ad, #button_1_nv')">Variant with "only new"</button>
+                    <button id="button_info_building_impacts" class="info-button" onclick="showModal('buildingImpactsDialog')">&#8505; Table Instructions</button>
+                </div>
+                <div>
+                    <iframe id="building-lca" style="width: 1000px; height: 300px; border: 0">  </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="co2-contrib">
+        <div class="card">
+            <div class="card-content">
+                <h2>Contributions to GHG emissions</h2>
+                    <div>
+                        <iframe id="ghg_sunburst"  src=..\\html_figures\\Faraday_co2_sunburst.html style="width: 100%; height: 700px; border: 0">  </iframe>
+                    </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="components-impacts">
+        <div class="card">
+            <div class="card-content">
+                <h2>LCA of reused components</h2>
+                <div>
+                    <button id="button_comparison_gwp" onclick="loadHtml('..\\html_figures\\Faraday_GWP__reused_comp_bar.html', 'bar_comparison'); setActiveButtons('button_comparison_gwp','#button_comparison_gwp, #button_comparison_ubp, #button_comparison_penr')">GHG emissions</button>
+                    <button id="button_comparison_ubp" onclick="loadHtml('..\\html_figures\\Faraday_UBP__reused_comp_bar.html', 'bar_comparison'); setActiveButtons('button_comparison_ubp','#button_comparison_gwp, #button_comparison_ubp, #button_comparison_penr')">Ecological scarcity</button>
+                    <button id="button_comparison_penr" onclick="loadHtml('..\\html_figures\\Faraday_PE-NR__reused_comp_bar.html', 'bar_comparison'); setActiveButtons('button_comparison_penr','#button_comparison_gwp, #button_comparison_ubp, #button_comparison_penr')">Primary energy, non-renewable</button>
+                    <button id="button_info_reuse_impacts" class="info-button" onclick="showModal('reuseImpactsDialog')">&#8505; Graph Instructions</button>
+                </div>
+                <div>
+                    <iframe id="bar_comparison" width="100%" style="width: 100%; height: 600px; border: 0">  </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+      <p>OFEN - Reuse-LCA (SI/502190-01) - HEIG-VD - Institut des Ã‰nergies</p>
+      <div class="logo-container">
+            <a style="text-align: center" href="mailto:mija.frossard@heig-vd.ch?subject=Reuse-LCA%20Website%20contact">
+                <img src="../pictures/mail-logo.png" alt="Email contact" height="55px">
+            </a>
+          <a style="text-align: center" href="https://github.com/LESBAT-HEIG-VD/reuse-lca">
+              <img src=../pictures/view_on_github.png height="50px" class="github-button" alt="Github repository">
+          </a>
+        </div>
+    </footer>
+    <dialog class=custom-dialog id="reusetableDialog">
+          <p>The table describes the reused products, their supply-chain activities and the associated GHG emissions.<br></p>
+          <p><b><u>Select a set of columns</u> by clicking on the buttons with the '&#128269;' icon.</b></p>
+          <p><b><u>Click on</u> the <img src="../pictures/plus_button.png" height="22"> button to show the missing columns' values.</b></p>
+        <form method="dialog">
+          <button>OK</button>
+        </form>
+      </dialog>
+    <dialog class=custom-dialog id="ratingDialog">
+        <p>LCA data quality are evaluated in terms of degree of confidence in their representativeness and appropriateness. Data quality is rated with colored dots:</p>
+        <p><span style="color: #57e32c;" class="data-rating-dot">&bull;</span> <b>Very good</b> : project-specific & product-specific data</p>
+        <p><span style="color: #b7dd29;" class="data-rating-dot">&bull;</span> <b>Good</b> : data is a good estimate but may come from a different project or product</p>
+        <p><span style="color: #ffe234;" class="data-rating-dot">&bull;</span> <b>Average</b> : data is an expert jugement or hypothesis based on partial knowledge of the reality</p>
+        <p><span style="color: #ffa534;" class="data-rating-dot">&bull;</span> <b>Poor</b> : data is generic, default data from external source or hypothesis</p>
+        <p><span style="color: #ff4545;" class="data-rating-dot">&bull;</span> <b>Unavailable</b> : no LCA data is used or available, hence calculation is not performed</p>
+        <form method="dialog">
+          <button>OK</button>
+        </form>
+      </dialog>
+    <dialog class=custom-dialog id="materialDialog">
+          <p>Material mass analysis graph shows the mass shares of material groups and products in the total mass of the building. <br></p>
+          <p><b><u>Hover with the pointer and click</u> on the materials groups and products to show their respective mass share (%).</b></p>
+        <form method="dialog">
+          <button>OK</button>
+        </form>
+      </dialog>
+    <dialog class=custom-dialog id="buildingImpactsDialog">
+          <p>Building LCA impacts are show in the table for each KBOB's impact indicators:</p>
+    <!--      <p>GWP: the global warming potential from GHG emissions. The unit is <b>kg CO2-eq.</b></p>-->
+    <!--      <p>UBP: Ecological Scarcity (2021) is an indicator that expresses global environmental effects over many impacts-->
+    <!--          categories (global warming, eutrophication, particulate matter, etc.) that are weighted according to Swiss environmental policy.-->
+    <!--          The unit is <b>UBP</b>.</p>-->
+    <!--      <p>PE-NR: the non-renewable primary energy, or "embodied energy", consumed in processes and materials. The unit is <b>kWh</b>.</p>-->
+          <p>The columns are the building life cycle modules according to EN 15804 and EN 15978.</p>
+          <p><b><u>Select</u> the unit of the LCA impacts expressed either by <u>sqm ERA of building</u> or <u>by sqm ERA of building and by year of building's lifetime</u> (60 years)</b></p>
+        <form method="dialog">
+          <button>OK</button>
+        </form>
+      </dialog>
+    <dialog class=custom-dialog id="reuseImpactsDialog">
+          <p>This graph shows the impact per kg of product of the selected LCA indicator for the reused products (left) and
+              their new equivalent production (right). New materials effectively used in the building are not shown.<br></p>
+          <p><b><u>Interact with the graph</u></b> by clicking on the labels in the legend (i.e. A1-A3, A4, B4, C1-C4) and by zooming
+          on the desired portion of the graph.</p>
+        <form method="dialog">
+          <button>OK</button>
+        </form>
+      </dialog>
+
     <script>
-        function loadMatSunburst(url) {
-          document.getElementById("material_sunburst").src = url;
-        }
-        function loadBuildingImpTable(url) {
-          document.getElementById("building-lca").src = url;
-        }
-        function loadBarCompar(url) {
-          document.getElementById("bar_comparison").src = url;
-        }
+      function loadHtml(url, id) {
+        document.getElementById(id).src = url;
+      }
 
-        function setActiveButtonsBImpTable(buttonId) {
-          // Remove the "active" class from all buttons
-          var buttons = document.querySelectorAll("#button_1_ad, #button_1_nv");
-          for (var i = 0; i < buttons.length; i++) {
-            buttons[i].classList.remove("active");
-          }
-          // Add the "active" class to the clicked button
-          var button = document.getElementById(buttonId);
-          button.classList.add("active");
+      function setActiveButtons(buttonId, selector) {
+        // Remove the "active" class from all buttons
+        var buttons = document.querySelectorAll(selector);
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
         }
-        function setActiveButtonsMatSunBurst(buttonId) {
-          // Remove the "active" class from all buttons
-          var buttons = document.querySelectorAll("#button_mat_component, #button_mat_ebkp");
-          for (var i = 0; i < buttons.length; i++) {
-            buttons[i].classList.remove("active");
-          }
-          // Add the "active" class to the clicked button
-          var button = document.getElementById(buttonId);
-          button.classList.add("active");
-        }
-        function setActiveButtonsBarCompar(buttonId) {
-          // Remove the "active" class from all buttons
-          var buttons = document.querySelectorAll("#button_comparison_gwp, #button_comparison_ubp, #button_comparison_penr");
-          for (var i = 0; i < buttons.length; i++) {
-            buttons[i].classList.remove("active");
-          }
-          // Add the "active" class to the clicked button
-          var button = document.getElementById(buttonId);
-          button.classList.add("active");
-        }
+        // Add the "active" class to the clicked button
+        var button = document.getElementById(buttonId);
+        button.classList.add("active");
+      }
 
-        // Load the default page when the page first loads
-        window.onload = function() {
-          loadBuildingImpTable('..\\html_figures\\Faraday_impacts_table.html');
-          setActiveButtonsBImpTable("button_1_ad");
-          loadMatSunburst('..\\html_figures\\Faraday_material_sunburst.html');
-          setActiveButtonsMatSunBurst("button_mat_component");
-          loadBarCompar('..\\html_figures\\Faraday_GWP__reused_comp_bar.html');
-          setActiveButtonsBarCompar('button_comparison_gwp')
-        }
+      function showModal(buttonId) {
+        // console.log("Activated");
+        document.getElementById(buttonId).showModal();
+        setActiveButtons();
+      }
 
-        function range(start, end) {
-          return Array.apply(0, Array(end - 1))
-                  .map((element, index) => index + start);
-        }
+      // Load the default page when the page first loads
+      window.onload = function() {
+        loadHtml('..\\html_figures\\Faraday_impacts_table.html', 'building-lca');
+        setActiveButtons("button_1_ad", "#button_1_ad, #button_1_nv");
+        loadHtml('..\\html_figures\\Faraday_material_sunburst.html', 'material_sunburst');
+        setActiveButtons('button_mat_component', '#button_mat_component, #button_mat_ebkp');
+        loadHtml('..\\html_figures\\Faraday_GWP__reused_comp_bar.html', 'bar_comparison');
+        setActiveButtons('button_comparison_gwp', '#button_comparison_gwp, #button_comparison_ubp, #button_comparison_penr')
+        loadHtml('..\\html_tables\\Faraday_gwp_total.html', 'reuse_table');
+        setActiveButtons('button_reuse_table_tot','#button_reuse_table_tot, #button_reuse_table_kg, #button_reuse_table_sqm')
+      }
 
-        function pushArray(arr, arr2) {
-          arr.push.apply(arr, arr2);
-        };
+      function range(start, end) {
+        return Array.apply(0, Array(end - 1))
+                .map((element, index) => index + start);
+      }
+
+      function pushArray(arr, arr2) {
+        arr.push.apply(arr, arr2);
+      };
     </script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css"></script>
@@ -873,59 +280,6 @@
     <script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.html5.min.js"></script>
     <script src="https://cdn.datatables.net/colreorder/1.6.2/js/dataTables.colReorder.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.4.1/js/dataTables.responsive.min.js"></script>
-    <script>
-        $(document).ready(function() {
-          $('#myTable').DataTable({
-        // DataTables configuration options
-            responsive: true,
-            scrollY: '500px',
-            fixedColumns: {
-            left: 2
-            },
-            // scrollX: true,
-            // scrollCollapse: true,
-            dom: 'Bfrtip',
-            buttons: [
-                {
-                    extend: 'colvisGroup',
-                    text: 'Show all',
-                    show: ':hidden'
-                },
-                {
-                    extend: 'colvisGroup',
-                    text: 'Supply-chain',
-                    show: [0,1,2,3,6,7,8,9,10,12,13,14,15,16,17],
-                    hide: [4,5,11,18,19,20,21,22,23,24,25,26,27,28,29]
-                },
-                {
-                    extend: 'colvisGroup',
-                    text: 'Actual GWP (kg CO2-eq.)',
-                    show: [0,1,2,3,8,9,12,18,19,20,21,22,23,24,25,29],
-                    hide: [4,5,6,7,10,11,13,14,15,16,17,26,27,28]
-                },
-                {
-                    extend: 'colvisGroup',
-                    text: 'Avoided GWP (kg CO2-eq.)',
-                    show: [0,1,2,3,5,8,9,10,11,12,24,25,26,27,28],
-                    hide: [4,6,7,13,14,15,16,17,18,19,20,21,22,23,29]
-                },
-                    'copy',
-                {
-                    extend: 'csv',
-                    text: 'Download CSV',
-                },
-            ]
-          });
-          // Add download buttons
-          // new $.fn.dataTable.Buttons(table, {
-          //   buttons: [
-          //           {extend: 'csv', text: 'Download CSV' },
-          //           {extend: 'colvisGroup', text: 'Test', show: 'hidden'},
-          //   ]
-          // }).container().appendTo($('#myTable_wrapper .col-md-6:eq(1)'));
-
-        });
-    </script>
 </body>
 
 </html>

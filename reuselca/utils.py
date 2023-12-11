@@ -27,12 +27,13 @@ def get_cfg():
     return cfg
 
 class Building(object):
-    def __init__(self, name):
-        self.name = name
-        self.desc = pd.read_excel(get_cfg()["cases"][name], sheet_name="Parameters", header=1, nrows=1)
-        self.data = pd.read_excel(get_cfg()["cases"][name], sheet_name="LCI+LCIA", header=2)
-        self.config = pd.read_excel(get_cfg()["cases"][name], sheet_name="Parameters", header=9, nrows=1)
-        self.hypotheses = pd.read_excel(get_cfg()["cases"][name], sheet_name="Parameters", header=13, nrows=1)
+    def __init__(self, case):
+        self.case = case
+        self.name = get_cfg()["names"][case]
+        self.desc = pd.read_excel(get_cfg()["cases"][case], sheet_name="Parameters", header=1, nrows=1)
+        self.data = pd.read_excel(get_cfg()["cases"][case], sheet_name="LCI+LCIA", header=2)
+        self.config = pd.read_excel(get_cfg()["cases"][case], sheet_name="Parameters", header=9, nrows=1)
+        self.hypotheses = pd.read_excel(get_cfg()["cases"][case], sheet_name="Parameters", header=13, nrows=1)
         self.sqm = self.desc["Building SRE (m2)"].values[0]
         self.lifespan = self.desc["Building lifetime (years)"].values[0]
         self.results_factor = self.config.iloc[0]["Results factor"]
@@ -57,7 +58,7 @@ def calc_reused_info(data):
     agg = data.groupby("Status").agg({"Mass": "sum"}).reset_index()
     value = agg[agg["Status"]=='Reused']['Mass']/agg['Mass'].sum()
     share_reused = round(value.values[0],2)*100
-    value2 = data['Reuse_supply'].sum()/agg[agg["Status"]=='Reused']['Mass']
+    value2 = data[data["Status"]=='Reused']['Reuse_supply'].sum()/agg[agg["Status"]=='Reused']['Mass']
     avg_supply_dist = round(value2.values[0],1)
     return share_reused, avg_supply_dist
 
@@ -98,7 +99,7 @@ def case_studies_nav(cases):
     cases_list = []
     for case in cases:
         line = code_part.format(path=os.path.join(case + cfg['html_suffix']['case_study']).encode('unicode-escape').decode(),
-                         case=case)
+                         case=cfg['names'][case])
         cases_list.append(line)
     return "\n".join(cases_list)
 
@@ -130,19 +131,25 @@ def generate_building_html(Building, nav_bar):
     html_content = html_content.replace('{avoided_ghg}', str(Building.avoided_ghg_sqm_yr))
     html_content = html_content.replace('{stored_bio_carb}', str(Building.stored_bio_co2_sqm_yr))
     # Pictures
-    html_content = html_content.replace('{building_photo_src}', os.path.join('..', cfg["pictures_folder"], Building.name+cfg['photos_suffix'])) # écrire des relatives paths en dur
-    html_content = html_content.replace('{reuse_map_src}', os.path.join('..', cfg["pictures_folder"], Building.name+cfg['maps_suffix']))
+    html_content = html_content.replace('{building_photo_src}', os.path.join('..', cfg["pictures_folder"], Building.case+cfg['photos_suffix'])) # écrire des relatives paths en dur
+    html_content = html_content.replace('{reuse_map_src}', os.path.join('..', cfg["pictures_folder"], Building.case+cfg['maps_suffix']))
     # Figures
-    html_content = html_content.replace('{material_sunburst}', os.path.join('..',cfg['figures_folder'],Building.name+cfg['figures_suffix']['material_sunburst']).encode('unicode-escape').decode())
-    html_content = html_content.replace('{material_sunburst_ebkp}', os.path.join('..',cfg['figures_folder'],Building.name+cfg['figures_suffix']['material_sunburst_ebkp']).encode('unicode-escape').decode())
-    html_content = html_content.replace('{impacts_table}', os.path.join('..',cfg['figures_folder'],Building.name+cfg['figures_suffix']['impacts_table']).encode('unicode-escape').decode())
-    html_content = html_content.replace('{impacts_table_new}', os.path.join('..',cfg['figures_folder'],Building.name+cfg['figures_suffix']['impacts_table_new']).encode('unicode-escape').decode())
-    html_content = html_content.replace('{reused_comp_GWP_bar}', os.path.join('..',cfg['figures_folder'],Building.name+"_GWP_"+cfg['figures_suffix']['reused_comp_bar']).encode('unicode-escape').decode())
-    html_content = html_content.replace('{reused_comp_UBP_bar}', os.path.join('..',cfg['figures_folder'],Building.name+"_UBP_"+cfg['figures_suffix']['reused_comp_bar']).encode('unicode-escape').decode())
-    html_content = html_content.replace('{reused_comp_PE_NR_bar}', os.path.join('..',cfg['figures_folder'],Building.name+"_PE-NR_"+cfg['figures_suffix']['reused_comp_bar']).encode('unicode-escape').decode())
+    html_content = html_content.replace('{material_sunburst}', os.path.join('..',cfg['figures_folder'],Building.case+cfg['figures_suffix']['material_sunburst']).encode('unicode-escape').decode())
+    html_content = html_content.replace('{material_sunburst_ebkp}', os.path.join('..',cfg['figures_folder'],Building.case+cfg['figures_suffix']['material_sunburst_ebkp']).encode('unicode-escape').decode())
+    html_content = html_content.replace('{impacts_table}', os.path.join('..',cfg['figures_folder'],Building.case+cfg['figures_suffix']['impacts_table']).encode('unicode-escape').decode())
+    html_content = html_content.replace('{impacts_table_new}', os.path.join('..',cfg['figures_folder'],Building.case+cfg['figures_suffix']['impacts_table_new']).encode('unicode-escape').decode())
+    html_content = html_content.replace('{ghg_sunburst}', os.path.join('..',cfg['figures_folder'],Building.case+cfg['figures_suffix']['co2_sunburst']).encode('unicode-escape').decode())
+    html_content = html_content.replace('{reused_comp_GWP_bar}', os.path.join('..',cfg['figures_folder'],Building.case+"_GWP_"+cfg['figures_suffix']['reused_comp_bar']).encode('unicode-escape').decode())
+    html_content = html_content.replace('{reused_comp_UBP_bar}', os.path.join('..',cfg['figures_folder'],Building.case+"_UBP_"+cfg['figures_suffix']['reused_comp_bar']).encode('unicode-escape').decode())
+    html_content = html_content.replace('{reused_comp_PE_NR_bar}', os.path.join('..',cfg['figures_folder'],Building.case+"_PE-NR_"+cfg['figures_suffix']['reused_comp_bar']).encode('unicode-escape').decode())
+
+    # Reuse tables
+    html_content = html_content.replace('{reuse_table_tot_src}', os.path.join('..', cfg['html_tables_folder'], Building.case + cfg['table_suffix']['gwp_total']).encode('unicode-escape').decode())
+    html_content = html_content.replace('{reuse_table_kg_src}', os.path.join('..', cfg['html_tables_folder'], Building.case + cfg['table_suffix']['gwp_per_sqm']).encode('unicode-escape').decode())
+    html_content = html_content.replace('{reuse_table_sqm_src}', os.path.join('..', cfg['html_tables_folder'], Building.case + cfg['table_suffix']['gwp_per_kg']).encode('unicode-escape').decode())
 
     # Write final HTML to file
-    with open(os.path.join(ROOT_DIR, cfg['html_pages_folder'], Building.name + cfg['html_suffix']['case_study']), 'w', encoding='utf-8') as f:
+    with open(os.path.join(ROOT_DIR, cfg['html_pages_folder'], Building.case + cfg['html_suffix']['case_study']), 'w', encoding='utf-8') as f:
         f.write(html_content)
 
 if __name__ == "__main__":

@@ -392,8 +392,9 @@ def generate_reuse_tables(Building):
         html_content = html_content.replace('{reuse_table_from_df}', html)
 
         # Write final HTML to file
-        with open(os.path.join(ROOT_DIR, cfg['html_tables_folder'], Building.case + cfg['table_suffix'][suffix]),
-                  'w', encoding='utf-8') as f:
+        filename_case_table = os.path.join(ROOT_DIR, cfg['html_tables_folder'], Building.case + cfg['table_suffix'][suffix])
+        os.makedirs(os.path.dirname(filename_case_table), exist_ok=True)
+        with open(filename_case_table, 'w', encoding='utf-8') as f:
             f.write(html_content)
 
 

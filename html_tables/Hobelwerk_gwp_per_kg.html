@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ReuseLCA - Primeo Energy Cosmos case study</title>
+    <link rel="stylesheet" href="../style.css" type="text/css">
+    <link href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css" rel="stylesheet"/>
+    <link href="https://cdn.datatables.net/buttons/2.3.6/css/buttons.dataTables.min.css" rel="stylesheet"/>
+    <link href="https://cdn.datatables.net/colreorder/1.6.2/css/colReorder.dataTables.min.css" rel="stylesheet"/>
+    <link href="https://cdn.datatables.net/responsive/2.4.1/css/responsive.dataTables.min.css" rel="stylesheet"/>
+</head>
+<table class="display" id="myTable">
+  <thead>
+    <tr style="text-align: right;">
+      <th>n°</th>
+      <th>Product</th>
+      <th>Building category</th>
+      <th>Source</th>
+      <th>Age</th>
+      <th>Service lifespan extension</th>
+      <th>no. pieces</th>
+      <th>Area (m²)</th>
+      <th>Volume (m3)</th>
+      <th>Mass used (kg)</th>
+      <th>Mass before losses (kg)</th>
+      <th>Conventional product and end-of-life</th>
+      <th>KBOB dataset id</th>
+      <th>Losses</th>
+      <th>Dismantling</th>
+      <th>Storage</th>
+      <th>Modification</th>
+      <th>Transport A2</th>
+      <th>Transport A4</th>
+      <th>GWP: Dismantling (A1)</th>
+      <th>GWP: Storage (A3)</th>
+      <th>GWP: Modification (A3)</th>
+      <th>GWP: Losses (A3)</th>
+      <th>GWP: Transport (A2)</th>
+      <th>GWP: Transport (A4)</th>
+      <th>GWP: Total reuse (A1-A4)</th>
+      <th>GWP: Conventional equivalent (A1-A4)</th>
+      <th>GWP: Avoided, production</th>
+      <th>GWP: Avoided, waste treatment</th>
+      <th>GWP: Avoided, total</th>
+      <th>GWP: difference in production (%)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Trapezoidal aluminum sheet</td>
+      <td>Exterior wall</td>
+      <td>Ex-situ dismantling (building)</td>
+      <td>30</td>
+      <td><span style="color: #ffe234;" class="data-rating-dot"><b>&bull;</b></span>30</td>
+      <td>-</td>
+      <td>144</td>
+      <td>0.144</td>
+      <td>432</td>
+      <td>480</td>
+      <td>KBOB: Tôle d'aluminium, nue (<span style="color: #ffa534;" class="data-rating-dot"><b>&bull;</b></span>100%)</td>
+      <td>06.001</td>
+      <td><span style="color: #ffa534;" class="data-rating-dot"><b>&bull;</b></span>10%</td>
+      <td><span style="color: #ffe234;" class="data-rating-dot"><b>&bull;</b></span>598 W, Electric (CH), 2.0 min/m2</td>
+      <td><span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>1.50 a, <span style="color: #b7dd29;" class="data-rating-dot"><b>&bull;</b></span>0.144 m3, <span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>Building hall (m3.yr)</td>
+      <td><span style="color: #b7dd29;" class="data-rating-dot"><b>&bull;</b></span>5000.0 W, Electric (CH), 5.0 min/m2</td>
+      <td><span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>No intermediate transport</td>
+      <td><span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>1 km, <span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>Camion 32-40 t</td>
+      <td>0.0008</td>
+      <td>0.0004</td>
+      <td>0.017</td>
+      <td>0.0009</td>
+      <td>0</td>
+      <td>0.0001</td>
+      <td>0.020</td>
+      <td>5.58</td>
+      <td>-5.55</td>
+      <td>-0.0079</td>
+      <td>-5.56</td>
+      <td>-100%</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Grating</td>
+      <td>Exterior wall</td>
+      <td>Ex-situ dismantling (building)</td>
+      <td>20</td>
+      <td><span style="color: #ffe234;" class="data-rating-dot"><b>&bull;</b></span>20</td>
+      <td>27</td>
+      <td>39.2</td>
+      <td>0.902</td>
+      <td>863</td>
+      <td>959</td>
+      <td>KBOB: Tôle d'acier, zinguée (<span style="color: #ffa534;" class="data-rating-dot"><b>&bull;</b></span>100%)</td>
+      <td>06.011</td>
+      <td><span style="color: #ffa534;" class="data-rating-dot"><b>&bull;</b></span>10%</td>
+      <td><span style="color: #b7dd29;" class="data-rating-dot"><b>&bull;</b></span>598 W, Electric (CH), 2.0 min/item</td>
+      <td><span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>0.50 a, <span style="color: #b7dd29;" class="data-rating-dot"><b>&bull;</b></span>0.902 m3, <span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>Building hall (m3.yr)</td>
+      <td><span style="color: #ff4545;" class="data-rating-dot"><b>&bull;</b></span>Decoupe selon plan</td>
+      <td><span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>13 km, <span style="color: #ffe234;" class="data-rating-dot"><b>&bull;</b></span>Camion 16-32 t</td>
+      <td><span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>11 km, <span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>Camion 16-32 t</td>
+      <td>0.0001</td>
+      <td>0.0004</td>
+      <td>0</td>
+      <td>0.0008</td>
+      <td>0.0026</td>
+      <td>0.0020</td>
+      <td>0.0059</td>
+      <td>4.49</td>
+      <td>-4.48</td>
+      <td>-0.0069</td>
+      <td>-4.48</td>
+      <td>-100%</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Double glazing wood/metal 4</td>
+      <td>Windows</td>
+      <td>Ex-situ dismantling (building)</td>
+      <td>2</td>
+      <td><span style="color: #ffe234;" class="data-rating-dot"><b>&bull;</b></span>2</td>
+      <td>-</td>
+      <td>1.65</td>
+      <td>0.012</td>
+      <td>36.3</td>
+      <td>36.3</td>
+      <td>KBOB: Cadre de fenêtre bois-métal (<span style="color: #ffa534;" class="data-rating-dot"><b>&bull;</b></span>100%)</td>
+      <td>05.006</td>
+      <td><span style="color: #ffa534;" class="data-rating-dot"><b>&bull;</b></span>0%</td>
+      <td><span style="color: #ffe234;" class="data-rating-dot"><b>&bull;</b></span>0 W, nan (CH), 0.0 nan</td>
+      <td><span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>1.50 a, <span style="color: #b7dd29;" class="data-rating-dot"><b>&bull;</b></span>0.012 m3, <span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>Building hall (m3.yr)</td>
+      <td><span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>No modification</td>
+      <td><span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>18 km, <span style="color: #ffe234;" class="data-rating-dot"><b>&bull;</b></span>Camion 16-32 t</td>
+      <td><span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>11 km, <span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>Camion 16-32 t</td>
+      <td>0</td>
+      <td>0.0004</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0033</td>
+      <td>0.0020</td>
+      <td>0.0057</td>
+      <td>2.67</td>
+      <td>-2.66</td>
+      <td>-0.323</td>
+      <td>-2.98</td>
+      <td>-100%</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Double glazing wood/metal 3</td>
+      <td>Windows</td>
+      <td>Ex-situ dismantling (building)</td>
+      <td>2</td>
+      <td><span style="color: #ffe234;" class="data-rating-dot"><b>&bull;</b></span>2</td>
+      <td>2</td>
+      <td>9.34</td>
+      <td>0.065</td>
+      <td>187</td>
+      <td>187</td>
+      <td>KBOB: Double vitrage, U<1.1 W/m2K, épaisseur 18 mm (<span style="color: #ffa534;" class="data-rating-dot"><b>&bull;</b></span>100%)</td>
+      <td>05.009</td>
+      <td><span style="color: #ffa534;" class="data-rating-dot"><b>&bull;</b></span>0%</td>
+      <td><span style="color: #ffe234;" class="data-rating-dot"><b>&bull;</b></span>5000 W, Electric (CH), 1.0 min/item</td>
+      <td><span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>1.50 a, <span style="color: #b7dd29;" class="data-rating-dot"><b>&bull;</b></span>0.065 m3, <span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>Building hall (m3.yr)</td>
+      <td><span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>No modification</td>
+      <td><span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>18 km, <span style="color: #ffe234;" class="data-rating-dot"><b>&bull;</b></span>Camion 16-32 t</td>
+      <td><span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>11 km, <span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>Camion 16-32 t</td>
+      <td>0.0001</td>
+      <td>0.0004</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0033</td>
+      <td>0.0020</td>
+      <td>0.0058</td>
+      <td>2.29</td>
+      <td>-2.28</td>
+      <td>-0.142</td>
+      <td>-2.42</td>
+      <td>-100%</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Double glazing wood/metal frame 1</td>
+      <td>Windows</td>
+      <td>Ex-situ dismantling (building)</td>
+      <td>10</td>
+      <td><span style="color: #ffe234;" class="data-rating-dot"><b>&bull;</b></span>10</td>
+      <td>-</td>
+      <td>9.11</td>
+      <td>0.064</td>
+      <td>201</td>
+      <td>201</td>
+      <td>KBOB: Cadre de fenêtre bois-métal (<span style="color: #ffa534;" class="data-rating-dot"><b>&bull;</b></span>100%)</td>
+      <td>05.006</td>
+      <td><span style="color: #ffa534;" class="data-rating-dot"><b>&bull;</b></span>0%</td>
+      <td><span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>0 W, nan (CH), 0.0 nan</td>
+      <td><span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>1.50 a, <span style="color: #b7dd29;" class="data-rating-dot"><b>&bull;</b></span>0.064 m3, <span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>Building hall (m3.yr)</td>
+      <td><span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>No modification</td>
+      <td><span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>94 km, <span style="color: #ffe234;" class="data-rating-dot"><b>&bull;</b></span>Camion 16-32 t</td>
+      <td><span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>1 km, <span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>Camion 16-32 t</td>
+      <td>0</td>
+      <td>0.0004</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.017</td>
+      <td>0.0002</td>
+      <td>0.018</td>
+      <td>2.67</td>
+      <td>-2.65</td>
+      <td>-0.323</td>
+      <td>-2.97</td>
+      <td>-99%</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Aluminum blind</td>
+      <td>Windows</td>
+      <td>Dismantled from other</td>
+      <td>2</td>
+      <td><span style="color: #ffe234;" class="data-rating-dot"><b>&bull;</b></span>2</td>
+      <td>2</td>
+      <td>8.40</td>
+      <td>0</td>
+      <td>47.9</td>
+      <td>47.9</td>
+      <td>KBOB: Protection solaire, stores à projection avec moteur (<span style="color: #ffa534;" class="data-rating-dot"><b>&bull;</b></span>100%)</td>
+      <td>05.018</td>
+      <td><span style="color: #ffa534;" class="data-rating-dot"><b>&bull;</b></span>0%</td>
+      <td><span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>No dismantling</td>
+      <td><span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>1.50 a, <span style="color: #b7dd29;" class="data-rating-dot"><b>&bull;</b></span>0.000 m3, <span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>Building hall (m3.yr)</td>
+      <td><span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>No modification</td>
+      <td><span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>13 km, <span style="color: #ffe234;" class="data-rating-dot"><b>&bull;</b></span>Camion 16-32 t</td>
+      <td><span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>11 km, <span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>Camion 16-32 t</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0024</td>
+      <td>0.0020</td>
+      <td>0.0043</td>
+      <td>11.6</td>
+      <td>-11.6</td>
+      <td>-0.335</td>
+      <td>-11.9</td>
+      <td>-100%</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Double glazing wood/metal 1</td>
+      <td>Windows</td>
+      <td>Ex-situ dismantling (building)</td>
+      <td>10</td>
+      <td><span style="color: #ffe234;" class="data-rating-dot"><b>&bull;</b></span>10</td>
+      <td>12</td>
+      <td>27.3</td>
+      <td>0.191</td>
+      <td>547</td>
+      <td>547</td>
+      <td>KBOB: Double vitrage, U<1.1 W/m2K, épaisseur 18 mm (<span style="color: #ffa534;" class="data-rating-dot"><b>&bull;</b></span>100%)</td>
+      <td>05.009</td>
+      <td><span style="color: #ffa534;" class="data-rating-dot"><b>&bull;</b></span>0%</td>
+      <td><span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>598 W, Electric (CH), 3.0 min/item</td>
+      <td><span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>1.50 a, <span style="color: #b7dd29;" class="data-rating-dot"><b>&bull;</b></span>0.191 m3, <span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>Building hall (m3.yr)</td>
+      <td><span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>No modification</td>
+      <td><span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>94 km, <span style="color: #ffe234;" class="data-rating-dot"><b>&bull;</b></span>Camion 16-32 t</td>
+      <td><span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>1 km, <span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>Camion 16-32 t</td>
+      <td>0.0001</td>
+      <td>0.0004</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.017</td>
+      <td>0.0002</td>
+      <td>0.018</td>
+      <td>2.29</td>
+      <td>-2.27</td>
+      <td>-0.142</td>
+      <td>-2.41</td>
+      <td>-99%</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Double glazing wood/metal frame 2</td>
+      <td>Windows</td>
+      <td>Ex-situ dismantling (building)</td>
+      <td>10</td>
+      <td><span style="color: #ffe234;" class="data-rating-dot"><b>&bull;</b></span>10</td>
+      <td>-</td>
+      <td>26.9</td>
+      <td>0.189</td>
+      <td>593</td>
+      <td>593</td>
+      <td>KBOB: Cadre de fenêtre bois-métal (<span style="color: #ffa534;" class="data-rating-dot"><b>&bull;</b></span>100%)</td>
+      <td>05.006</td>
+      <td><span style="color: #ffa534;" class="data-rating-dot"><b>&bull;</b></span>0%</td>
+      <td><span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>0 W, nan (CH), 0.0 nan</td>
+      <td><span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>1.50 a, <span style="color: #b7dd29;" class="data-rating-dot"><b>&bull;</b></span>0.189 m3, <span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>Building hall (m3.yr)</td>
+      <td><span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>No modification</td>
+      <td><span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>94 km, <span style="color: #ffe234;" class="data-rating-dot"><b>&bull;</b></span>Camion 16-32 t</td>
+      <td><span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>1 km, <span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>Camion 16-32 t</td>
+      <td>0</td>
+      <td>0.0004</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.017</td>
+      <td>0.0002</td>
+      <td>0.018</td>
+      <td>2.67</td>
+      <td>-2.65</td>
+      <td>-0.323</td>
+      <td>-2.97</td>
+      <td>-99%</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Double glazing wood/metal 2</td>
+      <td>Windows</td>
+      <td>Ex-situ dismantling (building)</td>
+      <td>10</td>
+      <td><span style="color: #ffe234;" class="data-rating-dot"><b>&bull;</b></span>10</td>
+      <td>48</td>
+      <td>80.8</td>
+      <td>0.566</td>
+      <td>1616</td>
+      <td>1616</td>
+      <td>KBOB: Double vitrage, U<1.1 W/m2K, épaisseur 18 mm (<span style="color: #ffa534;" class="data-rating-dot"><b>&bull;</b></span>100%)</td>
+      <td>05.009</td>
+      <td><span style="color: #ffa534;" class="data-rating-dot"><b>&bull;</b></span>0%</td>
+      <td><span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>598 W, Electric (CH), 3.0 min/item</td>
+      <td><span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>1.50 a, <span style="color: #b7dd29;" class="data-rating-dot"><b>&bull;</b></span>0.566 m3, <span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>Building hall (m3.yr)</td>
+      <td><span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>No modification</td>
+      <td><span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>94 km, <span style="color: #ffe234;" class="data-rating-dot"><b>&bull;</b></span>Camion 16-32 t</td>
+      <td><span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>1 km, <span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>Camion 16-32 t</td>
+      <td>0.0001</td>
+      <td>0.0004</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.017</td>
+      <td>0.0002</td>
+      <td>0.018</td>
+      <td>2.29</td>
+      <td>-2.27</td>
+      <td>-0.142</td>
+      <td>-2.41</td>
+      <td>-99%</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Aluminum shutters</td>
+      <td>Windows</td>
+      <td>Ex-situ dismantling (building)</td>
+      <td>10</td>
+      <td><span style="color: #ffe234;" class="data-rating-dot"><b>&bull;</b></span>10</td>
+      <td>96</td>
+      <td>89.2</td>
+      <td>2.41</td>
+      <td>1249</td>
+      <td>1249</td>
+      <td>Reuse-LCA: Volet en aluminium (<span style="color: #ffa534;" class="data-rating-dot"><b>&bull;</b></span>100%)</td>
+      <td>100.11</td>
+      <td><span style="color: #ffa534;" class="data-rating-dot"><b>&bull;</b></span>0%</td>
+      <td><span style="color: #ff4545;" class="data-rating-dot"><b>&bull;</b></span>0 W, nan (CH), 0.0 nan</td>
+      <td><span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>1.50 a, <span style="color: #b7dd29;" class="data-rating-dot"><b>&bull;</b></span>2.408 m3, <span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>Building hall (m3.yr)</td>
+      <td><span style="color: #b7dd29;" class="data-rating-dot"><b>&bull;</b></span>Reuse-LCA: Peinture volets aluminium</td>
+      <td><span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>94 km, <span style="color: #ffe234;" class="data-rating-dot"><b>&bull;</b></span>Camion 16-32 t</td>
+      <td><span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>1 km, <span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>Camion 16-32 t</td>
+      <td>0</td>
+      <td>0.0025</td>
+      <td>0.132</td>
+      <td>0</td>
+      <td>0.017</td>
+      <td>0.0002</td>
+      <td>0.152</td>
+      <td>7.10</td>
+      <td>-6.94</td>
+      <td>-0.188</td>
+      <td>-7.13</td>
+      <td>-98%</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>Sliding interior door</td>
+      <td>Doors</td>
+      <td>Ex-situ dismantling (building)</td>
+      <td>5</td>
+      <td><span style="color: #ffe234;" class="data-rating-dot"><b>&bull;</b></span>5</td>
+      <td>16</td>
+      <td>44.0</td>
+      <td>1.76</td>
+      <td>880</td>
+      <td>880</td>
+      <td>KBOB: Porte intérieure, porte de chambre, bois, vitrage, cadre en bois (<span style="color: #ffa534;" class="data-rating-dot"><b>&bull;</b></span>100%)</td>
+      <td>12.004</td>
+      <td><span style="color: #ffa534;" class="data-rating-dot"><b>&bull;</b></span>0%</td>
+      <td><span style="color: #b7dd29;" class="data-rating-dot"><b>&bull;</b></span>0 W, Manpower (CH), 0.0 nan</td>
+      <td><span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>1.50 a, <span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>1.408 m², <span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>Building hall (m2.yr)</td>
+      <td><span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>No modification</td>
+      <td><span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>13 km, <span style="color: #ffe234;" class="data-rating-dot"><b>&bull;</b></span>Camion 16-32 t</td>
+      <td><span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>11 km, <span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>Camion 16-32 t</td>
+      <td>0</td>
+      <td>0.0071</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0024</td>
+      <td>0.0020</td>
+      <td>0.011</td>
+      <td>2.65</td>
+      <td>-2.63</td>
+      <td>-0.346</td>
+      <td>-2.98</td>
+      <td>-100%</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>Interior door</td>
+      <td>Doors</td>
+      <td>Ex-situ dismantling (building)</td>
+      <td>28</td>
+      <td><span style="color: #ffe234;" class="data-rating-dot"><b>&bull;</b></span>28</td>
+      <td>64</td>
+      <td>119</td>
+      <td>4.75</td>
+      <td>2966</td>
+      <td>2966</td>
+      <td>KBOB: Porte intérieure, porte de chambre, bois, cadre en bois (<span style="color: #ffa534;" class="data-rating-dot"><b>&bull;</b></span>100%)</td>
+      <td>12.003</td>
+      <td><span style="color: #ffa534;" class="data-rating-dot"><b>&bull;</b></span>0%</td>
+      <td><span style="color: #b7dd29;" class="data-rating-dot"><b>&bull;</b></span>0 W, Manpower (CH), 0.0 nan</td>
+      <td><span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>2.00 a, <span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>4.608 m², <span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>Building hall (m2.yr)</td>
+      <td><span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>No modification</td>
+      <td><span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>11 km, <span style="color: #ffe234;" class="data-rating-dot"><b>&bull;</b></span>Camion 16-32 t</td>
+      <td><span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>11 km, <span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>Camion 16-32 t</td>
+      <td>0</td>
+      <td>0.0092</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0020</td>
+      <td>0.0020</td>
+      <td>0.013</td>
+      <td>1.09</td>
+      <td>-1.06</td>
+      <td>-0.216</td>
+      <td>-1.28</td>
+      <td>-99%</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>Handhold WC</td>
+      <td>Furniture</td>
+      <td>Dismantled from a building</td>
+      <td>7</td>
+      <td><span style="color: #ffe234;" class="data-rating-dot"><b>&bull;</b></span>7</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0.0005</td>
+      <td>2.80</td>
+      <td>2.80</td>
+      <td>Reuse-LCA: Tube en acier inox (<span style="color: #ffa534;" class="data-rating-dot"><b>&bull;</b></span>100%)</td>
+      <td>100.09</td>
+      <td><span style="color: #ffa534;" class="data-rating-dot"><b>&bull;</b></span>0%</td>
+      <td><span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>598 W, Electric (CH), 1.0 min/item</td>
+      <td><span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>1.50 a, <span style="color: #b7dd29;" class="data-rating-dot"><b>&bull;</b></span>0.000 m3, <span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>Building hall (m3.yr)</td>
+      <td><span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>No modification</td>
+      <td><span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>13 km, <span style="color: #ffe234;" class="data-rating-dot"><b>&bull;</b></span>Camion 16-32 t</td>
+      <td><span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>11 km, <span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>Camion 16-32 t</td>
+      <td>0.0009</td>
+      <td>0.0002</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0024</td>
+      <td>0.0020</td>
+      <td>0.0055</td>
+      <td>1.73</td>
+      <td>-1.72</td>
+      <td>-0.016</td>
+      <td>-1.73</td>
+      <td>-100%</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>Mailbox</td>
+      <td>Furniture</td>
+      <td>Ex-situ dismantling (building)</td>
+      <td>0</td>
+      <td><span style="color: #ffe234;" class="data-rating-dot"><b>&bull;</b></span>0</td>
+      <td>4</td>
+      <td>1.54</td>
+      <td>0.023</td>
+      <td>3.76</td>
+      <td>3.76</td>
+      <td>Reuse-LCA: Boite aux lettres en métal (<span style="color: #ffa534;" class="data-rating-dot"><b>&bull;</b></span>100%)</td>
+      <td>100.05</td>
+      <td><span style="color: #ffa534;" class="data-rating-dot"><b>&bull;</b></span>0%</td>
+      <td><span style="color: #b7dd29;" class="data-rating-dot"><b>&bull;</b></span>0 W, Manpower (CH), 0.0 nan</td>
+      <td><span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>1.50 a, <span style="color: #b7dd29;" class="data-rating-dot"><b>&bull;</b></span>0.023 m3, <span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>Building hall (m3.yr)</td>
+      <td><span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>No modification</td>
+      <td><span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>9 km, <span style="color: #ffe234;" class="data-rating-dot"><b>&bull;</b></span>Camion 7.5-16 t</td>
+      <td><span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>11 km, <span style="color: #b7dd29;" class="data-rating-dot"><b>&bull;</b></span>Camion 7.5-16 t</td>
+      <td>0</td>
+      <td>0.0078</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0021</td>
+      <td>0.0025</td>
+      <td>0.012</td>
+      <td>4.61</td>
+      <td>-4.59</td>
+      <td>-0.0005</td>
+      <td>-4.59</td>
+      <td>-100%</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>Storage cabinet</td>
+      <td>Furniture</td>
+      <td>Ex-situ dismantling (building)</td>
+      <td>5</td>
+      <td><span style="color: #ffe234;" class="data-rating-dot"><b>&bull;</b></span>5</td>
+      <td>15</td>
+      <td>7.20</td>
+      <td>1.30</td>
+      <td>648</td>
+      <td>648</td>
+      <td>Reuse-LCA: Placard de salle de bain en bois (<span style="color: #ffa534;" class="data-rating-dot"><b>&bull;</b></span>100%)</td>
+      <td>100.06</td>
+      <td><span style="color: #ffa534;" class="data-rating-dot"><b>&bull;</b></span>0%</td>
+      <td><span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>598 W, Electric (CH), 1.0 min/item</td>
+      <td><span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>1.50 a, <span style="color: #b7dd29;" class="data-rating-dot"><b>&bull;</b></span>3.000 m², <span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>Building hall (m2.yr)</td>
+      <td><span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>No modification</td>
+      <td><span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>13 km, <span style="color: #ffe234;" class="data-rating-dot"><b>&bull;</b></span>Camion 16-32 t</td>
+      <td><span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>11 km, <span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>Camion 16-32 t</td>
+      <td>0.0000</td>
+      <td>0.021</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0024</td>
+      <td>0.0020</td>
+      <td>0.025</td>
+      <td>0.225</td>
+      <td>-0.193</td>
+      <td>-0.048</td>
+      <td>-0.241</td>
+      <td>-89%</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>Chalkboard</td>
+      <td>Furniture</td>
+      <td>Dismantled from a building</td>
+      <td>0</td>
+      <td><span style="color: #ffe234;" class="data-rating-dot"><b>&bull;</b></span>0</td>
+      <td>8</td>
+      <td>28.8</td>
+      <td>0.576</td>
+      <td>288</td>
+      <td>288</td>
+      <td>Reuse-LCA: Tableau noir (ardoise) (<span style="color: #ffa534;" class="data-rating-dot"><b>&bull;</b></span>100%)</td>
+      <td>100.08</td>
+      <td><span style="color: #ffa534;" class="data-rating-dot"><b>&bull;</b></span>0%</td>
+      <td><span style="color: #b7dd29;" class="data-rating-dot"><b>&bull;</b></span>1100 W, Electric (CH), 2.0 min/item</td>
+      <td><span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>1.50 a, <span style="color: #b7dd29;" class="data-rating-dot"><b>&bull;</b></span>0.576 m3, <span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>Building hall (m3.yr)</td>
+      <td><span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>No modification</td>
+      <td><span style="color: #ffa534;" class="data-rating-dot"><b>&bull;</b></span>50 km, <span style="color: #ffa534;" class="data-rating-dot"><b>&bull;</b></span>Camion 16-32 t</td>
+      <td><span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>55 km, <span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>Camion 7.5-16 t</td>
+      <td>0.0001</td>
+      <td>0.0025</td>
+      <td>0.0001</td>
+      <td>0</td>
+      <td>0.0090</td>
+      <td>0.013</td>
+      <td>0.024</td>
+      <td>1.26</td>
+      <td>-1.24</td>
+      <td>-0.013</td>
+      <td>-1.25</td>
+      <td>-98%</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>Tiling 2</td>
+      <td>Interior wall</td>
+      <td>Ex-situ construction surplus</td>
+      <td>0</td>
+      <td><span style="color: #ffe234;" class="data-rating-dot"><b>&bull;</b></span>0</td>
+      <td>-</td>
+      <td>19.0</td>
+      <td>0.114</td>
+      <td>296</td>
+      <td>329</td>
+      <td>KBOB: Dalle de céramique/grès (<span style="color: #ffa534;" class="data-rating-dot"><b>&bull;</b></span>100%)</td>
+      <td>03.010</td>
+      <td><span style="color: #ffa534;" class="data-rating-dot"><b>&bull;</b></span>10%</td>
+      <td><span style="color: #ff4545;" class="data-rating-dot"><b>&bull;</b></span>0 W, nan (CH), 0.0 nan</td>
+      <td><span style="color: #ffa534;" class="data-rating-dot"><b>&bull;</b></span>0.87 a, <span style="color: #b7dd29;" class="data-rating-dot"><b>&bull;</b></span>0.114 m3, <span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>Building hall (m3.yr)</td>
+      <td><span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>No modification</td>
+      <td><span style="color: #ffa534;" class="data-rating-dot"><b>&bull;</b></span>50 km, <span style="color: #ffa534;" class="data-rating-dot"><b>&bull;</b></span>Camion 16-32 t</td>
+      <td><span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>11 km, <span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>Camion 16-32 t</td>
+      <td>0</td>
+      <td>0.0003</td>
+      <td>0</td>
+      <td>0.0014</td>
+      <td>0.010</td>
+      <td>0.0020</td>
+      <td>0.014</td>
+      <td>0.789</td>
+      <td>-0.768</td>
+      <td>-0.013</td>
+      <td>-0.781</td>
+      <td>-98%</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>Tiling 1</td>
+      <td>Upper floor</td>
+      <td>Ex-situ construction surplus</td>
+      <td>0</td>
+      <td><span style="color: #ffe234;" class="data-rating-dot"><b>&bull;</b></span>0</td>
+      <td>-</td>
+      <td>76.0</td>
+      <td>0.456</td>
+      <td>1186</td>
+      <td>1317</td>
+      <td>KBOB: Dalle de céramique/grès (<span style="color: #ffa534;" class="data-rating-dot"><b>&bull;</b></span>100%)</td>
+      <td>03.010</td>
+      <td><span style="color: #ffa534;" class="data-rating-dot"><b>&bull;</b></span>10%</td>
+      <td><span style="color: #ff4545;" class="data-rating-dot"><b>&bull;</b></span>0 W, nan (CH), 0.0 nan</td>
+      <td><span style="color: #ffa534;" class="data-rating-dot"><b>&bull;</b></span>0.87 a, <span style="color: #b7dd29;" class="data-rating-dot"><b>&bull;</b></span>0.456 m3, <span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>Building hall (m3.yr)</td>
+      <td><span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>No modification</td>
+      <td><span style="color: #ffa534;" class="data-rating-dot"><b>&bull;</b></span>50 km, <span style="color: #ffa534;" class="data-rating-dot"><b>&bull;</b></span>Camion 16-32 t</td>
+      <td><span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>11 km, <span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>Camion 16-32 t</td>
+      <td>0</td>
+      <td>0.0003</td>
+      <td>0</td>
+      <td>0.0014</td>
+      <td>0.010</td>
+      <td>0.0020</td>
+      <td>0.014</td>
+      <td>0.789</td>
+      <td>-0.768</td>
+      <td>-0.013</td>
+      <td>-0.781</td>
+      <td>-98%</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>Ipé wood</td>
+      <td>Exterior flooring</td>
+      <td>Ex-situ dismantling (building)</td>
+      <td>12</td>
+      <td><span style="color: #ffe234;" class="data-rating-dot"><b>&bull;</b></span>12</td>
+      <td>-</td>
+      <td>244</td>
+      <td>7.31</td>
+      <td>7305</td>
+      <td>8099</td>
+      <td>KBOB: Bois massif hêtre / chêne, séché en cellule, raboté (<span style="color: #ffa534;" class="data-rating-dot"><b>&bull;</b></span>100%)</td>
+      <td>07.008</td>
+      <td><span style="color: #ffa534;" class="data-rating-dot"><b>&bull;</b></span>10%</td>
+      <td><span style="color: #b7dd29;" class="data-rating-dot"><b>&bull;</b></span>1000 W, Electric (CH), 5.0 min/m2</td>
+      <td><span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>0.75 a, <span style="color: #b7dd29;" class="data-rating-dot"><b>&bull;</b></span>7.305 m3, <span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>Exterior field (m2.yr)</td>
+      <td><span style="color: #b7dd29;" class="data-rating-dot"><b>&bull;</b></span>5000.0 W, Electric (CH), 5.0 min/m2</td>
+      <td><span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>No intermediate transport</td>
+      <td><span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>40 km, <span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>Camion 7.5-16 t</td>
+      <td>0.0003</td>
+      <td>0</td>
+      <td>0.0017</td>
+      <td>0.0042</td>
+      <td>0</td>
+      <td>0.0092</td>
+      <td>0.016</td>
+      <td>0.122</td>
+      <td>-0.107</td>
+      <td>-0.039</td>
+      <td>-0.146</td>
+      <td>-87%</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>Granite</td>
+      <td>Exterior flooring</td>
+      <td>Ex-situ dismantling (building)</td>
+      <td>28</td>
+      <td><span style="color: #ffe234;" class="data-rating-dot"><b>&bull;</b></span>28</td>
+      <td>-</td>
+      <td>56.0</td>
+      <td>1.57</td>
+      <td>4077</td>
+      <td>4530</td>
+      <td>KBOB: Dalle en pierre naturelle rectifiée, Europe, 15 mm (<span style="color: #ffa534;" class="data-rating-dot"><b>&bull;</b></span>100%)</td>
+      <td>11.015.01</td>
+      <td><span style="color: #ffa534;" class="data-rating-dot"><b>&bull;</b></span>10%</td>
+      <td><span style="color: #ffa534;" class="data-rating-dot"><b>&bull;</b></span>UVEK DQRv2 2021: deconstruction, average/CH U</td>
+      <td><span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>2.00 a, <span style="color: #b7dd29;" class="data-rating-dot"><b>&bull;</b></span>1.568 m3, <span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>Exterior field (m2.yr)</td>
+      <td><span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>No modification</td>
+      <td><span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>No intermediate transport</td>
+      <td><span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>17 km, <span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>Camion 16-32 t</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0008</td>
+      <td>0</td>
+      <td>0.0031</td>
+      <td>0.0039</td>
+      <td>0.229</td>
+      <td>-0.219</td>
+      <td>-0.0071</td>
+      <td>-0.226</td>
+      <td>-98%</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>WC</td>
+      <td>Sanitary</td>
+      <td>Ex-situ dismantling (building)</td>
+      <td>7</td>
+      <td><span style="color: #ffe234;" class="data-rating-dot"><b>&bull;</b></span>7</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>37.4</td>
+      <td>37.4</td>
+      <td>Reuse-LCA: WC céramique (<span style="color: #ffa534;" class="data-rating-dot"><b>&bull;</b></span>100%)</td>
+      <td>100.01</td>
+      <td><span style="color: #ffa534;" class="data-rating-dot"><b>&bull;</b></span>0%</td>
+      <td><span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>0 W, Manpower (CH), 0.0 nan</td>
+      <td><span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>1.50 a, <span style="color: #b7dd29;" class="data-rating-dot"><b>&bull;</b></span>0.360 m², <span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>Building hall (m2.yr)</td>
+      <td><span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>No modification</td>
+      <td><span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>13 km, <span style="color: #ffe234;" class="data-rating-dot"><b>&bull;</b></span>Camion 16-32 t</td>
+      <td><span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>11 km, <span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>Camion 16-32 t</td>
+      <td>0</td>
+      <td>0.043</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0024</td>
+      <td>0.0020</td>
+      <td>0.047</td>
+      <td>2.76</td>
+      <td>-2.71</td>
+      <td>-0.016</td>
+      <td>-2.72</td>
+      <td>-98%</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>Ceramic washstand</td>
+      <td>Sanitary</td>
+      <td>Ex-situ dismantling (building)</td>
+      <td>5</td>
+      <td><span style="color: #ffe234;" class="data-rating-dot"><b>&bull;</b></span>5</td>
+      <td>15</td>
+      <td>0</td>
+      <td>0</td>
+      <td>452</td>
+      <td>452</td>
+      <td>Reuse-LCA: Lavabo céramique (<span style="color: #ffa534;" class="data-rating-dot"><b>&bull;</b></span>100%)</td>
+      <td>100.02</td>
+      <td><span style="color: #ffa534;" class="data-rating-dot"><b>&bull;</b></span>0%</td>
+      <td><span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>0 W, Manpower (CH), 0.0 nan</td>
+      <td><span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>1.50 a, <span style="color: #b7dd29;" class="data-rating-dot"><b>&bull;</b></span>3.000 m², <span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>Building hall (m2.yr)</td>
+      <td><span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>No modification</td>
+      <td><span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>13 km, <span style="color: #ffe234;" class="data-rating-dot"><b>&bull;</b></span>Camion 16-32 t</td>
+      <td><span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>11 km, <span style="color: #57e32c;" class="data-rating-dot"><b>&bull;</b></span>Camion 16-32 t</td>
+      <td>0</td>
+      <td>0.030</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0024</td>
+      <td>0.0020</td>
+      <td>0.034</td>
+      <td>2.35</td>
+      <td>-2.31</td>
+      <td>-0.013</td>
+      <td>-2.32</td>
+      <td>-99%</td>
+    </tr>
+  </tbody>
+</table>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css"></script>
+<script src="https://cdn.datatables.net/buttons/2.3.6/css/buttons.dataTables.min.css"></script>
+<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.3.6/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.colVis.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/colreorder/1.6.2/js/dataTables.colReorder.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.4.1/js/dataTables.responsive.min.js"></script>
+<script>
+    $(document).ready(function() {
+      $('#myTable').DataTable({
+    // DataTables configuration options
+        responsive: true,
+        scrollY: '500px',
+        "autoWidth": true,
+        // fixedColumns: {
+        // left: 2
+        // },
+        // scrollX: true,
+        // scrollCollapse: true,
+        dom: 'Bfrtip',
+        buttons: [
+                {
+                  attr: {
+                    class: 'info-button'
+                  },
+                  extend: 'colvis',
+                  collectionLayout: 'fixed columns',
+                  collectionTitle: 'Column visibility control',
+                  text: '&#128269; Column visibility'
+                },
+                {
+                  attr: {
+                    class: 'info-button'
+                  },
+                extend: 'colvisGroup',
+                text: '&#128269; Show all',
+                show: ':hidden'
+                },
+            {
+                  attr: {
+                    class: 'info-button'
+                  },
+                extend: 'colvisGroup',
+                text: '&#128269; Supply-chain',
+                show: [0,1,3,9,11,12,13,14,15,16,17,18],
+                hide: [2,4,5,6,7,8,10,19,20,21,22,23,24,25,26,27,28,29,30]
+            },
+            {
+                  attr: {
+                    class: 'info-button'
+                  },
+                extend: 'colvisGroup',
+                text: "&#128269; Product's GHG emissions",
+                show: [0,1,3,9,11,13,19,20,21,22,23,24,25,29,30],
+                hide: [2,4,5,6,7,8,10,12,14,15,16,17,26,27,28]
+            },
+            {
+                  attr: {
+                    class: 'info-button'
+                  },
+                extend: 'colvisGroup',
+                text: '&#128269; Avoided GHG emissions',
+                show: [0,1,3,5,9,11,13,25,26,27,28,29,30],
+                hide: [2,4,6,7,9,11,13,14,15,16,17,18,19,20,21,22,23,29]
+            },
+            {
+                  attr: {
+                    class: 'info-button'
+                  },
+                extend: 'copy',
+              text:'&#128203; Copy'
+            },
+            {
+                  attr: {
+                    class: 'info-button'
+                  },
+                extend: 'csv',
+                text: '&#128229; Download CSV',
+            },
+            ]
+      });
+    });
+</script>

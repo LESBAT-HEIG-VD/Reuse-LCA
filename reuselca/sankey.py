@@ -118,7 +118,7 @@ def create_sankey(file_path, label_colors):
                 autosize=True,
                 width=None,
                 height=None,
-                margin=dict(l=50, r=50, t=50, b=50)
+                margin=dict(l=50, r=30, t=50, b=30)
             )
 
             return fig

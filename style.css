@@ -251,6 +251,20 @@ nav a:hover {
   margin-top: 20px;
 }
 
+.key-numbers3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.key-numbers4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  margin-top: 20px;
+}
+
 .key-numbers h3 {
     font-size: 1rem;
     color: #3e596c ;
@@ -274,6 +288,51 @@ nav a:hover {
 
 }
 
+.key-numbers3 h3 {
+    font-size: 1rem;
+    color: #3e596c ;
+    margin: 0;
+    flex: 1;
+}
+
+.key-numbers3 p {
+    margin: 0;
+    font-size: 1.33rem;
+    color: #0083c7;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.key-numbers3 span {
+    color: #737475;
+    font-size: 1rem;
+    margin-left: 0.5rem;
+    display: inline-block;
+
+}
+
+.key-numbers4 h3 {
+    font-size: 1rem;
+    color: #3e596c ;
+    margin: 0;
+    flex: 1;
+}
+
+.key-numbers4 p {
+    margin: 0;
+    font-size: 1.33rem;
+    color: #0083c7;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.key-numbers4 span {
+    color: #737475;
+    font-size: 1rem;
+    margin-left: 0.5rem;
+    display: inline-block;
+
+}
 div.dataTables_wrapper table.dataTable {
     width: 100%;
     font-size: 14px; /* Adjust the font size as desired */

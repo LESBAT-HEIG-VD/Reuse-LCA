@@ -98,7 +98,7 @@ def create_sankey(file_path, label_colors):
                     line=dict(color="black", width=1),
                     label=labels,
                     color=[label_colors.get(label, '#CCCCCC') for label in labels],
-                    customdata=[f"Proportion: {node_proportion[idx]:.2%}<br>Mass: {node_mass[idx]:.2f} kg/m² SRE" for idx in range(len(labels))],
+                    customdata=[f"Proportion: {node_proportion[idx]:.1%}<br>Mass: {node_mass[idx]:.1f} kg/m² SRE" for idx in range(len(labels))],
                     hovertemplate='%{label}<br>%{customdata}<extra></extra>'
                 ),
                 link=dict(
@@ -107,14 +107,13 @@ def create_sankey(file_path, label_colors):
                     value=value,
                     customdata=proportion,
                     hovertemplate=(
-                        '%{source.label} → %{target.label} : %{customdata:.2%}<extra></extra><br>'
-                        'Mass: %{value:.2f} kg/m² SRE<br>'
+                        '%{source.label} → %{target.label} : %{customdata:.1%}<extra></extra><br>'
+                        'Mass: %{value:.1f} kg/m² SRE<br>'
                     )
                 )
             )])
 
             fig.update_layout(
-                title_text=f"<b>Sankey Diagram for {os.path.basename(file_path)}</b>",
                 font_size=18,
                 autosize=True,
                 width=None,

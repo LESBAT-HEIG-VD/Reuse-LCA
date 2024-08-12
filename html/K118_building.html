@@ -38,7 +38,7 @@
                 <p>Type of project: Transformation and extension</p>
                 <p>Type of building: Workshops and offices</p>
                 <p>Construction materials: Concrete and steel</p>
-                <p>Building energy reference area (ERA): 1416 m�</p>
+                <p>Building energy reference area (ERA): 1416.3 m²</p>
                 <p>Floors: 3</p>
                 <p>Location: Winterthur (ZU), CH</p>
                 <p>Project phase: Completed in 2021</p>
@@ -70,22 +70,22 @@
                     <h3>Biogenic CO2 storage extended</h3>
                 </div>
                 <div>
-                    <p>785</p><span>kg/sqm</span>
+                    <p>798</p><span>kg/sqm</span>
                 </div>
                 <div>
-                    <p>12.45</p><span>% of total mass</span>
+                    <p>12.61</p><span>% of total mass</span>
                 </div>
                 <div>
-                    <p>111.0</p><span>km (weighted average)</span>
+                    <p>116.6</p><span>km (weighted average)</span>
                 </div>
                 <div>
-                    <p>5.7</p><span>kg CO2-eq./sqm/year</span>
+                    <p>5.9</p><span>kg CO2-eq./sqm/year</span>
                 </div>
                 <div>
-                    <p>-2.6</p><span>kg CO2-eq./sqm/year</span>
+                    <p>-4.1</p><span>kg CO2-eq./sqm/year</span>
                 </div>
                 <div>
-                    <p>-0.42</p><span>kg CO2-eq./sqm/year</span>
+                    <p>-0.52</p><span>kg CO2-eq./sqm/year</span>
                 </div>
             </section>
             </div>
@@ -99,9 +99,9 @@
                     <p style="text-align:center;"><img src=..\pictures\K118-map.png alt="Reuse map" width=800px></p>
                 </div>
                   <div>
-                      <button id="button_reuse_table_tot" onclick="loadHtml('{reuse_table_tot_src}', 'reuse_table'); setActiveButtons('button_reuse_table_tot','#button_reuse_table_tot, #button_reuse_table_kg, #button_reuse_table_sqm')">Total (kg CO2-eq.)</button>
-                      <button id="button_reuse_table_kg" onclick="loadHtml('{reuse_table_kg_src}', 'reuse_table'); setActiveButtons('button_reuse_table_kg','#button_reuse_table_tot, #button_reuse_table_kg, #button_reuse_table_sqm')">per kg of reused product (kg CO2-eq./kg)</button>
-                      <button id="button_reuse_table_sqm" onclick="loadHtml('{reuse_table_sqm_src}', 'reuse_table'); setActiveButtons('button_reuse_table_sqm','#button_reuse_table_tot, #button_reuse_table_kg, #button_reuse_table_sqm')">per sqm of building ERA (kg CO2-eq./sqm)</button>
+                      <button id="button_reuse_table_tot" onclick="loadHtml('..\\html_tables\\K118_gwp_total.html', 'reuse_table'); setActiveButtons('button_reuse_table_tot','#button_reuse_table_tot, #button_reuse_table_kg, #button_reuse_table_sqm')">Total (kg CO2-eq.)</button>
+                      <button id="button_reuse_table_kg" onclick="loadHtml('..\\html_tables\\K118_gwp_per_kg.html', 'reuse_table'); setActiveButtons('button_reuse_table_kg','#button_reuse_table_tot, #button_reuse_table_kg, #button_reuse_table_sqm')">per kg of reused product (kg CO2-eq./kg)</button>
+                      <button id="button_reuse_table_sqm" onclick="loadHtml('..\\html_tables\\K118_gwp_per_sqm.html', 'reuse_table'); setActiveButtons('button_reuse_table_sqm','#button_reuse_table_tot, #button_reuse_table_kg, #button_reuse_table_sqm')">per sqm of building ERA (kg CO2-eq./sqm)</button>
                       <button id="button_info_reusetable" class="info-button" onclick="showModal('reusetableDialog')">&#8505; Table Instructions</button>
                       <button id="button_info_rating" class="info-button" onclick="showModal('ratingDialog')">&#8505; Data rating system <span style="color: #57e32c;" class="data-rating-dot">&bull;</span><span style="color: #b7dd29;" class="data-rating-dot">&bull;</b></span><span style="color: #ffe234;" class="data-rating-dot">&bull;</b></span><span style="color: #ffa534;" class="data-rating-dot">&bull;</b></span><span style="color: #ff4545;" class="data-rating-dot">&bull;</b></span></button>
                       <p><br><span style="color: #ff4545;">&#x26A0;</span> Changing the visibility of the columns can <u>mess the table display</u>. &#x1F527;<b>To re-arrange the columns, double-click on the "n&deg;" column's title.</b></p>
@@ -116,8 +116,8 @@
     <div class="card">
         <div class="card-content">
             <h2>Material mass analysis</h2>
-            <!-- iframe mis à jour pour afficher le Sankey -->
-            <iframe id="material_sankey" src="{material_sankey}" style="width: 100%; height: 700px; border: 0"></iframe>
+            <!-- iframe mis Ã  jour pour afficher le Sankey -->
+            <iframe id="material_sankey" style="width: 100%; height: 700px; border: 0"></iframe>
         </div>
     </div>
 </section>
@@ -128,7 +128,7 @@
                 <h2>Building LCA impacts</h2>
                 <div>
                     <button id="button_1_ad" onclick="loadHtml('..\\html_figures\\K118_impacts_table.html', 'building-lca'); setActiveButtons('button_1_ad', '#button_1_ad, #button_1_nv')">Actual design with reuse</button>
-                    <button id="button_1_nv" onclick="loadHtml('{impacts_table_new}', 'building-lca'); setActiveButtons('button_1_nv', '#button_1_ad, #button_1_nv')">Variant with "only new"</button>
+                    <button id="button_1_nv" onclick="loadHtml('..\\html_figures\\K118_impacts_table_new.html', 'building-lca'); setActiveButtons('button_1_nv', '#button_1_ad, #button_1_nv')">Variant with "only new"</button>
                     <button id="button_info_building_impacts" class="info-button" onclick="showModal('buildingImpactsDialog')">&#8505; Table Instructions</button>
                 </div>
                 <div>
@@ -165,7 +165,7 @@
         </div>
     </section>
     <footer>
-      <p>OFEN - Reuse-LCA (SI/502190-01) - HEIG-VD - Institut des Énergies</p>
+      <p>OFEN - Reuse-LCA (SI/502190-01) - HEIG-VD - Institut des Ã‰nergies</p>
       <div class="logo-container">
             <a style="text-align: center" href="mailto:mija.frossard@heig-vd.ch?subject=Reuse-LCA%20Website%20contact">
                 <img src="../pictures/mail-logo.png" alt="Email contact" height="55px">
@@ -248,13 +248,12 @@
 
       // Load the default page when the page first loads
       window.onload = function() {
+        loadHtml('..\\html_figures\\K118_sankey.html', 'material_sankey');
         loadHtml('..\\html_figures\\K118_impacts_table.html', 'building-lca');
         setActiveButtons("button_1_ad", "#button_1_ad, #button_1_nv");
-        loadHtml('..\\html_figures\\K118_material_sunburst.html', 'material_sunburst');
-        setActiveButtons('button_mat_component', '#button_mat_component, #button_mat_ebkp');
         loadHtml('{reused_comp_GWP_bar}', 'bar_comparison');
         setActiveButtons('button_comparison_gwp', '#button_comparison_gwp, #button_comparison_ubp, #button_comparison_penr')
-        loadHtml('{reuse_table_tot_src}', 'reuse_table');
+        loadHtml('..\\html_tables\\K118_gwp_total.html', 'reuse_table');
         setActiveButtons('button_reuse_table_tot','#button_reuse_table_tot, #button_reuse_table_kg, #button_reuse_table_sqm')
       }
 

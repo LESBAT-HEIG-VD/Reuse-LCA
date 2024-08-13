@@ -55,7 +55,7 @@ class Building:
         self.total_mass = self.data["Mass"].sum()
         # Key metrics
         self.mat_intensity = round(self.total_mass / self.sqm)
-        self.share_reused, self.avg_supply_dist = calc_reused_info(self.data)
+        self.share_reused, self.avg_supply_dist, self.adaptiv_reused = calc_reused_info(self.data)
         self.ghg_total_sqm_yr = round(self.impacts["Total"]["GWP"] / self.sqm / self.lifespan, 1)
         self.avoided_ghg_sqm_yr = round(
             self.data["GWP_Avoided_Total"].sum() / self.sqm / self.lifespan / self.results_factor, 1)
@@ -67,9 +67,11 @@ def calc_reused_info(data):
     agg = data.groupby("Status").agg({"Mass": "sum"}).reset_index()
     total_mass = agg['Mass'].sum()
     reused_mass = agg[agg["Status"] == 'Reused']['Mass'].sum()
+    adaptiv_mass = agg[agg["Status"] == 'Adaptive reuse']['Mass'].sum()
     share_reused = round(reused_mass / total_mass * 100, 2)
+    adaptiv_reused = round(adaptiv_mass / total_mass * 100, 2)
     avg_supply_dist = data[data["Status"] == 'Reused']['Reuse_supply'].sum() / reused_mass
-    return share_reused, round(avg_supply_dist, 1)
+    return share_reused, round(avg_supply_dist, 1), adaptiv_reused
 
 
 def calc_stored_bio_co2(data):
@@ -134,6 +136,7 @@ def generate_building_html(building, nav_bar):
     # Key metrics
     html_content = html_content.replace('{mat_intensity}', str(building.mat_intensity))
     html_content = html_content.replace('{share_reused}', str(building.share_reused))
+    html_content = html_content.replace('{adaptiv_reused}', str(building.adaptiv_reused))
     html_content = html_content.replace('{avg_supply_distance}', str(building.avg_supply_dist))
     html_content = html_content.replace('{ghg_total}', str(building.ghg_total_sqm_yr))
     html_content = html_content.replace('{avoided_ghg}', str(building.avoided_ghg_sqm_yr))

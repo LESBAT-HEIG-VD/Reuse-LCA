@@ -133,33 +133,21 @@
             </div>
         </div>
     </section>
-    <section class="co2-contrib">
-        <div class="card">
-            <div class="card-content">
-                <h2>Contributions to GHG emissions</h2>
-                    <div>
-                        <iframe id="ghg_sunburst"  src={ghg_sunburst} style="width: 100%; height: 700px; border: 0">  </iframe>
-                    </div>
-            </div>
-        </div>
-    </section>
-
     <section class="components-impacts">
-        <div class="card">
             <div class="card-content">
-                <h2>LCA of reused components</h2>
+                <h2>Results Graphs</h2>
                 <div>
-                    <button id="button_comparison_gwp" onclick="loadHtml('{reused_comp_GWP_bar}', 'bar_comparison'); setActiveButtons('button_comparison_gwp','#button_comparison_gwp, #button_comparison_ubp, #button_comparison_penr')">GHG emissions</button>
-                    <button id="button_comparison_ubp" onclick="loadHtml('{reused_comp_UBP_bar}', 'bar_comparison'); setActiveButtons('button_comparison_ubp','#button_comparison_gwp, #button_comparison_ubp, #button_comparison_penr')">Ecological scarcity</button>
-                    <button id="button_comparison_penr" onclick="loadHtml('{reused_comp_PE_NR_bar}', 'bar_comparison'); setActiveButtons('button_comparison_penr','#button_comparison_gwp, #button_comparison_ubp, #button_comparison_penr')">Primary energy, non-renewable</button>
+                    <button id="button_comparison_gwp1" onclick="loadHtml('{impact_total}', 'bar_comparison'); setActiveButtons('button_comparison_gwp1','#button_comparison_gwp1, #button_comparison_ubp, #button_comparison_penr')">Impact total by cycle of life</button>
+                    <button id="button_comparison_gwp2" onclick="loadHtml('{impact_total}', 'bar_comparison'); setActiveButtons('button_comparison_gwp2','#button_comparison_gwp2, #button_comparison_ubp, #button_comparison_penr')">Impact total by lot</button>
                     <button id="button_info_reuse_impacts" class="info-button" onclick="showModal('reuseImpactsDialog')">&#8505; Graph Instructions</button>
                 </div>
                 <div>
                     <iframe id="bar_comparison" width="100%" style="width: 100%; height: 600px; border: 0">  </iframe>
                 </div>
             </div>
-        </div>
     </section>
+
+
     <footer>
       <p>OFEN - Reuse-LCA (SI/502190-01) - HEIG-VD - Institut des Énergies</p>
       <div class="logo-container">
@@ -247,10 +235,10 @@
         loadHtml('{material_sankey}', 'material_sankey');
         loadHtml('{impacts_table}', 'building-lca');
         setActiveButtons("button_1_ad", "#button_1_ad, #button_1_nv");
-        loadHtml('{reused_comp_GWP_bar}', 'bar_comparison');
-        setActiveButtons('button_comparison_gwp', '#button_comparison_gwp, #button_comparison_ubp, #button_comparison_penr')
         loadHtml('{reuse_table_tot_src}', 'reuse_table');
         setActiveButtons('button_reuse_table_tot','#button_reuse_table_tot, #button_reuse_table_kg, #button_reuse_table_sqm')
+        loadHtml('{button_comparison_gwp1}', 'button_comparison_gwp1');
+        setActiveButtons('button_comparison_gwp1','#button_comparison_gwp1, #button_comparison_ubp1, #button_comparison_penr1')
       }
 
       function range(start, end) {

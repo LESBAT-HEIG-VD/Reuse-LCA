@@ -37,6 +37,7 @@ class Building:
         self.name = get_cfg()["names"][case]
         self.desc = pd.read_excel(get_cfg()["cases"][case], sheet_name="Parameters", header=1, nrows=1)
         self.data = pd.read_excel(get_cfg()["cases"][case], sheet_name="LCI+LCIA", header=2)
+        self.data2 = pd.read_excel(get_cfg()["cases"][case], sheet_name="LCA results", header=0, nrows=1)
         self.config = pd.read_excel(get_cfg()["cases"][case], sheet_name="Parameters", header=9, nrows=1)
         self.hypotheses = pd.read_excel(get_cfg()["cases"][case], sheet_name="Parameters", header=13, nrows=1)
         self.sqm = self.desc["Building SRE (m2)"].values[0]
@@ -50,7 +51,7 @@ class Building:
         self.project_phase = str(self.desc["Project phase"].values[0])
         self.impacts, self.impacts_new, self.mat_intensity, self.share_reused = get_stats(self.data, self.sqm,
                                                                                           self.results_factor)
-        self.impacts = format_impacts(self.impacts)
+        self.impacts = format_impacts(self.impacts) # Total impacts
         self.impacts_new = format_impacts(self.impacts_new)
         self.total_mass = self.data["Mass"].sum()
         # Key metrics
@@ -147,14 +148,7 @@ def generate_building_html(building, nav_bar):
     html_content = html_content.replace('{reuse_map_src}',
                                         os.path.join('..', cfg["pictures_folder"], building.case + cfg['maps_suffix']))
     # Figures
-    html_content = html_content.replace('{material_sunburst}', os.path.join('..', cfg['figures_folder'],
-                                                                            building.case + cfg['figures_suffix'][
-                                                                                'material_sunburst']).encode(
-        'unicode-escape').decode())
-    html_content = html_content.replace('{material_sunburst_ebkp}', os.path.join('..', cfg['figures_folder'],
-                                                                                 building.case + cfg['figures_suffix'][
-                                                                                     'material_sunburst_ebkp']).encode(
-        'unicode-escape').decode())
+
     html_content = html_content.replace('{reuse_table_tot_src}', os.path.join('..', cfg['html_tables_folder'],
                                                                                  building.case + cfg['table_suffix'][
                                                                                      'gwp_total']).encode(
@@ -171,6 +165,12 @@ def generate_building_html(building, nav_bar):
                                                                                  building.case + cfg['figures_suffix'][
                                                                                      'sankey']).encode(
         'unicode-escape').decode())
+    html_content = html_content.replace('{impact_total}', os.path.join('..', cfg['figures_folder'],
+                                                                                 building.case + cfg['figures_suffix'][
+                                                                                     'imp_tot']).encode(
+        'unicode-escape').decode())
+
+
 
 
     html_content = html_content.replace('{impacts_table}', os.path.join('..', cfg['figures_folder'],

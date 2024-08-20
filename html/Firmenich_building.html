@@ -10,19 +10,19 @@
     <div class="navbar">
         <nav>
             <ul>
-                <li><a href="methodology.html">Methodology</a></li>
+                <li><a href="methodology.html" class="nav-active">Methodology</a></li>
                 <li class="dropdown">
-                    <a href=#case-studies" class="nav-active">Case Studies</a>
+                    <a href="#">Case Studies</a>
                     <ul class="dropdown-menu">
-                        <li><a href="Faraday_case_study.html">Primeo Energy Cosmos</a></li>
-                        <li><a href="Hobelwerk_case_study.html">Hobelwerk - Haus D</a></li>
-                        <li><a href="K118_case_study.html">K 118</a></li>
-                        <li><a href="Elys_case_study.html">Elys</a></li>
-                        <li><a href="Firmenich_case_study.html">Firmenich</a></li>
+                        <li><a href="Elys_building.html">Elys</a></li>
+                        <li><a href="Faraday_building.html">Faraday</a></li>
+                        <li><a href="Firmenich_building.html">Firmenich</a></li>
+                        <li><a href="Hobelwerk_building.html">Hobelwerk</a></li>
+                        <li><a href="K118_building.html">K118</a></li>
                     </ul>
                 </li>
                 <li><a href="#meta-analysis">Meta-analysis</a></li>
-                <li><a href="#about">About</a></li>
+                <li><a href="about.html">About</a></li>
             </ul>
         </nav>
     </div>
@@ -48,44 +48,60 @@
     <section>
         <div class="card">
             <div class="card-content">
-                <h2>Key metrics</h2>
+                <h2>BUILDING Key Performance Indicators</h2>
 
-                <section class="key-numbers">
+                <section class="key-numbers3">
                 <div>
                     <h3>Material Intensity</h3>
                 </div>
                 <div>
-                    <h3>Share of Reused Components</h3>
+                    <h3>Life cycle GHG emissions (construction)</h3>
                 </div>
                 <div>
-                    <h3>Average Supply of Reused Components</h3>
-                </div>
-                <div>
-                    <h3>GHG Emissions of the Construction's Life Cycle</h3>
-                </div>
-                <div>
-                    <h3>GHG Emissions Avoided with Reuse</h3>
-                </div>
-                <div>
-                    <h3>Biogenic CO2 storage extended</h3>
+                    <h3>Stored biogenic carbon</h3>
                 </div>
                 <div>
                     <p>1390</p><span>kg/sqm</span>
                 </div>
                 <div>
-                    <p>0.06</p><span>% of total mass</span>
-                </div>
-                <div>
-                    <p>0.0</p><span>km (weighted average)</span>
-                </div>
-                <div>
                     <p>6.0</p><span>kg CO2-eq./sqm/year</span>
+                </div>
+                <div>
+                    <p>0.0</p><span>kg CO2-eq./sqm/year</span>
+                </div>
+            </section>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="card">
+            <div class="card-content">
+                <h2>REUSE BUILDING Key Performance Indicators</h2>
+
+                <section class="key-numbers4">
+                <div>
+                    <h3>Emissions reduction due to reuse</h3>
+                </div>
+                <div>
+                    <h3>Share of Reused Components</h3>
+                </div>
+                <div>
+                    <h3>Share of adaptive reuse</h3>
+                </div>
+                <div>
+                    <h3>Reuse supply distance</h3>
                 </div>
                 <div>
                     <p>-3.2</p><span>kg CO2-eq./sqm/year</span>
                 </div>
                 <div>
-                    <p>-0.0</p><span>kg CO2-eq./sqm/year</span>
+                    <p>0.06</p><span>% of total mass</span>
+                </div>
+                <div>
+                    <p>91.0</p><span>% of total mass</span>
+                </div>
+                <div>
+                    <p>0.0</p><span>km (weighted average)</span>
                 </div>
             </section>
             </div>
@@ -115,7 +131,7 @@
     <section class="material-analysis">
     <div class="card">
         <div class="card-content">
-            <h2>Material mass analysis</h2>
+            <h2>Material flow analysis by Sankey diagram</h2>
             <!-- iframe mis Ã  jour pour afficher le Sankey -->
             <iframe id="material_sankey" style="width: 100%; height: 700px; border: 0"></iframe>
         </div>
@@ -137,33 +153,20 @@
             </div>
         </div>
     </section>
-    <section class="co2-contrib">
-        <div class="card">
-            <div class="card-content">
-                <h2>Contributions to GHG emissions</h2>
-                    <div>
-                        <iframe id="ghg_sunburst"  src={ghg_sunburst} style="width: 100%; height: 700px; border: 0">  </iframe>
-                    </div>
-            </div>
-        </div>
-    </section>
-
     <section class="components-impacts">
-        <div class="card">
             <div class="card-content">
-                <h2>LCA of reused components</h2>
+                <h2>Results Graphs</h2>
                 <div>
-                    <button id="button_comparison_gwp" onclick="loadHtml('{reused_comp_GWP_bar}', 'bar_comparison'); setActiveButtons('button_comparison_gwp','#button_comparison_gwp, #button_comparison_ubp, #button_comparison_penr')">GHG emissions</button>
-                    <button id="button_comparison_ubp" onclick="loadHtml('{reused_comp_UBP_bar}', 'bar_comparison'); setActiveButtons('button_comparison_ubp','#button_comparison_gwp, #button_comparison_ubp, #button_comparison_penr')">Ecological scarcity</button>
-                    <button id="button_comparison_penr" onclick="loadHtml('{reused_comp_PE_NR_bar}', 'bar_comparison'); setActiveButtons('button_comparison_penr','#button_comparison_gwp, #button_comparison_ubp, #button_comparison_penr')">Primary energy, non-renewable</button>
+                    <button id="button_comparison_gwp" onclick="loadHtml('..\\html_figures\\Firmenich_impact_total.html', 'bar_comparison'); setActiveButtons('button_comparison_gwp','#button_comparison_gwp, #button_comparison_ubp, #button_comparison_penr')">Impact total</button>
                     <button id="button_info_reuse_impacts" class="info-button" onclick="showModal('reuseImpactsDialog')">&#8505; Graph Instructions</button>
                 </div>
                 <div>
                     <iframe id="bar_comparison" width="100%" style="width: 100%; height: 600px; border: 0">  </iframe>
                 </div>
             </div>
-        </div>
     </section>
+
+
     <footer>
       <p>OFEN - Reuse-LCA (SI/502190-01) - HEIG-VD - Institut des Ã‰nergies</p>
       <div class="logo-container">

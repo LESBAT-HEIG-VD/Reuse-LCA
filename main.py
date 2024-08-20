@@ -15,6 +15,7 @@ def generate_case(case_name, nav_bar):
         bar_reused_comp(Building, "GWP")
         bar_reused_comp(Building, "UBP")
         bar_reused_comp(Building, "PE-NR")
+        impact_total_graph(Building)
         # add: generate sankey html
         generate_reuse_tables(Building)
 
@@ -37,7 +38,7 @@ if __name__ == "__main__":
 
         # Traitement de chaque cas
         #for case in cases:
-        for case in ["K118","Elys","Hobelwerk","Faraday",]:
+        for case in ["K118","Faraday","Hobelwerk","Elys"]:
         #for case in ["Firmenich",]:
                 generate_case(case, nav_bar)
 

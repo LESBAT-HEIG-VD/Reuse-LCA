@@ -9,12 +9,6 @@ def generate_case(case_name, nav_bar):
         # Génération et sauvegarde des tableaux d'impact et visualisations
         building_impacts_table(Building)
         building_impacts_table(Building, variant="New")
-        material_sunburst(Building)
-        material_sunburst_ebkp(Building)
-        co2_sunburst(Building)
-        bar_reused_comp(Building, "GWP")
-        bar_reused_comp(Building, "UBP")
-        bar_reused_comp(Building, "PE-NR")
         impact_total_graph(Building)
         # add: generate sankey html
         generate_reuse_tables(Building)
@@ -38,7 +32,8 @@ if __name__ == "__main__":
 
         # Traitement de chaque cas
         #for case in cases:
-        for case in ["K118","Faraday","Hobelwerk","Elys"]:
+        #for case in ["K118","Faraday","Hobelwerk","Elys"]:
+        for case in ["K118",]:
         #for case in ["Firmenich",]:
                 generate_case(case, nav_bar)
 

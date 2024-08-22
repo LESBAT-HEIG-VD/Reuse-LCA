@@ -148,7 +148,6 @@ def impact_total_graph(Building):
 
     fig.update_layout(
         title="Genral impact of Building " + Building.case,
-        xaxis_title="Variant",
         yaxis_title="Emissions",
         template="plotly_white",
         # barmode='stack',  # Activer l'empilement des barres
@@ -317,7 +316,6 @@ def impact_total_graph_comparing(Building):
 
     fig.update_layout(
         title="Comparing reuse and new of building "+Building.case,
-        xaxis_title="Variant",
         yaxis_title="Emissions (tonnes CO2 eq.)",
         template="plotly_white",
         # barmode='stack',  # Activer l'empilement des barres

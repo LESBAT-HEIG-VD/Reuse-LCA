@@ -65,7 +65,7 @@ def impact_total_graph(Building):
                 {
                     "label": "tonnes CO2 eq.",
                     "method": "update",
-                    "args": [{"x": [np.array(['cases', 'cases', 'cases', 'cases', 'cases'], dtype=object)],
+                    "args": [{"x": [np.array([Building.case, Building.case, Building.case, Building.case, Building.case], dtype=object)],
                               "y": get_values("tonnes CO2 eq."),
                               "yaxis": {"title": "Emissions (tonnes CO2 eq.)"},
                               "title": "Construction's life cycle GHG emissions",
@@ -77,7 +77,7 @@ def impact_total_graph(Building):
                     "label": "kg CO2 eq./m²",
                     "method": "update",
                     "args": [
-                        {"x": [np.array(['cases', 'cases', 'cases', 'cases', 'cases'], dtype=object)],
+                        {"x": [np.array([Building.case, Building.case, Building.case, Building.case, Building.case], dtype=object)],
                          "y": get_values("kg CO2 eq./m²"),
                          "yaxis": {"title": "Emissions (kg CO2 eq./m²)"},
                          "title": "Construction's life cycle GHG emissions",
@@ -89,7 +89,7 @@ def impact_total_graph(Building):
                     "label": "kg CO2 eq./m²/an",
                     "method": "update",
                     "args": [
-                        {"x": [np.array(['cases', 'cases', 'cases', 'cases', 'cases'], dtype=object)],
+                        {"x": [np.array([Building.case, Building.case, Building.case, Building.case, Building.case], dtype=object)],
                          "y": get_values("kg CO2 eq./m²/an"),
                          "yaxis": {"title": "Emissions (kg CO2 eq./m²/an)"},
                          "title": "Construction's life cycle GHG emissions",
@@ -147,7 +147,7 @@ def impact_total_graph(Building):
     ]
 
     fig.update_layout(
-        title="Genral impact of Building " + Building.case,
+        title="General impact of case study " + Building.case,
         yaxis_title="Emissions",
         template="plotly_white",
         # barmode='stack',  # Activer l'empilement des barres
@@ -170,10 +170,6 @@ def impact_total_graph_lot(Building):
     # Extract step names from the Steps column
     aaa["Life cycle steps"] = aaa["Life cycle steps"].str.replace("GWP_", "")
 
-    # Rename Category to Variante to match your desired output
-    aaa.rename(columns={"Category": "variant"}, inplace=True)
-
-
     # Définir le chemin pour enregistrer le graphique
     html_path = os.path.join(ROOT_DIR, cfg['figures_folder'], Building.case + "_impact_total_lot.html")
 
@@ -181,10 +177,10 @@ def impact_total_graph_lot(Building):
     fig = go.Figure()
 
 
-    fig = px.bar(aaa, x="variant", y="GWP", color="Life cycle steps", title="cases")
+    fig = px.bar(aaa, x="Category", y="GWP", color="Life cycle steps", title="cases")
 
     fig.update_layout(
-        title="Impact by category of building " + Building.case,
+        title="Impact by category of case study " + Building.case,
         yaxis_title="Emissions (tonnes CO2 eq)",
         template="plotly_white",
         # barmode='stack',  # Activer l'empilement des barres
@@ -316,7 +312,7 @@ def impact_total_graph_comparing(Building):
     fig = px.bar(bbb, x="variant", y="GWP", color="Life cycle steps", title=Building.case)
 
     fig.update_layout(
-        title="Comparing reuse and new of building "+Building.case,
+        title="Comparing reuse and new strategy of case study "+Building.case,
         yaxis_title="Emissions (tonnes CO2 eq.)",
         template="plotly_white",
         # barmode='stack',  # Activer l'empilement des barres

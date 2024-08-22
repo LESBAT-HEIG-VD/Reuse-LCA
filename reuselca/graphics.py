@@ -54,9 +54,9 @@ def impact_total_graph(Building):
             return values_lists
 
     bbb = aaa.transpose()
-    bbb["variant"] = "K118"
-    bbb["steps"] = bbb.index
-    fig = px.bar(bbb, x="variant", y="GWP", color="steps", title="K118")
+    bbb["variant"] = Building.case
+    bbb["Life cycle steps"] = bbb.index
+    fig = px.bar(bbb, x="variant", y="GWP", color="Life cycle steps", title="K118")
 
     # Définir les boutons du menu déroulant avec les titres dynamiques
     updatemenus = [
@@ -113,7 +113,7 @@ def impact_total_graph(Building):
                     "args": [
                         {
                             "title": "Construction's initial GHG emissions",
-                            "visible": [True, True, False, False, False]
+                            "visible": [True, True, False, False]
                         },
                     ]
                 },
@@ -123,7 +123,7 @@ def impact_total_graph(Building):
                     "args": [
                         {
                             "title": "Construction's life cycle GHG emissions",
-                            "visible": [True, True, True, True, False]
+                            "visible": [True, True, True, True]
                         },
                     ]
                 },
@@ -133,7 +133,7 @@ def impact_total_graph(Building):
                     "args": [
                         {
                             "title": "Construction's life cycle GHG emissions according to SIA 2032",
-                            "visible": [True, False, True, True, False]
+                            "visible": [True, False, True, True]
                         },
                     ]
                 }
@@ -165,10 +165,10 @@ def impact_total_graph_lot(Building):
     aaa = aaa.groupby("Category")[["GWP_A1-A3", "GWP_A4", "GWP_B4", "GWP_C1-C4"]].sum().reset_index()
 
     # Reshape the DataFrame using the melt function
-    aaa = aaa.melt(id_vars=["Category"], var_name="steps", value_name="GWP")
+    aaa = aaa.melt(id_vars=["Category"], var_name="Life cycle steps", value_name="GWP")
 
     # Extract step names from the Steps column
-    aaa["steps"] = aaa["steps"].str.replace("GWP_", "")
+    aaa["Life cycle steps"] = aaa["Life cycle steps"].str.replace("GWP_", "")
 
     # Rename Category to Variante to match your desired output
     aaa.rename(columns={"Category": "variant"}, inplace=True)
@@ -181,11 +181,10 @@ def impact_total_graph_lot(Building):
     fig = go.Figure()
 
 
-    fig = px.bar(aaa, x="variant", y="GWP", color="steps", title="cases")
+    fig = px.bar(aaa, x="variant", y="GWP", color="Life cycle steps", title="cases")
 
     fig.update_layout(
         title="Impact by category of building " + Building.case,
-        xaxis_title="Category",
         yaxis_title="Emissions (tonnes CO2 eq)",
         template="plotly_white",
         # barmode='stack',  # Activer l'empilement des barres
@@ -246,7 +245,7 @@ def impact_total_graph_lot(Building):
                     "args": [
                         {
                             "title": "Construction's initial GHG emissions",
-                            "visible": [True, True, False, False, False]
+                            "visible": [True, True, False, False]
                         },
                     ]
                 },
@@ -256,7 +255,7 @@ def impact_total_graph_lot(Building):
                     "args": [
                         {
                             "title": "Construction's life cycle GHG emissions",
-                            "visible": [True, True, True, True, False]
+                            "visible": [True, True, True, True]
                         },
                     ]
                 },
@@ -266,7 +265,7 @@ def impact_total_graph_lot(Building):
                     "args": [
                         {
                             "title": "Construction's life cycle GHG emissions according to SIA 2032",
-                            "visible": [True, False, True, True, False]
+                            "visible": [True, False, True, True]
                         },
                     ]
                 }
@@ -289,10 +288,12 @@ def impact_total_graph_comparing(Building):
     aaa = Building.impacts
     aaa2 = Building.impacts_new
     aaa3 = aaa2 - aaa
+    aaa = aaa.rename(columns={'Total': 'Total difference'})
+    aaa2 = aaa2.rename(columns={'Total': 'Total difference'})
     aaa3 = aaa3.rename(columns={'Total': 'Total difference'})
-    aaa = aaa.drop(columns=['Total'])
-    aaa2 = aaa2.drop(columns=['Total'])
-    aaa3 = aaa3.drop(columns=['A1-A3', 'A4', 'B4','C1-C4' ])
+    aaa3[['A1-A3', 'A4', 'B4', 'C1-C4']] = 0
+    aaa[['Total difference']] = 0
+    aaa2[['Total difference']] = 0
     aaa = aaa.transpose()
     aaa2 = aaa2.transpose()
     aaa3 = aaa3.transpose()
@@ -309,10 +310,10 @@ def impact_total_graph_comparing(Building):
     # Création du graphique
     fig = go.Figure()
 
-    bbb["steps"] = bbb.index
+    bbb["Life cycle steps"] = bbb.index
     print(bbb)
 
-    fig = px.bar(bbb, x="variant", y="GWP", color="steps", title=Building.case)
+    fig = px.bar(bbb, x="variant", y="GWP", color="Life cycle steps", title=Building.case)
 
     fig.update_layout(
         title="Comparing reuse and new of building "+Building.case,
@@ -375,7 +376,7 @@ def impact_total_graph_comparing(Building):
                     "args": [
                         {
                             "title": "Construction's initial GHG emissions",
-                            "visible": [True, True, False, False, False]
+                            "visible": [True, True, False, False, True]
                         },
                     ]
                 },
@@ -385,7 +386,7 @@ def impact_total_graph_comparing(Building):
                     "args": [
                         {
                             "title": "Construction's life cycle GHG emissions",
-                            "visible": [True, True, True, True, False]
+                            "visible": [True, True, True, True, True]
                         },
                     ]
                 },
@@ -395,7 +396,7 @@ def impact_total_graph_comparing(Building):
                     "args": [
                         {
                             "title": "Construction's life cycle GHG emissions according to SIA 2032",
-                            "visible": [True, False, True, True, False]
+                            "visible": [True, False, True, True, True]
                         },
                     ]
                 }

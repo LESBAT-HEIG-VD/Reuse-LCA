@@ -169,6 +169,15 @@ def generate_building_html(building, nav_bar):
                                                                                  building.case + cfg['figures_suffix'][
                                                                                      'imp_tot']).encode(
         'unicode-escape').decode())
+    html_content = html_content.replace('{impact_total_lot}', os.path.join('..', cfg['figures_folder'],
+                                                                       building.case + cfg['figures_suffix'][
+                                                                           'imp_tot_lot']).encode(
+        'unicode-escape').decode())
+
+    html_content = html_content.replace('{impact_total_comparing}', os.path.join('..', cfg['figures_folder'],
+                                                                       building.case + cfg['figures_suffix'][
+                                                                           'imp_tot_comparing']).encode(
+        'unicode-escape').decode())
 
 
 

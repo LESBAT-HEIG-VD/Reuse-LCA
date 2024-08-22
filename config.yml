@@ -17,6 +17,8 @@ figures_suffix:
   reused_comp_bar: "_reused_comp_bar.html"
   sankey: "_sankey.html"
   imp_tot: "_impact_total.html"
+  imp_tot_lot: "_impact_total_lot.html"
+  imp_tot_comparing: "_impact_total_comparing.html"
 html_suffix:
   building: "_building.html"
   case_study: "_case_study.html"

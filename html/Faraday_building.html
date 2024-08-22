@@ -157,8 +157,9 @@
             <div class="card-content">
                 <h2>Results Graphs</h2>
                 <div>
-                    <button id="button_comparison_gwp1" onclick="loadHtml('..\\html_figures\\Faraday_impact_total.html', 'bar_comparison'); setActiveButtons('button_comparison_gwp1','#button_comparison_gwp1, #button_comparison_ubp, #button_comparison_penr')">Impact total by cycle of life</button>
-                    <button id="button_comparison_gwp2" onclick="loadHtml('..\\html_figures\\Faraday_impact_total.html', 'bar_comparison'); setActiveButtons('button_comparison_gwp2','#button_comparison_gwp2, #button_comparison_ubp, #button_comparison_penr')">Impact total by lot</button>
+                    <button id="button_comparison_gwp1" onclick="loadHtml('..\\html_figures\\Faraday_impact_total.html', 'bar_comparison'); setActiveButtons('button_comparison_gwp1','#button_comparison_gwp1, #button_comparison_gwp2, #button_comparison_gwp3')">General impact </button>
+                    <button id="button_comparison_gwp2" onclick="loadHtml('..\\html_figures\\Faraday_impact_total_lot.html', 'bar_comparison'); setActiveButtons('button_comparison_gwp2','#button_comparison_gwp1, #button_comparison_gwp2, #button_comparison_gwp3')">Impact by category</button>
+                    <button id="button_comparison_gwp3" onclick="loadHtml('..\\html_figures\\Faraday_impact_total_comparing.html', 'bar_comparison'); setActiveButtons('button_comparison_gwp3','#button_comparison_gwp1, #button_comparison_gwp2, #button_comparison_gwp3')">Comparing reuse and new</button>
                     <button id="button_info_reuse_impacts" class="info-button" onclick="showModal('reuseImpactsDialog')">&#8505; Graph Instructions</button>
                 </div>
                 <div>
@@ -257,8 +258,8 @@
         setActiveButtons("button_1_ad", "#button_1_ad, #button_1_nv");
         loadHtml('..\\html_tables\\Faraday_gwp_total.html', 'reuse_table');
         setActiveButtons('button_reuse_table_tot','#button_reuse_table_tot, #button_reuse_table_kg, #button_reuse_table_sqm')
-        loadHtml('{button_comparison_gwp1}', 'button_comparison_gwp1');
-        setActiveButtons('button_comparison_gwp1','#button_comparison_gwp1, #button_comparison_ubp1, #button_comparison_penr1')
+        loadHtml('..\\html_figures\\Faraday_impact_total.html', 'bar_comparison');
+    setActiveButtons('button_comparison_gwp1','#button_comparison_gwp1, #button_comparison_gwp2, #button_comparison_gwp3');
       }
 
       function range(start, end) {

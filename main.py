@@ -10,6 +10,8 @@ def generate_case(case_name, nav_bar):
         building_impacts_table(Building)
         building_impacts_table(Building, variant="New")
         impact_total_graph(Building)
+        impact_total_graph_lot(Building)
+        impact_total_graph_comparing(Building)
         # add: generate sankey html
         generate_reuse_tables(Building)
 
@@ -32,8 +34,8 @@ if __name__ == "__main__":
 
         # Traitement de chaque cas
         #for case in cases:
-        #for case in ["K118","Faraday","Hobelwerk","Elys"]:
-        for case in ["K118",]:
+        for case in ["K118","Faraday","Hobelwerk","Elys"]:
+        # for case in ["K118",]:
         #for case in ["Firmenich",]:
                 generate_case(case, nav_bar)
 

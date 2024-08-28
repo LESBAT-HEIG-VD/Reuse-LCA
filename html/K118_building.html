@@ -61,7 +61,7 @@
                     <h3>Stored biogenic carbon</h3>
                 </div>
                 <div>
-                    <p>797</p><span>kg/sqm</span>
+                    <p>799</p><span>kg/sqm</span>
                 </div>
                 <div>
                     <p>5.9</p><span>kg CO2-eq./sqm/year</span>
@@ -95,13 +95,13 @@
                     <p>-4.1</p><span>kg CO2-eq./sqm/year</span>
                 </div>
                 <div>
-                    <p>12.61</p><span>% of total mass</span>
+                    <p>12.72</p><span>% of total mass</span>
                 </div>
                 <div>
-                    <p>24.95</p><span>% of total mass</span>
+                    <p>24.92</p><span>% of total mass</span>
                 </div>
                 <div>
-                    <p>116.6</p><span>km (weighted average)</span>
+                    <p>115.7</p><span>km (weighted average)</span>
                 </div>
             </section>
             </div>
@@ -155,11 +155,11 @@
     </section>
     <section class="components-impacts">
             <div class="card-content">
-                <h2>Results Graphs</h2>
+                <h2>GHG emissions results</h2>
                 <div>
-                    <button id="button_comparison_gwp1" onclick="loadHtml('..\\html_figures\\K118_impact_total.html', 'bar_comparison'); setActiveButtons('button_comparison_gwp1','#button_comparison_gwp1, #button_comparison_gwp2, #button_comparison_gwp3')">General impact </button>
-                    <button id="button_comparison_gwp2" onclick="loadHtml('..\\html_figures\\K118_impact_total_lot.html', 'bar_comparison'); setActiveButtons('button_comparison_gwp2','#button_comparison_gwp1, #button_comparison_gwp2, #button_comparison_gwp3')">Impact by category</button>
-                    <button id="button_comparison_gwp3" onclick="loadHtml('..\\html_figures\\K118_impact_total_comparing.html', 'bar_comparison'); setActiveButtons('button_comparison_gwp3','#button_comparison_gwp1, #button_comparison_gwp2, #button_comparison_gwp3')">Comparing reuse and new</button>
+                    <button id="button_comparison_gwp1" onclick="loadHtml('..\\html_figures\\K118_impact_total_comparing.html', 'bar_comparison'); setActiveButtons('button_comparison_gwp1','#button_comparison_gwp1, #button_comparison_gwp2, #button_comparison_gwp3')">Construction </button>
+                    <button id="button_comparison_gwp2" onclick="loadHtml('..\\html_figures\\K118_impact_total_bundle.html', 'bar_comparison'); setActiveButtons('button_comparison_gwp2','#button_comparison_gwp1, #button_comparison_gwp2, #button_comparison_gwp3')">By building layers</button>
+                    <button id="button_comparison_gwp3" onclick="loadHtml('..\\html_figures\\K118_impact_total_lot.html', 'bar_comparison'); setActiveButtons('button_comparison_gwp3','#button_comparison_gwp1, #button_comparison_gwp2, #button_comparison_gwp3')">By building element</button>
                     <button id="button_info_reuse_impacts" class="info-button" onclick="showModal('reuseImpactsDialog')">&#8505; Graph Instructions</button>
                 </div>
                 <div>
@@ -258,7 +258,7 @@
         setActiveButtons("button_1_ad", "#button_1_ad, #button_1_nv");
         loadHtml('..\\html_tables\\K118_gwp_total.html', 'reuse_table');
         setActiveButtons('button_reuse_table_tot','#button_reuse_table_tot, #button_reuse_table_kg, #button_reuse_table_sqm')
-        loadHtml('..\\html_figures\\K118_impact_total.html', 'bar_comparison');
+        loadHtml('..\\html_figures\\K118_impact_total_comparing.html', 'bar_comparison');
     setActiveButtons('button_comparison_gwp1','#button_comparison_gwp1, #button_comparison_gwp2, #button_comparison_gwp3');
       }
 

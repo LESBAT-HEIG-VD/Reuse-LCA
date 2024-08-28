@@ -16,9 +16,9 @@ figures_suffix:
   co2_sunburst: "_co2_sunburst.html"
   reused_comp_bar: "_reused_comp_bar.html"
   sankey: "_sankey.html"
-  imp_tot: "_impact_total.html"
   imp_tot_lot: "_impact_total_lot.html"
   imp_tot_comparing: "_impact_total_comparing.html"
+  imp_tot_bundle: "_impact_total_bundle.html"
 html_suffix:
   building: "_building.html"
   case_study: "_case_study.html"

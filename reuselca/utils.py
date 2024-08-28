@@ -165,10 +165,7 @@ def generate_building_html(building, nav_bar):
                                                                                  building.case + cfg['figures_suffix'][
                                                                                      'sankey']).encode(
         'unicode-escape').decode())
-    html_content = html_content.replace('{impact_total}', os.path.join('..', cfg['figures_folder'],
-                                                                                 building.case + cfg['figures_suffix'][
-                                                                                     'imp_tot']).encode(
-        'unicode-escape').decode())
+
     html_content = html_content.replace('{impact_total_lot}', os.path.join('..', cfg['figures_folder'],
                                                                        building.case + cfg['figures_suffix'][
                                                                            'imp_tot_lot']).encode(
@@ -178,6 +175,12 @@ def generate_building_html(building, nav_bar):
                                                                        building.case + cfg['figures_suffix'][
                                                                            'imp_tot_comparing']).encode(
         'unicode-escape').decode())
+
+    html_content = html_content.replace('{impact_total_bundle}', os.path.join('..', cfg['figures_folder'],
+                                                                       building.case + cfg['figures_suffix'][
+                                                                           'imp_tot_bundle']).encode(
+        'unicode-escape').decode())
+
 
 
 

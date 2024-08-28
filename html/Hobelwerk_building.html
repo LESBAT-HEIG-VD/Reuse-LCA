@@ -155,11 +155,11 @@
     </section>
     <section class="components-impacts">
             <div class="card-content">
-                <h2>Results Graphs</h2>
+                <h2>GHG emissions results</h2>
                 <div>
-                    <button id="button_comparison_gwp1" onclick="loadHtml('..\\html_figures\\Hobelwerk_impact_total.html', 'bar_comparison'); setActiveButtons('button_comparison_gwp1','#button_comparison_gwp1, #button_comparison_gwp2, #button_comparison_gwp3')">General impact </button>
-                    <button id="button_comparison_gwp2" onclick="loadHtml('..\\html_figures\\Hobelwerk_impact_total_lot.html', 'bar_comparison'); setActiveButtons('button_comparison_gwp2','#button_comparison_gwp1, #button_comparison_gwp2, #button_comparison_gwp3')">Impact by category</button>
-                    <button id="button_comparison_gwp3" onclick="loadHtml('..\\html_figures\\Hobelwerk_impact_total_comparing.html', 'bar_comparison'); setActiveButtons('button_comparison_gwp3','#button_comparison_gwp1, #button_comparison_gwp2, #button_comparison_gwp3')">Comparing reuse and new</button>
+                    <button id="button_comparison_gwp1" onclick="loadHtml('..\\html_figures\\Hobelwerk_impact_total_comparing.html', 'bar_comparison'); setActiveButtons('button_comparison_gwp1','#button_comparison_gwp1, #button_comparison_gwp2, #button_comparison_gwp3')">Construction </button>
+                    <button id="button_comparison_gwp2" onclick="loadHtml('..\\html_figures\\Hobelwerk_impact_total_bundle.html', 'bar_comparison'); setActiveButtons('button_comparison_gwp2','#button_comparison_gwp1, #button_comparison_gwp2, #button_comparison_gwp3')">By building layers</button>
+                    <button id="button_comparison_gwp3" onclick="loadHtml('..\\html_figures\\Hobelwerk_impact_total_lot.html', 'bar_comparison'); setActiveButtons('button_comparison_gwp3','#button_comparison_gwp1, #button_comparison_gwp2, #button_comparison_gwp3')">By building element</button>
                     <button id="button_info_reuse_impacts" class="info-button" onclick="showModal('reuseImpactsDialog')">&#8505; Graph Instructions</button>
                 </div>
                 <div>
@@ -258,7 +258,7 @@
         setActiveButtons("button_1_ad", "#button_1_ad, #button_1_nv");
         loadHtml('..\\html_tables\\Hobelwerk_gwp_total.html', 'reuse_table');
         setActiveButtons('button_reuse_table_tot','#button_reuse_table_tot, #button_reuse_table_kg, #button_reuse_table_sqm')
-        loadHtml('..\\html_figures\\Hobelwerk_impact_total.html', 'bar_comparison');
+        loadHtml('..\\html_figures\\Hobelwerk_impact_total_comparing.html', 'bar_comparison');
     setActiveButtons('button_comparison_gwp1','#button_comparison_gwp1, #button_comparison_gwp2, #button_comparison_gwp3');
       }
 

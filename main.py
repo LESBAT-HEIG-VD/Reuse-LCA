@@ -9,9 +9,9 @@ def generate_case(case_name, nav_bar):
         # Génération et sauvegarde des tableaux d'impact et visualisations
         building_impacts_table(Building)
         building_impacts_table(Building, variant="New")
-        impact_total_graph(Building)
         impact_total_graph_lot(Building)
         impact_total_graph_comparing(Building)
+        impact_total_graph_bundle(Building)
         # add: generate sankey html
         generate_reuse_tables(Building)
 

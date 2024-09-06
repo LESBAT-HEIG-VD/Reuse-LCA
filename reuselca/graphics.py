@@ -18,11 +18,6 @@ impact_name = {"GWP":"GHG emission (kg CO2eq./kg)",
                "PE-NR":"Primary energy, non renewable (kWh/kg)"
                }
 
-import os
-import plotly.express as px
-import plotly.graph_objects as go
-import numpy as np
-
 def impact_total_graph_lot(Building):
     # Charger les données
     aaa = Building.data
@@ -268,13 +263,21 @@ def impact_total_graph_comparing(Building):
     # Charger les données
     aaa = Building.impacts
     aaa2 = Building.impacts_new
+    aaa[['Total difference Initial emissions', 'Total difference SIA 2023 scope']] = pd.DataFrame({
+        'Total difference Initial emissions': aaa['A1-A3'] + aaa['A4'],
+        'Total difference SIA 2023 scope': aaa['A1-A3'] + aaa['A4'] + aaa['C1-C4']
+    })
+    aaa2[['Total difference Initial emissions', 'Total difference SIA 2023 scope']] = pd.DataFrame({
+        'Total difference Initial emissions': aaa2['A1-A3'] + aaa2['A4'],
+        'Total difference SIA 2023 scope': aaa2['A1-A3'] + aaa2['A4'] + aaa2['C1-C4']
+    })
     aaa3 = aaa2 - aaa
-    aaa = aaa.rename(columns={'Total': 'Total difference'})
-    aaa2 = aaa2.rename(columns={'Total': 'Total difference'})
-    aaa3 = aaa3.rename(columns={'Total': 'Total difference'})
+    aaa = aaa.rename(columns={'Total': 'Total difference Building life cycle'})
+    aaa2 = aaa2.rename(columns={'Total': 'Total difference Building life cycle'})
+    aaa3 = aaa3.rename(columns={'Total': 'Total difference Building life cycle'})
     aaa3[['A1-A3', 'A4', 'B4', 'C1-C4']] = 0
-    aaa[['Total difference']] = 0
-    aaa2[['Total difference']] = 0
+    aaa[['Total difference Building life cycle', 'Total difference SIA 2023 scope','Total difference Initial emissions']] = 0
+    aaa2[['Total difference Building life cycle', 'Total difference SIA 2023 scope','Total difference Initial emissions']] = 0
     aaa = aaa.transpose()
     aaa2 = aaa2.transpose()
     aaa3 = aaa3.transpose()
@@ -282,8 +285,7 @@ def impact_total_graph_comparing(Building):
     aaa2["variant"] = "Reference scenario without reuse"
     aaa3["variant"] = "Difference in impact thanks to reuse"
 
-
-    bbb = pd.concat([aaa, aaa2,aaa3], axis=0)
+    bbb = pd.concat([aaa, aaa2, aaa3], axis=0)
 
     # Définir le chemin pour enregistrer le graphique
     html_path = os.path.join(ROOT_DIR, cfg['figures_folder'], Building.case + "_impact_total_comparing.html")
@@ -292,7 +294,6 @@ def impact_total_graph_comparing(Building):
     fig = go.Figure()
 
     bbb["Life cycle steps"] = bbb.index
-    print(bbb)
 
     fig = px.bar(bbb, x="variant", y="GWP", color="Life cycle steps", title=Building.case)
 
@@ -357,7 +358,7 @@ def impact_total_graph_comparing(Building):
                     "args": [
                         {
                             "title": "Construction's initial GHG emissions",
-                            "visible": [True, True, False, False, True]
+                            "visible": [True, True, False, False, False, True, False]
                         },
                     ]
                 },
@@ -367,7 +368,7 @@ def impact_total_graph_comparing(Building):
                     "args": [
                         {
                             "title": "Construction's life cycle GHG emissions",
-                            "visible": [True, True, True, True, True]
+                            "visible": [True, True, True, True, True, False, False]
                         },
                     ]
                 },
@@ -377,7 +378,7 @@ def impact_total_graph_comparing(Building):
                     "args": [
                         {
                             "title": "Construction's life cycle GHG emissions according to SIA 2032",
-                            "visible": [True, False, True, True, True]
+                            "visible": [True, False, True, True, False, False, True]
                         },
                     ]
                 }

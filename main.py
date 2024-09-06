@@ -1,4 +1,5 @@
 from reuselca import *
+from reuselca.sankey import sankey
 
 
 def generate_case(case_name, nav_bar):
@@ -12,7 +13,7 @@ def generate_case(case_name, nav_bar):
         impact_total_graph_lot(Building)
         impact_total_graph_comparing(Building)
         impact_total_graph_bundle(Building)
-        # add: generate sankey html
+        sankey(Building)
         generate_reuse_tables(Building)
 
         # Génération du rapport HTML pour le cas de bâtiment

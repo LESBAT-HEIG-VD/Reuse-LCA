@@ -166,21 +166,52 @@ def generate_building_html(building, nav_bar):
                                                                                      'sankey']).encode(
         'unicode-escape').decode())
 
-    html_content = html_content.replace('{impact_total_lot}', os.path.join('..', cfg['figures_folder'],
+    html_content = html_content.replace('{impact_total_lot_tonnes}', os.path.join('..', cfg['figures_folder'],
                                                                        building.case + cfg['figures_suffix'][
-                                                                           'imp_tot_lot']).encode(
+                                                                           'imp_tot_lot_tonnes']).encode(
+        'unicode-escape').decode())
+    html_content = html_content.replace('{impact_total_lot_kg_per_m2}', os.path.join('..', cfg['figures_folder'],
+                                                                           building.case + cfg['figures_suffix'][
+                                                                               'imp_tot_lot_kg_per_m2']).encode(
+        'unicode-escape').decode())
+    html_content = html_content.replace('{impact_total_lot_kg_per_m2_per_year}', os.path.join('..', cfg['figures_folder'],
+                                                                           building.case + cfg['figures_suffix'][
+                                                                               'imp_tot_lot_kg_per_m2_per_year']).encode(
         'unicode-escape').decode())
 
-    html_content = html_content.replace('{impact_total_comparing}', os.path.join('..', cfg['figures_folder'],
+
+
+    html_content = html_content.replace('{impact_total_bundle_tonnes}', os.path.join('..', cfg['figures_folder'],
                                                                        building.case + cfg['figures_suffix'][
-                                                                           'imp_tot_comparing']).encode(
+                                                                           'imp_tot_bundle_tonnes']).encode(
         'unicode-escape').decode())
 
-    html_content = html_content.replace('{impact_total_bundle}', os.path.join('..', cfg['figures_folder'],
-                                                                       building.case + cfg['figures_suffix'][
-                                                                           'imp_tot_bundle']).encode(
+    html_content = html_content.replace('{impact_total_bundle_kg_per_m2}', os.path.join('..', cfg['figures_folder'],
+                                                                              building.case + cfg['figures_suffix'][
+                                                                                  'imp_tot_bundle_kg_per_m2']).encode(
+        'unicode-escape').decode())
+    html_content = html_content.replace('{impact_total_bundle_kg_per_m2_per_year}', os.path.join('..', cfg['figures_folder'],
+                                                                              building.case + cfg['figures_suffix'][
+                                                                                  'imp_tot_bundle_kg_per_m2_per_year']).encode(
         'unicode-escape').decode())
 
+    html_content = html_content.replace('{impact_total_comparing_tonnes}', os.path.join('..', cfg['figures_folder'],
+                                                                                     building.case +
+                                                                                     cfg['figures_suffix'][
+                                                                                         'imp_tot_comparing_tonnes']).encode(
+        'unicode-escape').decode())
+
+    html_content = html_content.replace('{impact_total_comparing_kg_per_m2}', os.path.join('..', cfg['figures_folder'],
+                                                                                        building.case +
+                                                                                        cfg['figures_suffix'][
+                                                                                            'imp_tot_comparing_kg_per_m2']).encode(
+        'unicode-escape').decode())
+
+    html_content = html_content.replace('{impact_total_comparing_kg_per_m2_per_year}',
+                                        os.path.join('..', cfg['figures_folder'],
+                                                     building.case + cfg['figures_suffix'][
+                                                         'imp_tot_comparing_kg_per_m2_per_year']).encode(
+                                            'unicode-escape').decode())
 
 
 

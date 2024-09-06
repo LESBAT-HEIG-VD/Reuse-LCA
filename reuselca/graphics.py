@@ -18,6 +18,7 @@ impact_name = {"GWP":"GHG emission (kg CO2eq./kg)",
                "PE-NR":"Primary energy, non renewable (kWh/kg)"
                }
 
+
 def impact_total_graph_lot(Building):
     # Charger les données
     aaa = Building.data
@@ -29,114 +30,85 @@ def impact_total_graph_lot(Building):
     # Extract step names from the Steps column
     aaa["Life cycle steps"] = aaa["Life cycle steps"].str.replace("GWP_", "")
 
-    # Définir le chemin pour enregistrer le graphique
-    html_path = os.path.join(ROOT_DIR, cfg['figures_folder'], Building.case + "_impact_total_lot.html")
+    # Calculer les données en kg CO2 eq/m² et kg CO2 eq/m²/an
+    sqm = Building.sqm
+    years = 60  # Durée de vie en années
+    aaa["GWP (kg/m²)"] = aaa["GWP"] * 1000 / sqm
+    aaa["GWP (kg/m²/an)"] = aaa["GWP"] * 1000 / (sqm * years)
 
-    # Création du graphique
-    fig = go.Figure()
+    # Définir les chemins pour enregistrer les graphiques
+    html_paths = {
+        "tonnes": os.path.join(ROOT_DIR, cfg['figures_folder'], Building.case + "_impact_total_lot_tonnes.html"),
+        "kg_per_m2": os.path.join(ROOT_DIR, cfg['figures_folder'], Building.case + "_impact_total_lot_kg_per_m2.html"),
+        "kg_per_m2_per_year": os.path.join(ROOT_DIR, cfg['figures_folder'],
+                                           Building.case + "_impact_total_lot_kg_per_m2_per_year.html")
+    }
 
+    # Création des graphiques
+    fig_dict = {}
+    for unit, title_suffix, y_column in [
+        ("tonnes", "tonnes CO2 eq", "GWP"),
+        ("kg_per_m2", "kg CO2 eq/m²", "GWP (kg/m²)"),
+        ("kg_per_m2_per_year", "kg CO2 eq/m²/an", "GWP (kg/m²/an)")
+    ]:
+        fig = px.bar(aaa, x="Category", y=y_column, color="Life cycle steps", title="cases")
 
-    fig = px.bar(aaa, x="Category", y="GWP", color="Life cycle steps", title="cases")
+        fig.update_layout(
+            title=f"Impact by category of case study {Building.case} ({title_suffix})",
+            yaxis_title=f"GHG emissions ({title_suffix})",
+            template="plotly_white",
+            margin=dict(l=200, r=50, t=50, b=50)
+        )
 
-    fig.update_layout(
-        title="Impact by category of case study " + Building.case,
-        yaxis_title="GHG emissions (tonnes CO2 eq)",
-        template="plotly_white",
-        # barmode='stack',  # Activer l'empilement des barres
-        margin=dict(l=200, r=50, t=50, b=50))
+        updatemenus = [
+            {
+                'active': 1,
+                "buttons": [
+                    {
+                        "label": "Initial emissions (modules A)",
+                        "method": "update",
+                        "args": [
+                            {
+                                "title": "Construction's initial GHG emissions",
+                                "visible": [True, True, False, False]
+                            },
+                        ]
+                    },
+                    {
+                        "label": "Building life cycle",
+                        "method": "update",
+                        "args": [
+                            {
+                                "title": "Construction's life cycle GHG emissions",
+                                "visible": [True, True, True, True]
+                            },
+                        ]
+                    },
+                    {
+                        "label": "SIA 2032 scope",
+                        "method": "update",
+                        "args": [
+                            {
+                                "title": "Construction's life cycle GHG emissions according to SIA 2032",
+                                "visible": [True, False, True, True]
+                            },
+                        ]
+                    }
+                ],
+                "type": "buttons",
+                "direction": "down",
+                "showactive": False,
+                "x": -0.2,
+                "y": 0.9
+            }
+        ]
 
+        fig.update_layout(updatemenus=updatemenus)
+        fig.write_html(html_paths[unit])
+        fig_dict[unit] = fig
 
-    updatemenus = [
-        # {
-        #     "buttons": [
-        #         {
-        #             "label": "tonnes CO2 eq.",
-        #             "method": "update",
-        #             "args": [{"x": [np.array(['cases', 'cases', 'cases', 'cases', 'cases'], dtype=object)],
-        #                       "y": get_values("tonnes CO2 eq."),
-        #                       "yaxis": {"title": "Emissions (tonnes CO2 eq.)"},
-        #                       "title": "Construction's life cycle GHG emissions",
-        #                       "visible": True
-        #                       },
-        #                      ]
-        #         },
-        #         {
-        #             "label": "kg CO2 eq./m²",
-        #             "method": "update",
-        #             "args": [
-        #                 {"x": [np.array(['cases', 'cases', 'cases', 'cases', 'cases'], dtype=object)],
-        #                  "y": get_values("kg CO2 eq./m²"),
-        #                  "yaxis": {"title": "Emissions (kg CO2 eq./m²)"},
-        #                  "title": "Construction's life cycle GHG emissions",
-        #                  "visible": True
-        #                  },
-        #             ]
-        #         },
-        #         {
-        #             "label": "kg CO2 eq./m²/an",
-        #             "method": "update",
-        #             "args": [
-        #                 {"x": [np.array(['cases', 'cases', 'cases', 'cases', 'cases'], dtype=object)],
-        #                  "y": get_values("kg CO2 eq./m²/an"),
-        #                  "yaxis": {"title": "Emissions (kg CO2 eq./m²/an)"},
-        #                  "title": "Construction's life cycle GHG emissions",
-        #                  "visible": True
-        #                  },
-        #             ]
-        #         },
-        #     ],
-        #     "type": "dropdown",
-        #     "direction": "down",
-        #     "showactive": True,
-        #     "x": -0.2,  # Position horizontale du menu des unités (dans la marge)
-        #     "y": 0.65  # Position verticale pour le menu des unités
-        # },
-        {
-            'active': 1,
-            "buttons": [
-                {
-                    "label": "Initial emissions (modules A)",
-                    "method": "update",
-                    "args": [
-                        {
-                            "title": "Construction's initial GHG emissions",
-                            "visible": [True, True, False, False]
-                        },
-                    ]
-                },
-                {
-                    "label": "Building life cycle",
-                    "method": "update",
-                    "args": [
-                        {
-                            "title": "Construction's life cycle GHG emissions",
-                            "visible": [True, True, True, True]
-                        },
-                    ]
-                },
-                {
-                    "label": "SIA 2032 scope",
-                    "method": "update",
-                    "args": [
-                        {
-                            "title": "Construction's life cycle GHG emissions according to SIA 2032",
-                            "visible": [True, False, True, True]
-                        },
-                    ]
-                }
-            ],
-            "type": "buttons",
-            "direction": "down",
-            "showactive": False,
-            "x": -0.2,  # Position horizontale du menu des unités (dans la marge)
-            "y": 0.9  # Position verticale pour le menu des unités
-        }
+    return fig_dict
 
-    ]
-
-    fig.update_layout(updatemenus=updatemenus)
-    fig.write_html(html_path)
-    return fig
 
 def impact_total_graph_bundle(Building):
     # Charger les données
@@ -149,117 +121,88 @@ def impact_total_graph_bundle(Building):
     # Extract step names from the Steps column
     aaa["Life cycle steps"] = aaa["Life cycle steps"].str.replace("GWP_", "")
 
-    # Définir le chemin pour enregistrer le graphique
-    html_path = os.path.join(ROOT_DIR, cfg['figures_folder'], Building.case + "_impact_total_bundle.html")
+    # Calculer les données en kg CO2 eq/m² et kg CO2 eq/m²/an
+    sqm = Building.sqm
+    years = 60  # Durée de vie en années
+    aaa["GWP (kg/m²)"] = aaa["GWP"] * 1000 / sqm
+    aaa["GWP (kg/m²/an)"] = aaa["GWP"] * 1000 / (sqm * years)
 
-    # Création du graphique
-    fig = go.Figure()
+    # Définir les chemins pour enregistrer les graphiques
+    html_paths = {
+        "tonnes": os.path.join(ROOT_DIR, cfg['figures_folder'], Building.case + "_impact_total_bundle_tonnes.html"),
+        "kg_per_m2": os.path.join(ROOT_DIR, cfg['figures_folder'],
+                                  Building.case + "_impact_total_bundle_kg_per_m2.html"),
+        "kg_per_m2_per_year": os.path.join(ROOT_DIR, cfg['figures_folder'],
+                                           Building.case + "_impact_total_bundle_kg_per_m2_per_year.html")
+    }
 
+    # Création des graphiques
+    fig_dict = {}
+    for unit, title_suffix, y_column in [
+        ("tonnes", "tonnes CO2 eq", "GWP"),
+        ("kg_per_m2", "kg CO2 eq/m²", "GWP (kg/m²)"),
+        ("kg_per_m2_per_year", "kg CO2 eq/m²/an", "GWP (kg/m²/an)")
+    ]:
+        fig = px.bar(aaa, x="Bundle", y=y_column, color="Life cycle steps", title="cases")
 
-    fig = px.bar(aaa, x="Bundle", y="GWP", color="Life cycle steps", title="cases")
+        fig.update_layout(
+            title=f"Impact by bundle of case study {Building.case} ({title_suffix})",
+            yaxis_title=f"GHG emissions ({title_suffix})",
+            template="plotly_white",
+            margin=dict(l=200, r=50, t=50, b=50)
+        )
 
-    fig.update_layout(
-        title="Impact by bundle of case study " + Building.case,
-        yaxis_title="GHG emissions (tonnes CO2 eq)",
-        template="plotly_white",
-        # barmode='stack',  # Activer l'empilement des barres
-        margin=dict(l=200, r=50, t=50, b=50))
+        updatemenus = [
+            {
+                'active': 1,
+                "buttons": [
+                    {
+                        "label": "Initial emissions (modules A)",
+                        "method": "update",
+                        "args": [
+                            {
+                                "title": "Construction's initial GHG emissions",
+                                "visible": [True, True, False, False]
+                            },
+                        ]
+                    },
+                    {
+                        "label": "Building life cycle",
+                        "method": "update",
+                        "args": [
+                            {
+                                "title": "Construction's life cycle GHG emissions",
+                                "visible": [True, True, True, True]
+                            },
+                        ]
+                    },
+                    {
+                        "label": "SIA 2032 scope",
+                        "method": "update",
+                        "args": [
+                            {
+                                "title": "Construction's life cycle GHG emissions according to SIA 2032",
+                                "visible": [True, False, True, True]
+                            },
+                        ]
+                    }
+                ],
+                "type": "buttons",
+                "direction": "down",
+                "showactive": False,
+                "x": -0.2,
+                "y": 0.9
+            }
+        ]
 
+        fig.update_layout(updatemenus=updatemenus)
+        fig.write_html(html_paths[unit])
+        fig_dict[unit] = fig
 
-    updatemenus = [
-        # {
-        #     "buttons": [
-        #         {
-        #             "label": "tonnes CO2 eq.",
-        #             "method": "update",
-        #             "args": [{"x": [np.array(['cases', 'cases', 'cases', 'cases', 'cases'], dtype=object)],
-        #                       "y": get_values("tonnes CO2 eq."),
-        #                       "yaxis": {"title": "Emissions (tonnes CO2 eq.)"},
-        #                       "title": "Construction's life cycle GHG emissions",
-        #                       "visible": True
-        #                       },
-        #                      ]
-        #         },
-        #         {
-        #             "label": "kg CO2 eq./m²",
-        #             "method": "update",
-        #             "args": [
-        #                 {"x": [np.array(['cases', 'cases', 'cases', 'cases', 'cases'], dtype=object)],
-        #                  "y": get_values("kg CO2 eq./m²"),
-        #                  "yaxis": {"title": "Emissions (kg CO2 eq./m²)"},
-        #                  "title": "Construction's life cycle GHG emissions",
-        #                  "visible": True
-        #                  },
-        #             ]
-        #         },
-        #         {
-        #             "label": "kg CO2 eq./m²/an",
-        #             "method": "update",
-        #             "args": [
-        #                 {"x": [np.array(['cases', 'cases', 'cases', 'cases', 'cases'], dtype=object)],
-        #                  "y": get_values("kg CO2 eq./m²/an"),
-        #                  "yaxis": {"title": "Emissions (kg CO2 eq./m²/an)"},
-        #                  "title": "Construction's life cycle GHG emissions",
-        #                  "visible": True
-        #                  },
-        #             ]
-        #         },
-        #     ],
-        #     "type": "dropdown",
-        #     "direction": "down",
-        #     "showactive": True,
-        #     "x": -0.2,  # Position horizontale du menu des unités (dans la marge)
-        #     "y": 0.65  # Position verticale pour le menu des unités
-        # },
-        {
-            'active': 1,
-            "buttons": [
-                {
-                    "label": "Initial emissions (modules A)",
-                    "method": "update",
-                    "args": [
-                        {
-                            "title": "Construction's initial GHG emissions",
-                            "visible": [True, True, False, False]
-                        },
-                    ]
-                },
-                {
-                    "label": "Building life cycle",
-                    "method": "update",
-                    "args": [
-                        {
-                            "title": "Construction's life cycle GHG emissions",
-                            "visible": [True, True, True, True]
-                        },
-                    ]
-                },
-                {
-                    "label": "SIA 2032 scope",
-                    "method": "update",
-                    "args": [
-                        {
-                            "title": "Construction's life cycle GHG emissions according to SIA 2032",
-                            "visible": [True, False, True, True]
-                        },
-                    ]
-                }
-            ],
-            "type": "buttons",
-            "direction": "down",
-            "showactive": False,
-            "x": -0.2,  # Position horizontale du menu des unités (dans la marge)
-            "y": 0.9  # Position verticale pour le menu des unités
-        }
+    return fig_dict
 
-    ]
-
-    fig.update_layout(updatemenus=updatemenus)
-    fig.write_html(html_path)
-    return fig
 
 def impact_total_graph_comparing(Building):
-
     # Charger les données
     aaa = Building.impacts
     aaa2 = Building.impacts_new
@@ -276,8 +219,10 @@ def impact_total_graph_comparing(Building):
     aaa2 = aaa2.rename(columns={'Total': 'Total difference Building life cycle'})
     aaa3 = aaa3.rename(columns={'Total': 'Total difference Building life cycle'})
     aaa3[['A1-A3', 'A4', 'B4', 'C1-C4']] = 0
-    aaa[['Total difference Building life cycle', 'Total difference SIA 2023 scope','Total difference Initial emissions']] = 0
-    aaa2[['Total difference Building life cycle', 'Total difference SIA 2023 scope','Total difference Initial emissions']] = 0
+    aaa[['Total difference Building life cycle', 'Total difference SIA 2023 scope',
+         'Total difference Initial emissions']] = 0
+    aaa2[['Total difference Building life cycle', 'Total difference SIA 2023 scope',
+          'Total difference Initial emissions']] = 0
     aaa = aaa.transpose()
     aaa2 = aaa2.transpose()
     aaa3 = aaa3.transpose()
@@ -286,115 +231,88 @@ def impact_total_graph_comparing(Building):
     aaa3["variant"] = "Difference in impact thanks to reuse"
 
     bbb = pd.concat([aaa, aaa2, aaa3], axis=0)
-
-    # Définir le chemin pour enregistrer le graphique
-    html_path = os.path.join(ROOT_DIR, cfg['figures_folder'], Building.case + "_impact_total_comparing.html")
-
-    # Création du graphique
-    fig = go.Figure()
-
     bbb["Life cycle steps"] = bbb.index
 
-    fig = px.bar(bbb, x="variant", y="GWP", color="Life cycle steps", title=Building.case)
+    # Calculer les données en kg CO2 eq/m² et kg CO2 eq/m²/an
+    sqm = Building.sqm
+    years = 60  # Durée de vie en années
+    bbb["GWP (kg/m²)"] = bbb["GWP"] * 1000 / sqm
+    bbb["GWP (kg/m²/an)"] = bbb["GWP"] * 1000 / (sqm * years)
 
-    fig.update_layout(
-        title="Comparing the project and the reference scenario without reuse ",
-        yaxis_title=" GHG Emissions (tonnes CO2 eq.)",
-        template="plotly_white",
-        # barmode='stack',  # Activer l'empilement des barres
-        margin=dict(l=200, r=500, t=50, b=50))
+    # Définir les chemins pour enregistrer les graphiques
+    html_paths = {
+        "tonnes": os.path.join(ROOT_DIR, cfg['figures_folder'], Building.case + "_impact_total_comparing_tonnes.html"),
+        "kg_per_m2": os.path.join(ROOT_DIR, cfg['figures_folder'],
+                                  Building.case + "_impact_total_comparing_kg_per_m2.html"),
+        "kg_per_m2_per_year": os.path.join(ROOT_DIR, cfg['figures_folder'],
+                                           Building.case + "_impact_total_comparing_kg_per_m2_per_year.html")
+    }
 
-    updatemenus = [
-        # {
-        #     "buttons": [
-        #         {
-        #             "label": "tonnes CO2 eq.",
-        #             "method": "update",
-        #             "args": [{"x": [np.array(['cases', 'cases', 'cases', 'cases', 'cases'], dtype=object)],
-        #                       "y": get_values("tonnes CO2 eq."),
-        #                       "yaxis": {"title": "Emissions (tonnes CO2 eq.)"},
-        #                       "title": "Construction's life cycle GHG emissions",
-        #                       "visible": True
-        #                       },
-        #                      ]
-        #         },
-        #         {
-        #             "label": "kg CO2 eq./m²",
-        #             "method": "update",
-        #             "args": [
-        #                 {"x": [np.array(['cases', 'cases', 'cases', 'cases', 'cases'], dtype=object)],
-        #                  "y": get_values("kg CO2 eq./m²"),
-        #                  "yaxis": {"title": "Emissions (kg CO2 eq./m²)"},
-        #                  "title": "Construction's life cycle GHG emissions",
-        #                  "visible": True
-        #                  },
-        #             ]
-        #         },
-        #         {
-        #             "label": "kg CO2 eq./m²/an",
-        #             "method": "update",
-        #             "args": [
-        #                 {"x": [np.array(['cases', 'cases', 'cases', 'cases', 'cases'], dtype=object)],
-        #                  "y": get_values("kg CO2 eq./m²/an"),
-        #                  "yaxis": {"title": "Emissions (kg CO2 eq./m²/an)"},
-        #                  "title": "Construction's life cycle GHG emissions",
-        #                  "visible": True
-        #                  },
-        #             ]
-        #         },
-        #     ],
-        #     "type": "dropdown",
-        #     "direction": "down",
-        #     "showactive": True,
-        #     "x": -0.2,  # Position horizontale du menu des unités (dans la marge)
-        #     "y": 0.65  # Position verticale pour le menu des unités
-        # },
-        {
-            'active': 1,
-            "buttons": [
-                {
-                    "label": "Initial emissions (modules A)",
-                    "method": "update",
-                    "args": [
-                        {
-                            "title": "Construction's initial GHG emissions",
-                            "visible": [True, True, False, False, False, True, False]
-                        },
-                    ]
-                },
-                {
-                    "label": "Building life cycle",
-                    "method": "update",
-                    "args": [
-                        {
-                            "title": "Construction's life cycle GHG emissions",
-                            "visible": [True, True, True, True, True, False, False]
-                        },
-                    ]
-                },
-                {
-                    "label": "SIA 2032 scope",
-                    "method": "update",
-                    "args": [
-                        {
-                            "title": "Construction's life cycle GHG emissions according to SIA 2032",
-                            "visible": [True, False, True, True, False, False, True]
-                        },
-                    ]
-                }
-            ],
-            "type": "buttons",
-            "direction": "down",
-            "showactive": False,
-            "x": -0.2,  # Position horizontale du menu des unités (dans la marge)
-            "y": 0.9  # Position verticale pour le menu des unités
-        }
+    # Création des graphiques
+    fig_dict = {}
+    for unit, title_suffix, y_column in [
+        ("tonnes", "tonnes CO2 eq", "GWP"),
+        ("kg_per_m2", "kg CO2 eq/m²", "GWP (kg/m²)"),
+        ("kg_per_m2_per_year", "kg CO2 eq/m²/an", "GWP (kg/m²/an)")
+    ]:
+        fig = px.bar(bbb, x="variant", y=y_column, color="Life cycle steps", title=Building.case)
 
-    ]
+        fig.update_layout(
+            title=f"Comparing the project and the reference scenario without reuse ({title_suffix})",
+            yaxis_title=f"GHG Emissions ({title_suffix})",
+            template="plotly_white",
+            margin=dict(l=200, r=500, t=50, b=50)
+        )
 
-    fig.update_layout(updatemenus=updatemenus)
-    fig.write_html(html_path)
-    return fig
+        updatemenus = [
+            {
+                'active': 1,
+                "buttons": [
+                    {
+                        "label": "Initial emissions (modules A)",
+                        "method": "update",
+                        "args": [
+                            {
+                                "title": "Construction's initial GHG emissions",
+                                "visible": [True, True, False, False, False, True, False]
+                            },
+                        ]
+                    },
+                    {
+                        "label": "Building life cycle",
+                        "method": "update",
+                        "args": [
+                            {
+                                "title": "Construction's life cycle GHG emissions",
+                                "visible": [True, True, True, True, True, False, False]
+                            },
+                        ]
+                    },
+                    {
+                        "label": "SIA 2032 scope",
+                        "method": "update",
+                        "args": [
+                            {
+                                "title": "Construction's life cycle GHG emissions according to SIA 2032",
+                                "visible": [True, False, True, True, False, False, True]
+                            },
+                        ]
+                    }
+                ],
+                "type": "buttons",
+                "direction": "down",
+                "showactive": False,
+                "x": -0.2,
+                "y": 0.9
+            }
+        ]
+
+        fig.update_layout(updatemenus=updatemenus)
+        fig.write_html(html_paths[unit])
+        fig_dict[unit] = fig
+
+    return fig_dict
+
 
 def building_impacts_table(Building, variant="Actual"):
     if variant == "Actual":

@@ -33,8 +33,9 @@ def impact_total_graph_lot(Building):
     # Calculer les données en kg CO2 eq/m² et kg CO2 eq/m²/an
     sqm = Building.sqm
     years = 60  # Durée de vie en années
-    aaa["GWP (kg/m²)"] = aaa["GWP"] / sqm
-    aaa["GWP (kg/m²/an)"] = aaa["GWP"]  / (sqm * years)
+    aaa["GWP (tonnes)"] = ( aaa["GWP"] * sqm ) / 1000
+    aaa["GWP (kg/m²)"] = aaa["GWP"]
+    aaa["GWP (kg/m²/an)"] = aaa["GWP"]  / years
 
     # Définir les chemins pour enregistrer les graphiques
     html_paths = {
@@ -47,7 +48,7 @@ def impact_total_graph_lot(Building):
     # Création des graphiques
     fig_dict = {}
     for unit, title_suffix, y_column in [
-        ("tonnes", "tonnes CO2 eq", "GWP"),
+        ("tonnes", "tonnes CO2 eq", "GWP (tonnes)"),
         ("kg_per_m2", "kg CO2 eq/m²", "GWP (kg/m²)"),
         ("kg_per_m2_per_year", "kg CO2 eq/m²/an", "GWP (kg/m²/an)")
     ]:
@@ -124,8 +125,9 @@ def impact_total_graph_bundle(Building):
     # Calculer les données en kg CO2 eq/m² et kg CO2 eq/m²/an
     sqm = Building.sqm
     years = 60  # Durée de vie en années
-    aaa["GWP (kg/m²)"] = aaa["GWP"] / sqm
-    aaa["GWP (kg/m²/an)"] = aaa["GWP"]  / (sqm * years)
+    aaa["GWP (tonnes)"] = (aaa["GWP"] * sqm )/ 1000
+    aaa["GWP (kg/m²)"] = aaa["GWP"]
+    aaa["GWP (kg/m²/an)"] = aaa["GWP"]  /  years
 
     # Définir les chemins pour enregistrer les graphiques
     html_paths = {
@@ -139,7 +141,7 @@ def impact_total_graph_bundle(Building):
     # Création des graphiques
     fig_dict = {}
     for unit, title_suffix, y_column in [
-        ("tonnes", "tonnes CO2 eq", "GWP"),
+        ("tonnes", "tonnes CO2 eq", "GWP (tonnes)"),
         ("kg_per_m2", "kg CO2 eq/m²", "GWP (kg/m²)"),
         ("kg_per_m2_per_year", "kg CO2 eq/m²/an", "GWP (kg/m²/an)")
     ]:
@@ -236,6 +238,7 @@ def impact_total_graph_comparing(Building):
     # Calculer les données en kg CO2 eq/m² et kg CO2 eq/m²/an
     sqm = Building.sqm
     years = 60  # Durée de vie en années
+    bbb["GWP (tonnes)"] = bbb["GWP"] / 1000
     bbb["GWP (kg/m²)"] = bbb["GWP"] / sqm
     bbb["GWP (kg/m²/an)"] = bbb["GWP"]  / (sqm * years)
 
@@ -251,7 +254,7 @@ def impact_total_graph_comparing(Building):
     # Création des graphiques
     fig_dict = {}
     for unit, title_suffix, y_column in [
-        ("tonnes", "tonnes CO2 eq", "GWP"),
+        ("tonnes", "tonnes CO2 eq", "GWP (tonnes)"),
         ("kg_per_m2", "kg CO2 eq/m²", "GWP (kg/m²)"),
         ("kg_per_m2_per_year", "kg CO2 eq/m²/an", "GWP (kg/m²/an)")
     ]:

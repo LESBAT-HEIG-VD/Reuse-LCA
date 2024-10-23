@@ -33,8 +33,8 @@ def impact_total_graph_lot(Building):
     # Calculer les données en kg CO2 eq/m² et kg CO2 eq/m²/an
     sqm = Building.sqm
     years = 60  # Durée de vie en années
-    aaa["GWP (kg/m²)"] = aaa["GWP"] * 1000 / sqm
-    aaa["GWP (kg/m²/an)"] = aaa["GWP"] * 1000 / (sqm * years)
+    aaa["GWP (kg/m²)"] = aaa["GWP"] / sqm
+    aaa["GWP (kg/m²/an)"] = aaa["GWP"]  / (sqm * years)
 
     # Définir les chemins pour enregistrer les graphiques
     html_paths = {
@@ -124,8 +124,8 @@ def impact_total_graph_bundle(Building):
     # Calculer les données en kg CO2 eq/m² et kg CO2 eq/m²/an
     sqm = Building.sqm
     years = 60  # Durée de vie en années
-    aaa["GWP (kg/m²)"] = aaa["GWP"] * 1000 / sqm
-    aaa["GWP (kg/m²/an)"] = aaa["GWP"] * 1000 / (sqm * years)
+    aaa["GWP (kg/m²)"] = aaa["GWP"] / sqm
+    aaa["GWP (kg/m²/an)"] = aaa["GWP"]  / (sqm * years)
 
     # Définir les chemins pour enregistrer les graphiques
     html_paths = {
@@ -236,8 +236,8 @@ def impact_total_graph_comparing(Building):
     # Calculer les données en kg CO2 eq/m² et kg CO2 eq/m²/an
     sqm = Building.sqm
     years = 60  # Durée de vie en années
-    bbb["GWP (kg/m²)"] = bbb["GWP"] * 1000 / sqm
-    bbb["GWP (kg/m²/an)"] = bbb["GWP"] * 1000 / (sqm * years)
+    bbb["GWP (kg/m²)"] = bbb["GWP"] / sqm
+    bbb["GWP (kg/m²/an)"] = bbb["GWP"]  / (sqm * years)
 
     # Définir les chemins pour enregistrer les graphiques
     html_paths = {

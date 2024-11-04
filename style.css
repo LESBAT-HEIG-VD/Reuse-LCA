@@ -20,6 +20,13 @@ section {
     /*margin-right: 100px;*/
 }
 
+.title-banner {
+            background-color: #f2f2f2; /* gris clair */
+            padding: 20px;
+            text-align: center;
+            border-bottom: 1px solid #ddd; /* optionnel, pour une légère bordure */
+        }
+
  /* Description section styles */
 .description {
     display: grid;

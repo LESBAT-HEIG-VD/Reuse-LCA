@@ -7,7 +7,9 @@
 </head>
 <body>
     {navigation_bar}
-    <h1 class="title-banner">{title}</h1>
+    <div class="title-banner">
+        <h1>{title}</h1>
+    </div>
     <section class="description">
         <div style="text-align: center">
           <img src={building_photo_src} height=300px alt="Building Photo">
@@ -44,10 +46,10 @@
                     <p>{mat_intensity}</p><span>kg/m&sup2</span>
                 </div>
                 <div>
-                    <p>{ghg_total}</p><span>kg CO2-eq./m&sup2/year</span>
+                    <p>{ghg_total}</p><span>kg CO2-eq./m&sup2</span>
                 </div>
                 <div>
-                    <p>{stored_bio_carb}</p><span>kgC/m&sup2/year</span>
+                    <p>{stored_bio_carb}</p><span>kgC/m&sup2</span>
                 </div>
             </section>
             </div>
@@ -72,7 +74,7 @@
                     <h3>Reuse supply distance</h3>
                 </div>
                 <div>
-                    <p>{avoided_ghg}</p><span>kg CO2-eq./m&sup2/year</span>
+                    <p>{avoided_ghg}</p><span>kg CO2-eq./m&sup2</span>
                 </div>
                 <div>
                     <p>{share_reused}</p><span>% of total mass</span>

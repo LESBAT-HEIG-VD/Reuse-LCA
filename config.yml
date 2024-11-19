@@ -44,6 +44,7 @@ cases:
   K118: \\eistore2\igt-lesbat\RaD\107020_Reuse-LCA\3. Data+calculation\ZH_K118\K118_Reuse_LCA_Calculation_v18.xlsx
   Elys : \\eistore2\igt-lesbat\RaD\107020_Reuse-LCA\3. Data+calculation\BS_Elys\2023_ELYS_Reuse_LCA_calculation_v8 graphes.xlsx
   Firmenich : \\eistore2\igt-lesbat\RaD\107020_Reuse-LCA\3. Data+calculation\GE_Firmenich\Reuse_LCA_Calculation_Firmenich_2023-v9.xlsx
+  Denens : \\eistore2\igt-lesbat\RaD\123315_REMCO\3. Données+calculs\Coopérative ArgeCo - Solives Bois et grange Denens\LCA_Calculation_DENENS_V4_GDY.xlsx
 
 names:
   Faraday: Primeo Energie Kosmos
@@ -51,18 +52,23 @@ names:
   K118: K 118
   Elys : Elys
   Firmenich : Firmenich
+  Denens : Denens
 photos:
   Faraday: pictures\\faraday-photo.png
   Hobelwerk: pictures\\hobelwerk-photo.jpg
   K118: pictures\\k118-photo.jpg
   Elys : pictures\\Elys-photo.jpg
   Firmenich : pictures\\Firmenich-photo.jpg
+  Denens : pictures\\Denens-photo.jpg
+
 maps:
   Faraday: pictures\\Faraday-map.jpg
   Hobelwerk: pictures\\hobelwerk-map.png
   K118: pictures\\k118-map.png
   Elys : pictures\\Elys-map.png
   Firmenich : pictures\\Firmenich-map.png
+  Denens : pictures\\Denens-map.jpg
+
 lca_scopes:
   construction_domain: [A1-A3, A4, B4, C1-C4, Total]
   product_stage: [A1-A3]

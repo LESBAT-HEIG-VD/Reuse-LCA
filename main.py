@@ -35,8 +35,8 @@ if __name__ == "__main__":
 
         # Traitement de chaque cas
         #for case in cases:
-        for case in ["K118","Faraday","Hobelwerk","Elys",]:
-        #for case in ["K118",]:
+        #for case in ["K118","Faraday","Hobelwerk","Elys",]:
+        for case in ["Denens",]:
         #for case in ["Firmenich",]:
                 generate_case(case, nav_bar)
 

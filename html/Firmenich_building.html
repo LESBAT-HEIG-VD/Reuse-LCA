@@ -12,13 +12,19 @@
             <ul>
                 <li><a href="methodology.html" class="nav-active">Methodology</a></li>
                 <li class="dropdown">
-                    <a href="#">Case Studies</a>
+                    <a href="#"> Case Studies : Whole building </a>
                     <ul class="dropdown-menu">
-                        <li><a href="Elys_building.html">Elys</a></li>
                         <li><a href="Faraday_building.html">Faraday</a></li>
                         <li><a href="Firmenich_building.html">Firmenich</a></li>
                         <li><a href="Hobelwerk_building.html">Hobelwerk</a></li>
                         <li><a href="K118_building.html">K118</a></li>
+                        <li><a href="Denens_building.html">Denens</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Case Studies : building parts </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="Elys_building.html">Elys</a></li>
                     </ul>
                 </li>
                 <li><a href="#meta-analysis">Meta-analysis</a></li>
@@ -27,7 +33,9 @@
         </nav>
     </div>
 </header>
-    <h1>Firmenich</h1>
+    <div class="title-banner">
+        <h1>Firmenich</h1>
+    </div>
     <section class="description">
         <div style="text-align: center">
           <img src=..\pictures\Firmenich-photo.jpg height=300px alt="Building Photo">
@@ -61,13 +69,13 @@
                     <h3>Stored biogenic carbon</h3>
                 </div>
                 <div>
-                    <p>1390</p><span>kg/sqm</span>
+                    <p>1390</p><span>kg/m&sup2</span>
                 </div>
                 <div>
-                    <p>6.0</p><span>kg CO2-eq./sqm/year</span>
+                    <p>361.9</p><span>kg CO2-eq./m&sup2</span>
                 </div>
                 <div>
-                    <p>0.0</p><span>kg CO2-eq./sqm/year</span>
+                    <p>0.3</p><span>kgC/m&sup2</span>
                 </div>
             </section>
             </div>
@@ -83,16 +91,16 @@
                     <h3>Emissions reduction due to reuse</h3>
                 </div>
                 <div>
-                    <h3>Share of Reused Components</h3>
+                    <h3>Share of Ex-situ/In-situ</h3>
                 </div>
                 <div>
                     <h3>Share of adaptive reuse</h3>
                 </div>
                 <div>
-                    <h3>Reuse supply distance</h3>
+                    <h3>Ex-situ reuse supply distance</h3>
                 </div>
                 <div>
-                    <p>-3.2</p><span>kg CO2-eq./sqm/year</span>
+                    <p>191.9</p><span>kg CO2-eq./m&sup2</span>
                 </div>
                 <div>
                     <p>0.06</p><span>% of total mass</span>
@@ -154,17 +162,29 @@
         </div>
     </section>
     <section class="components-impacts">
+        <div class="card">
             <div class="card-content">
-                <h2>Results Graphs</h2>
-                <div>
-                    <button id="button_comparison_gwp" onclick="loadHtml('..\\html_figures\\Firmenich_impact_total.html', 'bar_comparison'); setActiveButtons('button_comparison_gwp','#button_comparison_gwp, #button_comparison_ubp, #button_comparison_penr')">Impact total</button>
-                    <button id="button_info_reuse_impacts" class="info-button" onclick="showModal('reuseImpactsDialog')">&#8505; Graph Instructions</button>
-                </div>
-                <div>
-                    <iframe id="bar_comparison" width="100%" style="width: 100%; height: 600px; border: 0">  </iframe>
-                </div>
+                <h2>GHG emissions results</h2>
+            <div>
+                <button id="button_comparison_gwp1" onclick="loadHtml('..\\html_figures\\Firmenich_impact_total_comparing_tonnes.html', 'bar_comparison'); setActiveButtons('button_comparison_gwp1','#button_comparison_gwp1, #button_comparison_gwp2, #button_comparison_gwp3')">Construction </button>
+                <button id="button_comparison_gwp2" onclick="loadHtml('..\\html_figures\\Firmenich_impact_total_bundle_tonnes.html', 'bar_comparison'); setActiveButtons('button_comparison_gwp2','#button_comparison_gwp1, #button_comparison_gwp2, #button_comparison_gwp3')">By building layers</button>
+                <button id="button_comparison_gwp3" onclick="loadHtml('..\\html_figures\\Firmenich_impact_total_lot_tonnes.html', 'bar_comparison'); setActiveButtons('button_comparison_gwp3','#button_comparison_gwp1, #button_comparison_gwp2, #button_comparison_gwp3')">By building element</button>
+                <button id="button_info_reuse_impacts" class="info-button" onclick="showModal('reuseImpactsDialog')">&#8505; Graph Instructions</button>
             </div>
-    </section>
+            <div id="unit-selection" style="display: block;margin-top: 20px;">
+                <label for="unit-select">Choose unit:</label>
+                <select id="unit-select" onchange="updateGraph()">
+                    <option value="tonnes">Tonnes of CO2 equivalent</option>
+                    <option value="kg_per_m2">Kg of CO2 equivalent per m2</option>
+                    <option value="kg_per_m2_per_year">Kg of CO2 equivalent per m2 per year</option>
+                </select>
+            </div>
+            <div>
+            </div>
+            <iframe id="bar_comparison" style="width: 100%; height: 400px; border: 0"></iframe>
+        </div>
+    </div>
+</div>
 
 
     <footer>
@@ -249,15 +269,67 @@
         setActiveButtons();
       }
 
+      function showUnitSelection(buttonId) {
+        // Afficher le menu de sÃ©lection d'unitÃ©
+        document.getElementById('unit-selection').style.display = 'block';
+
+        // Stocker le bouton actif
+        document.getElementById('unit-select').setAttribute('data-active-button', buttonId);
+    }
+
+    function updateGraphUrl(selectedUnit) {
+    let graphUrl = '';
+
+    // VÃ©rifier l'Ã©tat des boutons pour dÃ©finir l'URL correcte du graphique
+    switch (selectedUnit) {
+        case "tonnes":
+            if (document.getElementById('button_comparison_gwp1').classList.contains('active')) {
+                graphUrl = '..\\html_figures\\Firmenich_impact_total_comparing_tonnes.html';
+            } else if (document.getElementById('button_comparison_gwp2').classList.contains('active')) {
+                graphUrl = '..\\html_figures\\Firmenich_impact_total_bundle_tonnes.html';
+            } else if (document.getElementById('button_comparison_gwp3').classList.contains('active')) {
+                graphUrl = '..\\html_figures\\Firmenich_impact_total_lot_tonnes.html';
+            }
+            break;
+        case "kg_per_m2":
+            if (document.getElementById('button_comparison_gwp1').classList.contains('active')) {
+                graphUrl = '..\\html_figures\\Firmenich_impact_total_comparing_kg_per_m2.html';
+            } else if (document.getElementById('button_comparison_gwp2').classList.contains('active')) {
+                graphUrl = '..\\html_figures\\Firmenich_impact_total_bundle_kg_per_m2.html';
+            } else if (document.getElementById('button_comparison_gwp3').classList.contains('active')) {
+                graphUrl = '..\\html_figures\\Firmenich_impact_total_lot_kg_per_m2.html';
+            }
+            break;
+        case "kg_per_m2_per_year":
+            if (document.getElementById('button_comparison_gwp1').classList.contains('active')) {
+                graphUrl = '{impact_total_comparing_kg_per_m2per_year}';
+            } else if (document.getElementById('button_comparison_gwp2').classList.contains('active')) {
+                graphUrl = '{impact_total_bundle_kg_per_m2per_year}';
+            } else if (document.getElementById('button_comparison_gwp3').classList.contains('active')) {
+                graphUrl = '..\\html_figures\\Firmenich_impact_total_lot_kg_per_m2_per_year.html';
+            }
+            break;
+        default:
+            graphUrl = '..\\html_figures\\Firmenich_impact_total_comparing_tonnes.html';
+    }
+
+
+
+    // Mettre Ã  jour l'URL du graphique avec la valeur de graphUrl
+    updateGraphDisplay(graphUrl);
+}
+
+
+
       // Load the default page when the page first loads
       window.onload = function() {
         loadHtml('..\\html_figures\\Firmenich_sankey.html', 'material_sankey');
         loadHtml('..\\html_figures\\Firmenich_impacts_table.html', 'building-lca');
         setActiveButtons("button_1_ad", "#button_1_ad, #button_1_nv");
-        loadHtml('{reused_comp_GWP_bar}', 'bar_comparison');
-        setActiveButtons('button_comparison_gwp', '#button_comparison_gwp, #button_comparison_ubp, #button_comparison_penr')
         loadHtml('..\\html_tables\\Firmenich_gwp_total.html', 'reuse_table');
         setActiveButtons('button_reuse_table_tot','#button_reuse_table_tot, #button_reuse_table_kg, #button_reuse_table_sqm')
+        loadHtml('..\\html_figures\\Firmenich_impact_total_comparing_tonnes.html', 'bar_comparison');
+    setActiveButtons('button_comparison_gwp1','#button_comparison_gwp1, #button_comparison_gwp2, #button_comparison_gwp3');
       }
 
       function range(start, end) {

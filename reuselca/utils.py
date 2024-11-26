@@ -37,7 +37,7 @@ class Building:
         self.name = get_cfg()["names"][case]
         self.desc = pd.read_excel(get_cfg()["cases"][case], sheet_name="Parameters", header=1, nrows=1)
         self.data = pd.read_excel(get_cfg()["cases"][case], sheet_name="LCI+LCIA", header=2)
-        self.data2 = pd.read_excel(get_cfg()["cases"][case], sheet_name="LCA results", header=0, nrows=1)
+        # self.data2 = pd.read_excel(get_cfg()["cases"][case], sheet_name="LCA results", header=0, nrows=1)
         self.config = pd.read_excel(get_cfg()["cases"][case], sheet_name="Parameters", header=9, nrows=1)
         self.hypotheses = pd.read_excel(get_cfg()["cases"][case], sheet_name="Parameters", header=13, nrows=1)
         self.sqm = self.desc["Building SRE (m2)"].values[0]
@@ -244,8 +244,10 @@ def generate_building_html(building, nav_bar):
 
 
 def main():
-    cases = ["Faraday", "Hobelwerk", "K118", "Elys", "Firmenich"]
+    cases = ["Faraday", "Hobelwerk", "K118", "Elys", "Firmenich","Denens"]
     for case in cases:
+        print(f"Chemin du fichier Excel : {get_cfg()['cases'][case]}")
+        print(f"Existe ? {os.path.exists(get_cfg()['cases'][case])}")
         building = Building(case)
         nav_bar = case_studies_nav(cases)
         generate_building_html(building, nav_bar)

@@ -32,11 +32,12 @@ if __name__ == "__main__":
 
         # Génération de la barre de navigation
         nav_bar = case_studies_nav(cases)
-
+        for case, path in cases.items():
+                print(f"Case: {case}, Path: {path}, Exists: {os.path.exists(path)}")
         # Traitement de chaque cas
-        #for case in cases:
-        #for case in ["K118","Faraday","Hobelwerk","Elys",]:
-        for case in ["Denens",]:
+        for case in cases:
+        #for case in ["K118","Faraday","Hobelwerk","Elys","Denens"]:
+        #for case in ["Denens",]:
         #for case in ["Firmenich",]:
                 generate_case(case, nav_bar)
 

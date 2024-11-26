@@ -3,64 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <title>ReuseLCA - Hobelwerk new construction</title>
-    <link rel="stylesheet" href="../style_old.css">
+    <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-<header>
-    <div class="navbar">
-        <nav>
-            <ul>
-                <li><a href="methodology.html" class="nav-active">Methodology</a></li>
-                <li class="dropdown">
-                    <a href="#"> Case Studies : Whole building </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="Faraday_building.html">Faraday</a></li>
-                        <li><a href="Firmenich_building.html">Firmenich</a></li>
-                        <li><a href="Hobelwerk_building.html">Hobelwerk</a></li>
-                        <li><a href="K118_building.html">K118</a></li>
-                        <li><a href="Denens_building.html">K118</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#">Case Studies : building parts </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="Elys_building.html">Elys</a></li>
-                    </ul>
-                </li>
-                <li><a href="#meta-analysis">Meta-analysis</a></li>
-                <li><a href="about.html">About</a></li>
-            </ul>
-        </nav>
-    </div>
-</header>
-<h1>About</h1>
-<section class="About">
-    <div class="card">
-        <div class="card-content">
-            <h2>Reuse LCA project </h2>
-            <br>
-            <h2>HEIG-VD working teams </h2>
-            <br>
-            <h2>Projet Partner</h2>
+    <!-- Conteneur pour la barre de navigation -->
+    <div id="navigation-bar"></div>
 
-            <br>
-            <h2>Contact</h2>
-            <p>
+    <div class="title-banner">
+        <h1>About</h1>
+    </div>
+    <section class="About">
+        <div class="card">
+            <div class="card-content">
+                <h2>Reuse LCA project </h2>
+                The results of the Reuse-LCA project are presented to better understand how reusing components in construction reduces environmental impacts, especially GHG emissions. These results help identify current practices and barriers to reuse, and analyze how design choices and the type of reused materials influence the overall impact of a building. This information is crucial for promoting sustainable construction strategies and reducing the carbon footprint of buildings.
+                <p>
+                <h2>HEIG-VD working teams </h2>
+                Sébastien Lasvaux
+                <br>Mija Frossard
+                <br>Gauthier Demonchy
+                <br>Florence Petetin
+                Lucie Gross
+                Marie Gress
+                <p>
+                <h2>Projet Partner</h2>
+
+                <br>
+                <h2>Contact</h2>
+                <p>
                 For any questions, comments, or collaboration inquiries, please contact us at sebatien.lasvaux@heig-vd.ch.
-            <br>
+                <br>
                 We look forward to assisting you and discussing topics related to LCA and material reuse.
-            </p>
-    </div>
-</section>
+                </p>
+        </div>
+    </section>
 
-<footer>
+    <footer>
     <p>Reuse-LCA - HEIG-VD/LESBAT</p>
     <a href="https://github.com/LESBAT-HEIG-VD/Reuse-LCA-Hobelwerk">Code on github</a>
-</footer>
+    </footer>
 
 
-<script>
-</script>
+    <!-- Script pour charger la barre de navigation -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch("../templates/case_study_nav_bar.html")
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+                    return response.text();
+                })
+                .then(data => {
+                    document.getElementById("navigation-bar").innerHTML = data;
+                })
+                .catch(error => console.error("Error loading navigation bar:", error));
+        });
+    </script>
 </body>
-
 </html>

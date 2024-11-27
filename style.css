@@ -27,6 +27,82 @@ section {
             border-bottom: 1px solid #ddd; /* optionnel, pour une légère bordure */
         }
 
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    justify-items: center;
+    margin-top: 20px;
+}
+
+.team-member {
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.team-member img {
+    width: auto; /* Maintient la largeur proportionnelle */
+    height: 150px; /* Ajuste la hauteur à une valeur appropriée */
+    display: block; /* Assure que les marges fonctionnent comme prévu */
+    margin: 0 auto; /* Centre l'image horizontalement */
+    border-radius: 10px; /* Ajoute des coins arrondis pour un design agréable */
+}
+
+.team-member p {
+    font-size: 1rem;
+    color: #333;
+    margin-top: 20px; /* Ajoute un espace sous le nom */
+    font-weight: bold; /* Rends le texte plus visible (optionnel) */
+    text-align: center; /* Centre le texte sous la photo */
+}
+
+.team-member:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.three-columns {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.three-columns .column {
+    flex: 1;
+    padding: 10px;
+    border-left: 1px solid #ddd;
+}
+
+.three-columns .column:first-child {
+    border-left: none;
+}
+
+.three-columns h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.three-columns p {
+    line-height: 1.5;
+    color: #555;
+}
+
+.three-columns a {
+    color: #0078d4;
+    text-decoration: none;
+}
+
+.three-columns a:hover {
+    text-decoration: underline;
+}
+
  /* Description section styles */
 .description {
     display: grid;

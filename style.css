@@ -29,9 +29,9 @@ section {
 
 .team-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-    justify-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Réduit la taille minimale pour les petits écrans */
+    gap: 20px; /* Espacement entre les éléments */
+    justify-items: center; /* Centre les éléments dans leur colonne */
     margin-top: 20px;
 }
 

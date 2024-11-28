@@ -66,7 +66,7 @@ def impact_total_graph_lot(Building):
                 'active': 1,
                 "buttons": [
                     {
-                        "label": "Initial emissions (modules A)",
+                        "label": "Upfront emissions (A1-A4)",
                         "method": "update",
                         "args": [
                             {
@@ -76,7 +76,7 @@ def impact_total_graph_lot(Building):
                         ]
                     },
                     {
-                        "label": "Building life cycle",
+                        "label": "Building life cycle (SIA 2032 + A4)",
                         "method": "update",
                         "args": [
                             {
@@ -86,7 +86,7 @@ def impact_total_graph_lot(Building):
                         ]
                     },
                     {
-                        "label": "SIA 2032 scope",
+                        "label": "Building life cycle (SIA 2032)",
                         "method": "update",
                         "args": [
                             {
@@ -159,7 +159,7 @@ def impact_total_graph_bundle(Building):
                 'active': 1,
                 "buttons": [
                     {
-                        "label": "Initial emissions (modules A)",
+                        "label": "Upfront emissions (A1-A4)",
                         "method": "update",
                         "args": [
                             {
@@ -169,7 +169,7 @@ def impact_total_graph_bundle(Building):
                         ]
                     },
                     {
-                        "label": "Building life cycle",
+                        "label": "Building life cycle (SIA 2032 + A4)",
                         "method": "update",
                         "args": [
                             {
@@ -179,7 +179,7 @@ def impact_total_graph_bundle(Building):
                         ]
                     },
                     {
-                        "label": "SIA 2032 scope",
+                        "label": "Building life cycle (SIA 2032)",
                         "method": "update",
                         "args": [
                             {
@@ -264,7 +264,7 @@ def impact_total_graph_comparing(Building):
             title=f"Comparing the project and the reference scenario without reuse ({title_suffix})",
             yaxis_title=f"GHG Emissions ({title_suffix})",
             template="plotly_white",
-            margin=dict(l=200, r=500, t=50, b=50)
+            margin=dict(l=200, r=50, t=50, b=50)
         )
 
         updatemenus = [
@@ -272,7 +272,7 @@ def impact_total_graph_comparing(Building):
                 'active': 1,
                 "buttons": [
                     {
-                        "label": "Initial emissions (modules A)",
+                        "label": "Upfront emissions (A1-A4)",
                         "method": "update",
                         "args": [
                             {
@@ -282,7 +282,7 @@ def impact_total_graph_comparing(Building):
                         ]
                     },
                     {
-                        "label": "Building life cycle",
+                        "label": "Building life cycle (SIA 2032 + A4)",
                         "method": "update",
                         "args": [
                             {
@@ -292,7 +292,7 @@ def impact_total_graph_comparing(Building):
                         ]
                     },
                     {
-                        "label": "SIA 2032 scope",
+                        "label": "Building life cycle (SIA 2032)",
                         "method": "update",
                         "args": [
                             {

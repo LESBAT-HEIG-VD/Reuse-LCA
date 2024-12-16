@@ -7,7 +7,9 @@
 </head>
 <body>
     {navigation_bar}
-    <h1>{title}</h1>
+    <div class="title-banner">
+        <h1>{title}</h1>
+    </div>
     <section class="description">
         <div style="text-align: center">
           <img src={building_photo_src} height=300px alt="Building Photo">
@@ -28,44 +30,60 @@
     <section>
         <div class="card">
             <div class="card-content">
-                <h2>Key metrics</h2>
+                <h2>BUILDING Key Performance Indicators</h2>
 
-                <section class="key-numbers">
+                <section class="key-numbers3">
                 <div>
                     <h3>Material Intensity</h3>
                 </div>
                 <div>
-                    <h3>Share of Reused Components</h3>
+                    <h3>Life cycle GHG emissions (construction)</h3>
                 </div>
                 <div>
-                    <h3>Average Supply of Reused Components</h3>
+                    <h3>Stored biogenic carbon</h3>
                 </div>
                 <div>
-                    <h3>GHG Emissions of the Construction's Life Cycle</h3>
+                    <p>{mat_intensity}</p><span>kg/m&sup2</span>
                 </div>
                 <div>
-                    <h3>GHG Emissions Avoided with Reuse</h3>
+                    <p>{ghg_total}</p><span>kg CO2-eq./m&sup2</span>
                 </div>
                 <div>
-                    <h3>Biogenic CO2 storage extended</h3>
+                    <p>{stored_bio_carb}</p><span>kgC/m&sup2</span>
+                </div>
+            </section>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="card">
+            <div class="card-content">
+                <h2>REUSE BUILDING Key Performance Indicators</h2>
+
+                <section class="key-numbers4">
+                <div>
+                    <h3>Emissions reduction due to reuse</h3>
                 </div>
                 <div>
-                    <p>{mat_intensity}</p><span>kg/sqm</span>
+                    <h3>Share of Ex-situ/In-situ</h3>
+                </div>
+                <div>
+                    <h3>Share of adaptive reuse</h3>
+                </div>
+                <div>
+                    <h3>Ex-situ reuse supply distance</h3>
+                </div>
+                <div>
+                    <p>{avoided_ghg}</p><span>kg CO2-eq./m&sup2</span>
                 </div>
                 <div>
                     <p>{share_reused}</p><span>% of total mass</span>
                 </div>
                 <div>
+                    <p>{adaptiv_reused}</p><span>% of total mass</span>
+                </div>
+                <div>
                     <p>{avg_supply_distance}</p><span>km (weighted average)</span>
-                </div>
-                <div>
-                    <p>{ghg_total}</p><span>kg CO2-eq./sqm/year</span>
-                </div>
-                <div>
-                    <p>{avoided_ghg}</p><span>kg CO2-eq./sqm/year</span>
-                </div>
-                <div>
-                    <p>-{stored_bio_carb}</p><span>kg CO2-eq./sqm/year</span>
                 </div>
             </section>
             </div>
@@ -93,20 +111,15 @@
         </div>
     </section>
     <section class="material-analysis">
-        <div class="card">
-            <div class="card-content">
-                <h2>Material mass analysis</h2>
-                    <div>
-                        <button id="button_mat_component" onclick="loadHtml('{material_sunburst}', 'material_sunburst'); setActiveButtons('button_mat_component', '#button_mat_component, #button_mat_ebkp')">Building components</button>
-                        <button id="button_mat_ebkp" onclick="loadHtml('{material_sunburst_ebkp}', 'material_sunburst'); setActiveButtons('button_mat_ebkp', '#button_mat_component, #button_mat_ebkp')">e-BKP categories</button>
-                        <button id="button_info_material" class="info-button" onclick="showModal('materialDialog')">&#8505; Graph Instructions</button>
-                    </div>
-                    <div>
-                        <iframe id="material_sunburst"  src={material_sunburst} style="width: 100%; height: 700px; border: 0">  </iframe>
-                    </div>
-            </div>
+    <div class="card">
+        <div class="card-content">
+            <h2>Material flow analysis by Sankey diagram</h2>
+            <!-- iframe mis à jour pour afficher le Sankey -->
+            <iframe id="material_sankey" style="width: 100%; height: 700px; border: 0"></iframe>
         </div>
-    </section>
+    </div>
+</section>
+
     <section class="building-impacts">
         <div class="card">
             <div class="card-content">
@@ -122,44 +135,43 @@
             </div>
         </div>
     </section>
-    <section class="co2-contrib">
-        <div class="card">
-            <div class="card-content">
-                <h2>Contributions to GHG emissions</h2>
-                    <div>
-                        <iframe id="ghg_sunburst"  src={ghg_sunburst} style="width: 100%; height: 700px; border: 0">  </iframe>
-                    </div>
-            </div>
-        </div>
-    </section>
-
     <section class="components-impacts">
         <div class="card">
             <div class="card-content">
-                <h2>LCA of reused components</h2>
-                <div>
-                    <button id="button_comparison_gwp" onclick="loadHtml('{reused_comp_GWP_bar}', 'bar_comparison'); setActiveButtons('button_comparison_gwp','#button_comparison_gwp, #button_comparison_ubp, #button_comparison_penr')">GHG emissions</button>
-                    <button id="button_comparison_ubp" onclick="loadHtml('{reused_comp_UBP_bar}', 'bar_comparison'); setActiveButtons('button_comparison_ubp','#button_comparison_gwp, #button_comparison_ubp, #button_comparison_penr')">Ecological scarcity</button>
-                    <button id="button_comparison_penr" onclick="loadHtml('{reused_comp_PE_NR_bar}', 'bar_comparison'); setActiveButtons('button_comparison_penr','#button_comparison_gwp, #button_comparison_ubp, #button_comparison_penr')">Primary energy, non-renewable</button>
-                    <button id="button_info_reuse_impacts" class="info-button" onclick="showModal('reuseImpactsDialog')">&#8505; Graph Instructions</button>
-                </div>
-                <div>
-                    <iframe id="bar_comparison" width="100%" style="width: 100%; height: 600px; border: 0">  </iframe>
-                </div>
+                <h2>GHG emissions results</h2>
+            <div>
+                <button id="button_comparison_gwp1" onclick="loadHtml('{impact_total_comparing_tonnes}', 'bar_comparison'); setActiveButtons('button_comparison_gwp1','#button_comparison_gwp1, #button_comparison_gwp2, #button_comparison_gwp3')">Construction </button>
+                <button id="button_comparison_gwp2" onclick="loadHtml('{impact_total_bundle_tonnes}', 'bar_comparison'); setActiveButtons('button_comparison_gwp2','#button_comparison_gwp1, #button_comparison_gwp2, #button_comparison_gwp3')">By building layers</button>
+                <button id="button_comparison_gwp3" onclick="loadHtml('{impact_total_lot_tonnes}', 'bar_comparison'); setActiveButtons('button_comparison_gwp3','#button_comparison_gwp1, #button_comparison_gwp2, #button_comparison_gwp3')">By building element</button>
+                <button id="button_info_reuse_impacts" class="info-button" onclick="showModal('reuseImpactsDialog')">&#8505; Graph Instructions</button>
             </div>
+            <div id="unit-selection" style="display: block;margin-top: 20px;">
+                <label for="unit-select">Choose unit:</label>
+                <select id="unit-select" onchange="updateGraph()">
+                    <option value="tonnes">Tonnes of CO2 equivalent</option>
+                    <option value="kg_per_m2">Kg of CO2 equivalent per m2</option>
+                    <option value="kg_per_m2_per_year">Kg of CO2 equivalent per m2 per year</option>
+                </select>
+            </div>
+            <div>
+            </div>
+            <iframe id="bar_comparison" style="width: 100%; height: 400px; border: 0"></iframe>
         </div>
-    </section>
+    </div>
+</div>
+
+
     <footer>
-      <p>OFEN - Reuse-LCA (SI/502190-01) - HEIG-VD - Institut des Énergies</p>
-      <div class="logo-container">
-            <a style="text-align: center" href="mailto:mija.frossard@heig-vd.ch?subject=Reuse-LCA%20Website%20contact">
-                <img src="../pictures/mail-logo.png" alt="Email contact" height="55px">
-            </a>
-          <a style="text-align: center" href="https://github.com/LESBAT-HEIG-VD/reuse-lca">
-              <img src=../pictures/view_on_github.png height="50px" class="github-button" alt="Github repository">
-          </a>
-        </div>
-    </footer>
+   <p>OFEN - Reuse-LCA (SI/502190-01) - HEIG-VD - Institut des &Eacute;nergies</p>
+   <div class="logo-container">
+       <a style="text-align: center" href="mailto:mija.frossard@heig-vd.ch?subject=Reuse-LCA%20Website%20contact">
+           <img src="../pictures/mail-logo.png" alt="Email contact" height="40px">
+       </a>
+       <a style="text-align: center" href="https://github.com/LESBAT-HEIG-VD/reuse-lca">
+           <img src="../pictures/view_on_github.png" height="50px" class="github-button" alt="Github repository">
+       </a>
+   </div>
+</footer>
     <dialog class=custom-dialog id="reusetableDialog">
           <p>The table describes the reused products, their supply-chain activities and the associated GHG emissions.<br></p>
           <p><b><u>Select a set of columns</u> by clicking on the buttons with the '&#128269;' icon.</b></p>
@@ -231,16 +243,67 @@
         setActiveButtons();
       }
 
+      function showUnitSelection(buttonId) {
+        // Afficher le menu de sélection d'unité
+        document.getElementById('unit-selection').style.display = 'block';
+
+        // Stocker le bouton actif
+        document.getElementById('unit-select').setAttribute('data-active-button', buttonId);
+    }
+
+    function updateGraphUrl(selectedUnit) {
+    let graphUrl = '';
+
+    // Vérifier l'état des boutons pour définir l'URL correcte du graphique
+    switch (selectedUnit) {
+        case "tonnes":
+            if (document.getElementById('button_comparison_gwp1').classList.contains('active')) {
+                graphUrl = '{impact_total_comparing_tonnes}';
+            } else if (document.getElementById('button_comparison_gwp2').classList.contains('active')) {
+                graphUrl = '{impact_total_bundle_tonnes}';
+            } else if (document.getElementById('button_comparison_gwp3').classList.contains('active')) {
+                graphUrl = '{impact_total_lot_tonnes}';
+            }
+            break;
+        case "kg_per_m2":
+            if (document.getElementById('button_comparison_gwp1').classList.contains('active')) {
+                graphUrl = '{impact_total_comparing_kg_per_m2}';
+            } else if (document.getElementById('button_comparison_gwp2').classList.contains('active')) {
+                graphUrl = '{impact_total_bundle_kg_per_m2}';
+            } else if (document.getElementById('button_comparison_gwp3').classList.contains('active')) {
+                graphUrl = '{impact_total_lot_kg_per_m2}';
+            }
+            break;
+        case "kg_per_m2_per_year":
+            if (document.getElementById('button_comparison_gwp1').classList.contains('active')) {
+                graphUrl = '{impact_total_comparing_kg_per_m2per_year}';
+            } else if (document.getElementById('button_comparison_gwp2').classList.contains('active')) {
+                graphUrl = '{impact_total_bundle_kg_per_m2per_year}';
+            } else if (document.getElementById('button_comparison_gwp3').classList.contains('active')) {
+                graphUrl = '{impact_total_lot_kg_per_m2_per_year}';
+            }
+            break;
+        default:
+            graphUrl = '{impact_total_comparing_tonnes}';
+    }
+
+
+
+    // Mettre à jour l'URL du graphique avec la valeur de graphUrl
+    updateGraphDisplay(graphUrl);
+}
+
+
+
       // Load the default page when the page first loads
       window.onload = function() {
+        loadHtml('{material_sankey}', 'material_sankey');
         loadHtml('{impacts_table}', 'building-lca');
         setActiveButtons("button_1_ad", "#button_1_ad, #button_1_nv");
-        loadHtml('{material_sunburst}', 'material_sunburst');
-        setActiveButtons('button_mat_component', '#button_mat_component, #button_mat_ebkp');
-        loadHtml('{reused_comp_GWP_bar}', 'bar_comparison');
-        setActiveButtons('button_comparison_gwp', '#button_comparison_gwp, #button_comparison_ubp, #button_comparison_penr')
         loadHtml('{reuse_table_tot_src}', 'reuse_table');
         setActiveButtons('button_reuse_table_tot','#button_reuse_table_tot, #button_reuse_table_kg, #button_reuse_table_sqm')
+        loadHtml('{impact_total_comparing_tonnes}', 'bar_comparison');
+    setActiveButtons('button_comparison_gwp1','#button_comparison_gwp1, #button_comparison_gwp2, #button_comparison_gwp3');
       }
 
       function range(start, end) {

@@ -10,18 +10,25 @@
     <div class="navbar">
         <nav>
             <ul>
-                <li><a href="html_pages\methodology.html" class="nav-active">Methodology</a></li>
+                <li><a href="html\methodology.html" class="nav-active">Methodology</a></li>
                 <li class="dropdown">
-                    <a href="#">Case Studies</a>
+                    <a href="#"> Case Studies : Whole building </a>
                     <ul class="dropdown-menu">
-                        <li><a href="html_pages\Bistoquette_case_study.html">La Bistoquette</a></li>
-                        <li><a href="html_pages\Faraday_case_study.html">Faraday</a></li>
-                        <li><a href="html_pages\Hobelwerk_case_study.html">Hobelwerk</a></li>
-                        <li><a href="html_pages\K118_case_study.html">K118</a></li>
+                        <li><a href="html\Faraday_building.html">Primeo Energie Kosmos</a></li>
+                        <li><a href="html\Firmenich_building.html">Firmenich</a></li>
+                        <li><a href="html\Hobelwerk_building.html">Hobelwerk</a></li>
+                        <li><a href="html\K118_building.html">K118</a></li>
+                        <li><a href="html\Denens_building.html">Denens</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Case Studies : building parts </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="html\Elys_building.html">Elys</a></li>
                     </ul>
                 </li>
                 <li><a href="#meta-analysis">Meta-analysis</a></li>
-                <li><a href="#about">About</a></li>
+                <li><a href="html\about.html">About</a></li>
             </ul>
         </nav>
     </div>
@@ -33,6 +40,7 @@
 
 
 <script>
+
     function loadMatSunburst(url) {
       document.getElementById("material_sunburst").src = url;
     }
@@ -65,7 +73,7 @@
     }
     function setActiveButtonsBarCompar(buttonId) {
       // Remove the "active" class from all buttons
-      var buttons = document.querySelectorAll("#button_comparison_gwp, #button_comparison_ubp, #button_comparison_penr");
+      var buttons = document.querySelectorAll("button_comparison_gwp1, button_comparison_gwp2, button_comparison_gwp3");
       for (var i = 0; i < buttons.length; i++) {
         buttons[i].classList.remove("active");
       }

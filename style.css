@@ -20,6 +20,89 @@ section {
     /*margin-right: 100px;*/
 }
 
+.title-banner {
+            background-color: #f2f2f2; /* gris clair */
+            padding: 10px;
+            text-align: center;
+            border-bottom: 1px solid #ddd; /* optionnel, pour une légère bordure */
+        }
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Réduit la taille minimale pour les petits écrans */
+    gap: 15px; /* Espacement entre les éléments */
+    justify-items: center; /* Centre les éléments dans leur colonne */
+    margin-top: 20px;
+}
+
+.team-member {
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 12px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.team-member img {
+    width: auto; /* Maintient la largeur proportionnelle */
+    height: 150px; /* Ajuste la hauteur à une valeur appropriée */
+    display: block; /* Assure que les marges fonctionnent comme prévu */
+    margin: 0 auto; /* Centre l'image horizontalement */
+    border-radius: 10px; /* Ajoute des coins arrondis pour un design agréable */
+}
+
+.team-member p {
+    font-size: 1rem;
+    color: #333;
+    margin-top: 20px; /* Ajoute un espace sous le nom */
+    font-weight: bold; /* Rends le texte plus visible (optionnel) */
+    text-align: center; /* Centre le texte sous la photo */
+}
+
+.team-member:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.three-columns {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.three-columns .column {
+    flex: 1;
+    padding: 10px;
+    border-left: 1px solid #ddd;
+}
+
+.three-columns .column:first-child {
+    border-left: none;
+}
+
+.three-columns h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.three-columns p {
+    line-height: 1.5;
+    color: #555;
+}
+
+.three-columns a {
+    color: #0078d4;
+    text-decoration: none;
+}
+
+.three-columns a:hover {
+    text-decoration: underline;
+}
+
  /* Description section styles */
 .description {
     display: grid;
@@ -42,10 +125,12 @@ h2  {font-family: sans-serif;
     margin-bottom: 20px;}
 h3  {font-family: sans-serif;
     color: #3e596c ;}
-p   {font-family: sans-serif;
+p, figcaption  {font-family: sans-serif;
     color: #3e596c ;
     font-size: 16px;
     margin-bottom: 10px;}
+
+
 /*img {max-width: 100%;*/
 /*    height: auto;}*/
 button, dt-buttons div.dt-buttons .dt-button{
@@ -251,6 +336,20 @@ nav a:hover {
   margin-top: 20px;
 }
 
+.key-numbers3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.key-numbers4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  margin-top: 20px;
+}
+
 .key-numbers h3 {
     font-size: 1rem;
     color: #3e596c ;
@@ -274,6 +373,51 @@ nav a:hover {
 
 }
 
+.key-numbers3 h3 {
+    font-size: 1rem;
+    color: #3e596c ;
+    margin: 0;
+    flex: 1;
+}
+
+.key-numbers3 p {
+    margin: 0;
+    font-size: 1.33rem;
+    color: #0083c7;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.key-numbers3 span {
+    color: #737475;
+    font-size: 1rem;
+    margin-left: 0.5rem;
+    display: inline-block;
+
+}
+
+.key-numbers4 h3 {
+    font-size: 1rem;
+    color: #3e596c ;
+    margin: 0;
+    flex: 1;
+}
+
+.key-numbers4 p {
+    margin: 0;
+    font-size: 1.33rem;
+    color: #0083c7;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.key-numbers4 span {
+    color: #737475;
+    font-size: 1rem;
+    margin-left: 0.5rem;
+    display: inline-block;
+
+}
 div.dataTables_wrapper table.dataTable {
     width: 100%;
     font-size: 14px; /* Adjust the font size as desired */

@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ReuseLCA - Primeo Energie Kosmos case study</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header>
+    <div class="navbar">
+        <nav>
+            <ul>
+                <li><a href="methodology.html" class="nav-active">Methodology</a></li>
+                <li class="dropdown">
+                    <a href="#"> Case Studies : Whole building </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="Faraday_building.html">Primeo Energie Kosmos</a></li>
+                        <li><a href="Firmenich_building.html">Firmenich</a></li>
+                        <li><a href="Hobelwerk_building.html">Hobelwerk</a></li>
+                        <li><a href="K118_building.html">K118</a></li>
+                        <li><a href="Denens_building.html">Denens</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Case Studies : building parts </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="Elys_building.html">Elys</a></li>
+                    </ul>
+                </li>
+                <li><a href="#meta-analysis">Meta-analysis</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+    <div class="title-banner">
+        <h1>Primeo Energie Kosmos</h1>
+    </div>
+    <section class="description">
+        <div style="text-align: center">
+          <img src=..\pictures\Faraday-photo.jpg height=300px alt="Building Photo">
+        </div>
+        <div class="card">
+            <div class="card-content">
+                <h2>Description</h2>
+                <p>Type of project: New construction</p>
+                <p>Type of building: Education and training</p>
+                <p>Construction materials: Concrete, steel and wood</p>
+                <p>Building energy reference area (ERA): 723.9 m²</p>
+                <p>Floors: 3</p>
+                <p>Location: Münchestein (BL), CH</p>
+                <p>Project phase: Completed in late 2022</p>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="card">
+            <div class="card-content">
+                <h2>BUILDING Key Performance Indicators</h2>
+
+                <section class="key-numbers3">
+                <div>
+                    <h3>Material Intensity</h3>
+                </div>
+                <div>
+                    <h3>Life cycle GHG emissions (construction)</h3>
+                </div>
+                <div>
+                    <h3>Stored biogenic carbon</h3>
+                </div>
+                <div>
+                    <p>533</p><span>kg/m&sup2</span>
+                </div>
+                <div>
+                    <p>540.5</p><span>kg CO2-eq./m&sup2</span>
+                </div>
+                <div>
+                    <p>17.7</p><span>kgC/m&sup2</span>
+                </div>
+            </section>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="card">
+            <div class="card-content">
+                <h2>REUSE BUILDING Key Performance Indicators</h2>
+
+                <section class="key-numbers4">
+                <div>
+                    <h3>Emissions reduction due to reuse</h3>
+                </div>
+                <div>
+                    <h3>Share of Ex-situ/In-situ</h3>
+                </div>
+                <div>
+                    <h3>Share of adaptive reuse</h3>
+                </div>
+                <div>
+                    <h3>Ex-situ reuse supply distance</h3>
+                </div>
+                <div>
+                    <p>65.1</p><span>kg CO2-eq./m&sup2</span>
+                </div>
+                <div>
+                    <p>13.06</p><span>% of total mass</span>
+                </div>
+                <div>
+                    <p>0.0</p><span>% of total mass</span>
+                </div>
+                <div>
+                    <p>76.6</p><span>km (weighted average)</span>
+                </div>
+            </section>
+            </div>
+        </div>
+    </section>
+    <section class="reuse-strat">
+        <div class="card">
+            <div class="card-content">
+                <h2>Reuse strategy</h2>
+                <div>
+                    <p style="text-align:center;"><img src=..\pictures\Faraday-map.png alt="Reuse map" width=800px></p>
+                </div>
+                  <div>
+                      <button id="button_reuse_table_tot" onclick="loadHtml('..\\html_tables\\Faraday_gwp_total.html', 'reuse_table'); setActiveButtons('button_reuse_table_tot','#button_reuse_table_tot, #button_reuse_table_kg, #button_reuse_table_sqm')">Total (kg CO2-eq.)</button>
+                      <button id="button_reuse_table_kg" onclick="loadHtml('..\\html_tables\\Faraday_gwp_per_kg.html', 'reuse_table'); setActiveButtons('button_reuse_table_kg','#button_reuse_table_tot, #button_reuse_table_kg, #button_reuse_table_sqm')">per kg of reused product (kg CO2-eq./kg)</button>
+                      <button id="button_reuse_table_sqm" onclick="loadHtml('..\\html_tables\\Faraday_gwp_per_sqm.html', 'reuse_table'); setActiveButtons('button_reuse_table_sqm','#button_reuse_table_tot, #button_reuse_table_kg, #button_reuse_table_sqm')">per sqm of building ERA (kg CO2-eq./sqm)</button>
+                      <button id="button_info_reusetable" class="info-button" onclick="showModal('reusetableDialog')">&#8505; Table Instructions</button>
+                      <button id="button_info_rating" class="info-button" onclick="showModal('ratingDialog')">&#8505; Data rating system <span style="color: #57e32c;" class="data-rating-dot">&bull;</span><span style="color: #b7dd29;" class="data-rating-dot">&bull;</b></span><span style="color: #ffe234;" class="data-rating-dot">&bull;</b></span><span style="color: #ffa534;" class="data-rating-dot">&bull;</b></span><span style="color: #ff4545;" class="data-rating-dot">&bull;</b></span></button>
+                      <p><br><span style="color: #ff4545;">&#x26A0;</span> Changing the visibility of the columns can <u>mess the table display</u>. &#x1F527;<b>To re-arrange the columns, double-click on the "n&deg;" column's title.</b></p>
+                  </div>
+                  <div>
+                      <iframe id="reuse_table" width="100%" style="width: 100%; height: 700px; border: 0"></iframe>
+                  </div>
+            </div>
+        </div>
+    </section>
+    <section class="material-analysis">
+    <div class="card">
+        <div class="card-content">
+            <h2>Material flow analysis by Sankey diagram</h2>
+            <!-- iframe mis Ã  jour pour afficher le Sankey -->
+            <iframe id="material_sankey" style="width: 100%; height: 700px; border: 0"></iframe>
+        </div>
+    </div>
+    </section>
+
+    <section class="building-impacts">
+        <div class="card">
+            <div class="card-content">
+                <h2>Building LCA impacts</h2>
+                <div>
+                    <button id="button_1_ad" onclick="loadHtml('..\\html_figures\\Faraday_impacts_table.html', 'building-lca'); setActiveButtons('button_1_ad', '#button_1_ad, #button_1_nv')">Actual design with reuse</button>
+                    <button id="button_1_nv" onclick="loadHtml('..\\html_figures\\Faraday_impacts_table_new.html', 'building-lca'); setActiveButtons('button_1_nv', '#button_1_ad, #button_1_nv')">Variant with "only new"</button>
+                    <button id="button_info_building_impacts" class="info-button" onclick="showModal('buildingImpactsDialog')">&#8505; Table Instructions</button>
+                </div>
+                <div>
+                    <iframe id="building-lca" style="width: 1000px; height: 300px; border: 0">  </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="components-impacts">
+        <div class="card">
+            <div class="card-content">
+                <h2>GHG emissions results : Construction</h2>
+            <div>
+                <button id="button_ghg_construction_tonnes" onclick="loadHtml('..\\html_figures\\Faraday_impact_total_comparing_tonnes.html', 'bar_ghg_construction'); setActiveButtons('button_ghg_construction_tonnes','#button_ghg_construction_tonnes, #button_ghg_construction_kg_per_m2, #button_ghg_construction_kg_per_m2_per_year')">tons CO2 eq. </button>
+                <button id="button_ghg_construction_kg_per_m2" onclick="loadHtml('..\\html_figures\\Faraday_impact_total_comparing_kg_per_m2.html', 'bar_ghg_construction'); setActiveButtons('button_ghg_construction_kg_per_m2','#button_ghg_construction_tonnes, #button_ghg_construction_kg_per_m2, #button_ghg_construction_kg_per_m2_per_year')">kg CO2eq./m²</button>
+                <button id="button_ghg_construction_kg_per_m2_per_year" onclick="loadHtml('..\\html_figures\\Faraday_impact_total_comparing_kg_per_m2_per_year.html', 'bar_ghg_construction'); setActiveButtons('button_ghg_construction_kg_per_m2_per_year','#button_ghg_construction_tonnes, #button_ghg_construction_kg_per_m2, #button_ghg_construction_kg_per_m2_per_year')">kg CO2eq./m²/year</button>
+                <button id="button_info_ghg_construction" class="info-button" onclick="showModal('reuseImpactsDialog')">&#8505; Graph Instructions</button>
+            </div>
+            <iframe id="bar_ghg_construction" style="width: 100%; height: 400px; border: 0"></iframe>
+            </div>
+        </div>
+    </section>
+    <section class="components-impacts">
+        <div class="card">
+            <div class="card-content">
+                <h2>GHG emissions results : By building layer</h2>
+            <div>
+                <button id="button_ghg_bundle_tonnes" onclick="loadHtml('..\\html_figures\\Faraday_impact_total_bundle_tonnes.html', 'bar_ghg_bundle'); setActiveButtons('button_ghg_bundle_tonnes','#button_ghg_bundle_tonnes, #button_ghg_bundle_kg_per_m2, #button_ghg_bundle_kg_per_m2_per_year')">tons CO2 eq. </button>
+                <button id="button_ghg_bundle_kg_per_m2" onclick="loadHtml('..\\html_figures\\Faraday_impact_total_bundle_kg_per_m2.html', 'bar_ghg_bundle'); setActiveButtons('button_ghg_bundle_kg_per_m2','#button_ghg_bundle_tonnes, #button_ghg_bundle_kg_per_m2, #button_ghg_bundle_kg_per_m2_per_year')">kg CO2eq./m²</button>
+                <button id="button_ghg_bundle_kg_per_m2_per_year" onclick="loadHtml('..\\html_figures\\Faraday_impact_total_bundle_kg_per_m2_per_year.html', 'bar_ghg_bundle'); setActiveButtons('button_ghg_bundle_kg_per_m2_per_year','#button_ghg_bundle_tonnes, #button_ghg_bundle_kg_per_m2, #button_ghg_bundle_kg_per_m2_per_year')">kg CO2eq./m²/year</button>
+                <button id="button_info_ghg_bundle" class="info-button" onclick="showModal('reuseImpactsDialog')">&#8505; Graph Instructions</button>
+            </div>
+            <iframe id="bar_ghg_bundle" style="width: 100%; height: 400px; border: 0"></iframe>
+            </div>
+        </div>
+    </section>
+    <section class="components-impacts">
+        <div class="card">
+            <div class="card-content">
+                <h2>GHG emissions results : By building element</h2>
+            <div>
+                <button id="button_ghg_lot_tonnes" onclick="loadHtml('..\\html_figures\\Faraday_impact_total_lot_tonnes.html', 'bar_ghg_lot'); setActiveButtons('button_ghg_lot_tonnes','#button_ghg_lot_tonnes, #button_ghg_lot_kg_per_m2, #button_ghg_lot_kg_per_m2_per_year')">tons CO2 eq. </button>
+                <button id="button_ghg_lot_kg_per_m2" onclick="loadHtml('..\\html_figures\\Faraday_impact_total_lot_kg_per_m2.html', 'bar_ghg_lot'); setActiveButtons('button_ghg_lot_kg_per_m2','#button_ghg_lot_tonnes, #button_ghg_lot_kg_per_m2, #button_ghg_lot_kg_per_m2_per_year')">kg CO2eq./m²</button>
+                <button id="button_ghg_lot_kg_per_m2_per_year" onclick="loadHtml('..\\html_figures\\Faraday_impact_total_lot_kg_per_m2_per_year.html', 'bar_ghg_lot'); setActiveButtons('button_ghg_lot_kg_per_m2_per_year','#button_ghg_lot_tonnes, #button_ghg_lot_kg_per_m2, #button_ghg_lot_kg_per_m2_per_year')">kg CO2eq./m²/year</button>
+                <button id="button_info_ghg_lot" class="info-button" onclick="showModal('reuseImpactsDialog')">&#8505; Graph Instructions</button>
+            </div>
+            <iframe id="bar_ghg_lot" style="width: 100%; height: 400px; border: 0"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+       <p>OFEN - Reuse-LCA (SI/502190-01) - HEIG-VD - Institut des &Eacute;nergies</p>
+       <div class="logo-container">
+           <a style="text-align: center" href="mailto:mija.frossard@heig-vd.ch?subject=Reuse-LCA%20Website%20contact">
+               <img src="../pictures/mail-logo.png" alt="Email contact" height="40px">
+           </a>
+           <a style="text-align: center" href="https://github.com/LESBAT-HEIG-VD/reuse-lca">
+               <img src="../pictures/view_on_github.png" height="50px" class="github-button" alt="Github repository">
+           </a>
+       </div>
+    </footer>
+    <dialog class=custom-dialog id="reusetableDialog">
+          <p>The table describes the reused products, their supply-chain activities and the associated GHG emissions.<br></p>
+          <p><b><u>Select a set of columns</u> by clicking on the buttons with the '&#128269;' icon.</b></p>
+          <p><b><u>Click on</u> the <img src="../pictures/plus_button.png" height="22"> button to show the missing columns' values.</b></p>
+        <form method="dialog">
+          <button>OK</button>
+        </form>
+      </dialog>
+    <dialog class=custom-dialog id="ratingDialog">
+        <p>LCA data quality are evaluated in terms of degree of confidence in their representativeness and appropriateness. Data quality is rated with colored dots:</p>
+        <p><span style="color: #57e32c;" class="data-rating-dot">&bull;</span> <b>Very good</b> : project-specific & product-specific data</p>
+        <p><span style="color: #b7dd29;" class="data-rating-dot">&bull;</span> <b>Good</b> : data is a good estimate but may come from a different project or product</p>
+        <p><span style="color: #ffe234;" class="data-rating-dot">&bull;</span> <b>Average</b> : data is an expert jugement or hypothesis based on partial knowledge of the reality</p>
+        <p><span style="color: #ffa534;" class="data-rating-dot">&bull;</span> <b>Poor</b> : data is generic, default data from external source or hypothesis</p>
+        <p><span style="color: #ff4545;" class="data-rating-dot">&bull;</span> <b>Unavailable</b> : no LCA data is used or available, hence calculation is not performed</p>
+        <form method="dialog">
+          <button>OK</button>
+        </form>
+      </dialog>
+    <dialog class=custom-dialog id="materialDialog">
+          <p>Material mass analysis graph shows the mass shares of material groups and products in the total mass of the building. <br></p>
+          <p><b><u>Hover with the pointer and click</u> on the materials groups and products to show their respective mass share (%).</b></p>
+        <form method="dialog">
+          <button>OK</button>
+        </form>
+      </dialog>
+    <dialog class=custom-dialog id="buildingImpactsDialog">
+          <p>Building LCA impacts are show in the table for each KBOB's impact indicators:</p>
+    <!--      <p>GWP: the global warming potential from GHG emissions. The unit is <b>kg CO2-eq.</b></p>-->
+    <!--      <p>UBP: Ecological Scarcity (2021) is an indicator that expresses global environmental effects over many impacts-->
+    <!--          categories (global warming, eutrophication, particulate matter, etc.) that are weighted according to Swiss environmental policy.-->
+    <!--          The unit is <b>UBP</b>.</p>-->
+    <!--      <p>PE-NR: the non-renewable primary energy, or "embodied energy", consumed in processes and materials. The unit is <b>kWh</b>.</p>-->
+          <p>The columns are the building life cycle modules according to EN 15804 and EN 15978.</p>
+          <p><b><u>Select</u> the unit of the LCA impacts expressed either by <u>sqm ERA of building</u> or <u>by sqm ERA of building and by year of building's lifetime</u> (60 years)</b></p>
+        <form method="dialog">
+          <button>OK</button>
+        </form>
+      </dialog>
+    <dialog class=custom-dialog id="reuseImpactsDialog">
+          <p>This graph shows the impact per kg of product of the selected LCA indicator for the reused products (left) and
+              their new equivalent production (right). New materials effectively used in the building are not shown.<br></p>
+          <p><b><u>Interact with the graph</u></b> by clicking on the labels in the legend (i.e. A1-A3, A4, B4, C1-C4) and by zooming
+          on the desired portion of the graph.</p>
+        <form method="dialog">
+          <button>OK</button>
+        </form>
+      </dialog>
+
+    <script>
+      function loadHtml(url, id) {
+        document.getElementById(id).src = url;
+      }
+
+      function setActiveButtons(buttonId, selector) {
+        // Remove the "active" class from all buttons
+        var buttons = document.querySelectorAll(selector);
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        // Add the "active" class to the clicked button
+        var button = document.getElementById(buttonId);
+        button.classList.add("active");
+      }
+
+      function showModal(buttonId) {
+        // console.log("Activated");
+        document.getElementById(buttonId).showModal();
+        setActiveButtons();
+      }
+
+      function showUnitSelection(buttonId) {
+        // Afficher le menu de sÃ©lection d'unitÃ©
+        document.getElementById('unit-selection').style.display = 'block';
+
+        // Stocker le bouton actif
+        document.getElementById('unit-select').setAttribute('data-active-button', buttonId);
+    }
+
+    function updateGraphUrl(selectedUnit) {
+    let graphUrl = '';
+
+    // VÃ©rifier l'Ã©tat des boutons pour dÃ©finir l'URL correcte du graphique
+    switch (selectedUnit) {
+        case "tonnes":
+            if (document.getElementById('button_comparison_gwp1').classList.contains('active')) {
+                graphUrl = '..\\html_figures\\Faraday_impact_total_comparing_tonnes.html';
+            } else if (document.getElementById('button_comparison_gwp2').classList.contains('active')) {
+                graphUrl = '..\\html_figures\\Faraday_impact_total_bundle_tonnes.html';
+            } else if (document.getElementById('button_comparison_gwp3').classList.contains('active')) {
+                graphUrl = '..\\html_figures\\Faraday_impact_total_lot_tonnes.html';
+            }
+            break;
+        case "kg_per_m2":
+            if (document.getElementById('button_comparison_gwp1').classList.contains('active')) {
+                graphUrl = '..\\html_figures\\Faraday_impact_total_comparing_kg_per_m2.html';
+            } else if (document.getElementById('button_comparison_gwp2').classList.contains('active')) {
+                graphUrl = '..\\html_figures\\Faraday_impact_total_bundle_kg_per_m2.html';
+            } else if (document.getElementById('button_comparison_gwp3').classList.contains('active')) {
+                graphUrl = '..\\html_figures\\Faraday_impact_total_lot_kg_per_m2.html';
+            }
+            break;
+        case "kg_per_m2_per_year":
+            if (document.getElementById('button_comparison_gwp1').classList.contains('active')) {
+                graphUrl = '{impact_total_comparing_kg_per_m2per_year}';
+            } else if (document.getElementById('button_comparison_gwp2').classList.contains('active')) {
+                graphUrl = '{impact_total_bundle_kg_per_m2per_year}';
+            } else if (document.getElementById('button_comparison_gwp3').classList.contains('active')) {
+                graphUrl = '..\\html_figures\\Faraday_impact_total_lot_kg_per_m2_per_year.html';
+            }
+            break;
+        default:
+            graphUrl = '..\\html_figures\\Faraday_impact_total_comparing_tonnes.html';
+    }
+
+
+
+    // Mettre Ã  jour l'URL du graphique avec la valeur de graphUrl
+    updateGraphDisplay(graphUrl);
+}
+
+
+
+      // Load the default page when the page first loads
+      window.onload = function() {
+        loadHtml('..\\html_figures\\Faraday_sankey.html', 'material_sankey');
+        loadHtml('..\\html_figures\\Faraday_impacts_table.html', 'building-lca');
+        setActiveButtons("button_1_ad", "#button_1_ad, #button_1_nv");
+        loadHtml('..\\html_tables\\Faraday_gwp_total.html', 'reuse_table');
+        setActiveButtons('button_reuse_table_tot','#button_reuse_table_tot, #button_reuse_table_kg, #button_reuse_table_sqm')
+        loadHtml('..\\html_figures\\Faraday_impact_total_comparing_tonnes.html', 'bar_ghg_construction');
+        loadHtml('..\\html_figures\\Faraday_impact_total_bundle_tonnes.html', 'bar_ghg_bundle');
+        loadHtml('..\\html_figures\\Faraday_impact_total_lot_tonnes.html', 'bar_ghg_lot');
+        setActiveButtons('button_ghg_construction_tonnes','#button_ghg_construction_tonnes, #button_ghg_construction_kg_per_m2, #button_ghg_construction_kg_per_m2_per_year');
+        setActiveButtons('button_ghg_bundle_tonnes','#button_ghg_bundle_tonnes, #button_ghg_bundle_kg_per_m2, #button_ghg_bundle_kg_per_m2_per_year');
+        setActiveButtons('button_ghg_lot_tonnes','#button_ghg_lot_tonnes, #button_ghg_lot_kg_per_m2, #button_ghg_lot_kg_per_m2_per_year');
+
+      }
+
+      function range(start, end) {
+        return Array.apply(0, Array(end - 1))
+                .map((element, index) => index + start);
+      }
+
+      function pushArray(arr, arr2) {
+        arr.push.apply(arr, arr2);
+      };
+    </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css"></script>
+    <script src="https://cdn.datatables.net/buttons/2.3.6/css/buttons.dataTables.min.css"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.3.6/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.colVis.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/colreorder/1.6.2/js/dataTables.colReorder.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.4.1/js/dataTables.responsive.min.js"></script>
+</body>
+
+</html>

@@ -4,6 +4,7 @@ import os
 from reuselca.utils import Building, get_cfg, ROOT_DIR
 from reuselca.utils_html import *
 import pandas as pd
+import numpy as np
 
 cfg = get_cfg()
 
@@ -16,6 +17,360 @@ impact_name = {"GWP":"GHG emission (kg CO2eq./kg)",
                "UBP":"Ecological Scarcity 2021 (UBP/kg)",
                "PE-NR":"Primary energy, non renewable (kWh/kg)"
                }
+
+
+def impact_total_graph_lot(Building):
+    # Charger les données
+    aaa = Building.data
+    aaa = aaa.groupby("Category")[["GWP_A1-A3", "GWP_A4", "GWP_B4", "GWP_C1-C4"]].sum().reset_index()
+
+    # Reshape the DataFrame using the melt function
+    aaa = aaa.melt(id_vars=["Category"], var_name="Life cycle steps", value_name="GWP")
+
+    # Extract step names from the Steps column
+    aaa["Life cycle steps"] = aaa["Life cycle steps"].str.replace("GWP_", "")
+
+    # Calculer les données en kg CO2 eq/m² et kg CO2 eq/m²/an
+    sqm = Building.sqm
+    years = 60  # Durée de vie en années
+    aaa["GWP (tonnes)"] = ( aaa["GWP"] * sqm ) / 1000
+    aaa["GWP (kg/m²)"] = aaa["GWP"]
+    aaa["GWP (kg/m²/an)"] = aaa["GWP"]  / years
+
+    # Définir les chemins pour enregistrer les graphiques
+    html_paths = {
+        "tonnes": os.path.join(ROOT_DIR, cfg['figures_folder'], Building.case + "_impact_total_lot_tonnes.html"),
+        "kg_per_m2": os.path.join(ROOT_DIR, cfg['figures_folder'], Building.case + "_impact_total_lot_kg_per_m2.html"),
+        "kg_per_m2_per_year": os.path.join(ROOT_DIR, cfg['figures_folder'],
+                                           Building.case + "_impact_total_lot_kg_per_m2_per_year.html")
+    }
+
+    # Création des graphiques
+    fig_dict = {}
+    for unit, title_suffix, y_column in [
+        ("tonnes", "tonnes CO2 eq", "GWP (tonnes)"),
+        ("kg_per_m2", "kg CO2 eq/m²", "GWP (kg/m²)"),
+        ("kg_per_m2_per_year", "kg CO2 eq/m²/an", "GWP (kg/m²/an)")
+    ]:
+        fig = px.bar(aaa, x="Category", y=y_column, color="Life cycle steps", title="cases")
+
+        fig.update_layout(
+            title=f"Impact by category of case study {Building.case} ({title_suffix})",
+            yaxis_title=f"GHG emissions ({title_suffix})",
+            template="plotly_white",
+            margin=dict(l=200, r=50, t=50, b=50)
+        )
+
+        updatemenus = [
+            {
+                'active': 1,
+                "buttons": [
+                    {
+                        "label": "Upfront emissions (A1-A4)",
+                        "method": "update",
+                        "args": [
+                            {
+                                "title": "Construction's initial GHG emissions",
+                                "visible": [True, True, False, False]
+                            },
+                        ]
+                    },
+                    {
+                        "label": "Building life cycle (SIA 2032 + A4)",
+                        "method": "update",
+                        "args": [
+                            {
+                                "title": "Construction's life cycle GHG emissions",
+                                "visible": [True, True, True, True]
+                            },
+                        ]
+                    },
+                    {
+                        "label": "Building life cycle (SIA 2032)",
+                        "method": "update",
+                        "args": [
+                            {
+                                "title": "Construction's life cycle GHG emissions according to SIA 2032",
+                                "visible": [True, False, True, True]
+                            },
+                        ]
+                    }
+                ],
+                "type": "buttons",
+                "direction": "down",
+                "showactive": False,
+                "x": -0.2,
+                "y": 0.9
+            }
+        ]
+
+        fig.update_layout(updatemenus=updatemenus)
+        fig.write_html(html_paths[unit])
+        fig_dict[unit] = fig
+
+    return fig_dict
+
+
+def impact_total_graph_bundle(Building):
+    # Charger les données
+    aaa = Building.data
+    aaa = aaa.groupby("Bundle")[["GWP_A1-A3", "GWP_A4", "GWP_B4", "GWP_C1-C4"]].sum().reset_index()
+
+    # Reshape the DataFrame using the melt function
+    aaa = aaa.melt(id_vars=["Bundle"], var_name="Life cycle steps", value_name="GWP")
+
+    # Extract step names from the Steps column
+    aaa["Life cycle steps"] = aaa["Life cycle steps"].str.replace("GWP_", "")
+
+    # Calculer les données en kg CO2 eq/m² et kg CO2 eq/m²/an
+    sqm = Building.sqm
+    years = 60  # Durée de vie en années
+    aaa["GWP (tonnes)"] = (aaa["GWP"] * sqm )/ 1000
+    aaa["GWP (kg/m²)"] = aaa["GWP"]
+    aaa["GWP (kg/m²/an)"] = aaa["GWP"]  /  years
+
+    # Définir les chemins pour enregistrer les graphiques
+    html_paths = {
+        "tonnes": os.path.join(ROOT_DIR, cfg['figures_folder'], Building.case + "_impact_total_bundle_tonnes.html"),
+        "kg_per_m2": os.path.join(ROOT_DIR, cfg['figures_folder'],
+                                  Building.case + "_impact_total_bundle_kg_per_m2.html"),
+        "kg_per_m2_per_year": os.path.join(ROOT_DIR, cfg['figures_folder'],
+                                           Building.case + "_impact_total_bundle_kg_per_m2_per_year.html")
+    }
+
+    # Création des graphiques
+    fig_dict = {}
+    for unit, title_suffix, y_column in [
+        ("tonnes", "tonnes CO2 eq", "GWP (tonnes)"),
+        ("kg_per_m2", "kg CO2 eq/m²", "GWP (kg/m²)"),
+        ("kg_per_m2_per_year", "kg CO2 eq/m²/an", "GWP (kg/m²/an)")
+    ]:
+        fig = px.bar(aaa, x="Bundle", y=y_column, color="Life cycle steps", title="cases")
+
+        fig.update_layout(
+            title=f"Impact by bundle of case study {Building.case} ({title_suffix})",
+            yaxis_title=f"GHG emissions ({title_suffix})",
+            template="plotly_white",
+            margin=dict(l=200, r=50, t=50, b=50)
+        )
+
+        updatemenus = [
+            {
+                'active': 1,
+                "buttons": [
+                    {
+                        "label": "Upfront emissions (A1-A4)",
+                        "method": "update",
+                        "args": [
+                            {
+                                "title": "Construction's initial GHG emissions",
+                                "visible": [True, True, False, False]
+                            },
+                        ]
+                    },
+                    {
+                        "label": "Building life cycle (SIA 2032 + A4)",
+                        "method": "update",
+                        "args": [
+                            {
+                                "title": "Construction's life cycle GHG emissions",
+                                "visible": [True, True, True, True]
+                            },
+                        ]
+                    },
+                    {
+                        "label": "Building life cycle (SIA 2032)",
+                        "method": "update",
+                        "args": [
+                            {
+                                "title": "Construction's life cycle GHG emissions according to SIA 2032",
+                                "visible": [True, False, True, True]
+                            },
+                        ]
+                    }
+                ],
+                "type": "buttons",
+                "direction": "down",
+                "showactive": False,
+                "x": -0.2,
+                "y": 0.9
+            }
+        ]
+
+        fig.update_layout(updatemenus=updatemenus)
+        fig.write_html(html_paths[unit])
+        fig_dict[unit] = fig
+
+    return fig_dict
+
+
+def impact_total_graph_comparing(Building):
+    # Charger les données
+    aaa = Building.impacts
+    aaa2 = Building.impacts_new
+    aaa[['Total difference Initial emissions', 'Total difference SIA 2023 scope']] = pd.DataFrame({
+        'Total difference Initial emissions': aaa['A1-A3'] + aaa['A4'],
+        'Total difference SIA 2023 scope': aaa['A1-A3'] + aaa['A4'] + aaa['C1-C4']
+    })
+    aaa2[['Total difference Initial emissions', 'Total difference SIA 2023 scope']] = pd.DataFrame({
+        'Total difference Initial emissions': aaa2['A1-A3'] + aaa2['A4'],
+        'Total difference SIA 2023 scope': aaa2['A1-A3'] + aaa2['A4'] + aaa2['C1-C4']
+    })
+    aaa3 = aaa2 - aaa
+    aaa = aaa.rename(columns={'Total': 'Total difference Building life cycle'})
+    aaa2 = aaa2.rename(columns={'Total': 'Total difference Building life cycle'})
+    aaa3 = aaa3.rename(columns={'Total': 'Total difference Building life cycle'})
+    aaa3[['A1-A3', 'A4', 'B4', 'C1-C4']] = 0
+    aaa[['Total difference Building life cycle', 'Total difference SIA 2023 scope',
+         'Total difference Initial emissions']] = 0
+    aaa2[['Total difference Building life cycle', 'Total difference SIA 2023 scope',
+          'Total difference Initial emissions']] = 0
+    aaa = aaa.transpose()
+    aaa2 = aaa2.transpose()
+    aaa3 = aaa3.transpose()
+    aaa["variant"] = Building.case
+    aaa2["variant"] = "Reference scenario without reuse"
+    aaa3["variant"] = "Difference in impact thanks to reuse"
+
+    bbb = pd.concat([aaa, aaa2, aaa3], axis=0)
+    bbb["Life cycle steps"] = bbb.index
+
+    # Calculer les données en kg CO2 eq/m² et kg CO2 eq/m²/an
+    sqm = Building.sqm
+    years = 60  # Durée de vie en années
+    bbb["GWP (tonnes)"] = bbb["GWP"] / 1000
+    bbb["GWP (kg/m²)"] = bbb["GWP"] / sqm
+    bbb["GWP (kg/m²/an)"] = bbb["GWP"]  / (sqm * years)
+
+    # Définir les chemins pour enregistrer les graphiques
+    html_paths = {
+        "tonnes": os.path.join(ROOT_DIR, cfg['figures_folder'], Building.case + "_impact_total_comparing_tonnes.html"),
+        "kg_per_m2": os.path.join(ROOT_DIR, cfg['figures_folder'],
+                                  Building.case + "_impact_total_comparing_kg_per_m2.html"),
+        "kg_per_m2_per_year": os.path.join(ROOT_DIR, cfg['figures_folder'],
+                                           Building.case + "_impact_total_comparing_kg_per_m2_per_year.html")
+    }
+
+    # Création des graphiques
+    fig_dict = {}
+    for unit, title_suffix, y_column in [
+        ("tonnes", "tonnes CO2 eq", "GWP (tonnes)"),
+        ("kg_per_m2", "kg CO2 eq/m²", "GWP (kg/m²)"),
+        ("kg_per_m2_per_year", "kg CO2 eq/m²/an", "GWP (kg/m²/an)")
+    ]:
+        fig = px.bar(bbb, x="variant", y=y_column, color="Life cycle steps", title=Building.case)
+
+        fig.update_layout(
+            title=f"Comparing the project and the reference scenario without reuse ({title_suffix})",
+            yaxis_title=f"GHG Emissions ({title_suffix})",
+            template="plotly_white",
+            margin=dict(l=200, r=50, t=50, b=50)
+        )
+
+        updatemenus = [
+            {
+                'active': 1,
+                "buttons": [
+                    {
+                        "label": "Upfront emissions (A1-A4)",
+                        "method": "update",
+                        "args": [
+                            {
+                                "title": "Construction's initial GHG emissions",
+                                "visible": [True, True, False, False, False, True, False]
+                            },
+                        ]
+                    },
+                    {
+                        "label": "Building life cycle (SIA 2032 + A4)",
+                        "method": "update",
+                        "args": [
+                            {
+                                "title": "Construction's life cycle GHG emissions",
+                                "visible": [True, True, True, True, True, False, False]
+                            },
+                        ]
+                    },
+                    {
+                        "label": "Building life cycle (SIA 2032)",
+                        "method": "update",
+                        "args": [
+                            {
+                                "title": "Construction's life cycle GHG emissions according to SIA 2032",
+                                "visible": [True, False, True, True, False, False, True]
+                            },
+                        ]
+                    }
+                ],
+                "type": "buttons",
+                "direction": "down",
+                "showactive": False,
+                "x": -0.2,
+                "y": 0.9
+            }
+        ]
+
+        fig.update_layout(updatemenus=updatemenus)
+        fig.write_html(html_paths[unit])
+        fig_dict[unit] = fig
+
+    return fig_dict
+
+
+def building_impacts_table(Building, variant="Actual"):
+    if variant == "Actual":
+        impacts = Building.impacts
+        title = "Table 1: Building LCA impacts - Actual design with reuse"
+        html_path = os.path.join(ROOT_DIR,cfg['figures_folder'],Building.case+cfg['figures_suffix']['impacts_table'])
+    elif variant == "New":
+        impacts = Building.impacts_new
+        title = 'Table 1: Building LCA impacts - "Only new" variant'
+        html_path = os.path.join(ROOT_DIR,cfg['figures_folder'],Building.case+cfg['figures_suffix']['impacts_table_new'])
+
+    ordered_cols = ["Impact category","A1-A3","A4","B4","C1-C4","Total"]
+
+    results_sqm = impacts.div(Building.sqm).round(1)
+    results_sqm["Impact category"] = impacts.index
+    results_sqm = results_sqm[ordered_cols]
+
+    results_sqm_year = impacts.div(Building.sqm).div(Building.lifespan).round(1)
+    results_sqm_year["Impact category"] = impacts.index
+    results_sqm_year = results_sqm_year[ordered_cols]
+
+    fig = go.Figure()
+    fig.add_trace(
+        go.Table(
+            header=dict(values=ordered_cols),
+            cells=dict(values= [results_sqm[col] for col in ordered_cols])
+        )
+    )
+    fig.update_layout(
+        updatemenus = [dict(
+            buttons=[
+                dict(label='[Impact]/m²',
+                     method='restyle',
+                     args=[{'cells': {'values': results_sqm.values.T}}]),
+    dict(label='[Impact]/m²/year',
+                     method='restyle',
+                     args=[{'cells': {'values': results_sqm_year.values.T}}]),
+
+    ],
+            showactive = True,
+            direction = 'down',
+            x = 0,
+            y = 1,
+
+        ),
+        ],
+        title=title
+        )
+
+
+    fig.show()
+    fig.write_html(html_path)
+    return fig
+
+
 
 def building_impacts_table(Building, variant="Actual"):
     if variant == "Actual":
@@ -392,8 +747,9 @@ def generate_reuse_tables(Building):
         html_content = html_content.replace('{reuse_table_from_df}', html)
 
         # Write final HTML to file
-        with open(os.path.join(ROOT_DIR, cfg['html_tables_folder'], Building.case + cfg['table_suffix'][suffix]),
-                  'w', encoding='utf-8') as f:
+        filename_case_table = os.path.join(ROOT_DIR, cfg['html_tables_folder'], Building.case + cfg['table_suffix'][suffix])
+        os.makedirs(os.path.dirname(filename_case_table), exist_ok=True)
+        with open(filename_case_table, 'w', encoding='utf-8') as f:
             f.write(html_content)
 
 

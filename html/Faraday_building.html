@@ -144,7 +144,7 @@
             <iframe id="material_sankey" style="width: 100%; height: 700px; border: 0"></iframe>
         </div>
     </div>
-</section>
+    </section>
 
     <section class="building-impacts">
         <div class="card">
@@ -164,40 +164,57 @@
     <section class="components-impacts">
         <div class="card">
             <div class="card-content">
-                <h2>GHG emissions results</h2>
+                <h2>GHG emissions results : Construction</h2>
             <div>
-                <button id="button_comparison_gwp1" onclick="loadHtml('..\\html_figures\\Faraday_impact_total_comparing_tonnes.html', 'bar_comparison'); setActiveButtons('button_comparison_gwp1','#button_comparison_gwp1, #button_comparison_gwp2, #button_comparison_gwp3')">Construction </button>
-                <button id="button_comparison_gwp2" onclick="loadHtml('..\\html_figures\\Faraday_impact_total_bundle_tonnes.html', 'bar_comparison'); setActiveButtons('button_comparison_gwp2','#button_comparison_gwp1, #button_comparison_gwp2, #button_comparison_gwp3')">By building layers</button>
-                <button id="button_comparison_gwp3" onclick="loadHtml('..\\html_figures\\Faraday_impact_total_lot_tonnes.html', 'bar_comparison'); setActiveButtons('button_comparison_gwp3','#button_comparison_gwp1, #button_comparison_gwp2, #button_comparison_gwp3')">By building element</button>
-                <button id="button_info_reuse_impacts" class="info-button" onclick="showModal('reuseImpactsDialog')">&#8505; Graph Instructions</button>
+                <button id="button_ghg_construction_tonnes" onclick="loadHtml('..\\html_figures\\Faraday_impact_total_comparing_tonnes.html', 'bar_ghg_construction'); setActiveButtons('button_ghg_construction_tonnes','#button_ghg_construction_tonnes, #button_ghg_construction_kg_per_m2, #button_ghg_construction_kg_per_m2_per_year')">tons CO2 eq. </button>
+                <button id="button_ghg_construction_kg_per_m2" onclick="loadHtml('..\\html_figures\\Faraday_impact_total_comparing_kg_per_m2.html', 'bar_ghg_construction'); setActiveButtons('button_ghg_construction_kg_per_m2','#button_ghg_construction_tonnes, #button_ghg_construction_kg_per_m2, #button_ghg_construction_kg_per_m2_per_year')">kg CO2eq./m²</button>
+                <button id="button_ghg_construction_kg_per_m2_per_year" onclick="loadHtml('..\\html_figures\\Faraday_impact_total_comparing_kg_per_m2_per_year.html', 'bar_ghg_construction'); setActiveButtons('button_ghg_construction_kg_per_m2_per_year','#button_ghg_construction_tonnes, #button_ghg_construction_kg_per_m2, #button_ghg_construction_kg_per_m2_per_year')">kg CO2eq./m²/year</button>
+                <button id="button_info_ghg_construction" class="info-button" onclick="showModal('reuseImpactsDialog')">&#8505; Graph Instructions</button>
             </div>
-            <div id="unit-selection" style="display: block;margin-top: 20px;">
-                <label for="unit-select">Choose unit:</label>
-                <select id="unit-select" onchange="updateGraph()">
-                    <option value="tonnes">Tonnes of CO2 equivalent</option>
-                    <option value="kg_per_m2">Kg of CO2 equivalent per m2</option>
-                    <option value="kg_per_m2_per_year">Kg of CO2 equivalent per m2 per year</option>
-                </select>
+            <iframe id="bar_ghg_construction" style="width: 100%; height: 400px; border: 0"></iframe>
             </div>
-            <div>
-            </div>
-            <iframe id="bar_comparison" style="width: 100%; height: 400px; border: 0"></iframe>
         </div>
-    </div>
-</div>
-
+    </section>
+    <section class="components-impacts">
+        <div class="card">
+            <div class="card-content">
+                <h2>GHG emissions results : By building layer</h2>
+            <div>
+                <button id="button_ghg_bundle_tonnes" onclick="loadHtml('..\\html_figures\\Faraday_impact_total_bundle_tonnes.html', 'bar_ghg_bundle'); setActiveButtons('button_ghg_bundle_tonnes','#button_ghg_bundle_tonnes, #button_ghg_bundle_kg_per_m2, #button_ghg_bundle_kg_per_m2_per_year')">tons CO2 eq. </button>
+                <button id="button_ghg_bundle_kg_per_m2" onclick="loadHtml('..\\html_figures\\Faraday_impact_total_bundle_kg_per_m2.html', 'bar_ghg_bundle'); setActiveButtons('button_ghg_bundle_kg_per_m2','#button_ghg_bundle_tonnes, #button_ghg_bundle_kg_per_m2, #button_ghg_bundle_kg_per_m2_per_year')">kg CO2eq./m²</button>
+                <button id="button_ghg_bundle_kg_per_m2_per_year" onclick="loadHtml('..\\html_figures\\Faraday_impact_total_bundle_kg_per_m2_per_year.html', 'bar_ghg_bundle'); setActiveButtons('button_ghg_bundle_kg_per_m2_per_year','#button_ghg_bundle_tonnes, #button_ghg_bundle_kg_per_m2, #button_ghg_bundle_kg_per_m2_per_year')">kg CO2eq./m²/year</button>
+                <button id="button_info_ghg_bundle" class="info-button" onclick="showModal('reuseImpactsDialog')">&#8505; Graph Instructions</button>
+            </div>
+            <iframe id="bar_ghg_bundle" style="width: 100%; height: 400px; border: 0"></iframe>
+            </div>
+        </div>
+    </section>
+    <section class="components-impacts">
+        <div class="card">
+            <div class="card-content">
+                <h2>GHG emissions results : By building element</h2>
+            <div>
+                <button id="button_ghg_lot_tonnes" onclick="loadHtml('..\\html_figures\\Faraday_impact_total_lot_tonnes.html', 'bar_ghg_lot'); setActiveButtons('button_ghg_lot_tonnes','#button_ghg_lot_tonnes, #button_ghg_lot_kg_per_m2, #button_ghg_lot_kg_per_m2_per_year')">tons CO2 eq. </button>
+                <button id="button_ghg_lot_kg_per_m2" onclick="loadHtml('..\\html_figures\\Faraday_impact_total_lot_kg_per_m2.html', 'bar_ghg_lot'); setActiveButtons('button_ghg_lot_kg_per_m2','#button_ghg_lot_tonnes, #button_ghg_lot_kg_per_m2, #button_ghg_lot_kg_per_m2_per_year')">kg CO2eq./m²</button>
+                <button id="button_ghg_lot_kg_per_m2_per_year" onclick="loadHtml('..\\html_figures\\Faraday_impact_total_lot_kg_per_m2_per_year.html', 'bar_ghg_lot'); setActiveButtons('button_ghg_lot_kg_per_m2_per_year','#button_ghg_lot_tonnes, #button_ghg_lot_kg_per_m2, #button_ghg_lot_kg_per_m2_per_year')">kg CO2eq./m²/year</button>
+                <button id="button_info_ghg_lot" class="info-button" onclick="showModal('reuseImpactsDialog')">&#8505; Graph Instructions</button>
+            </div>
+            <iframe id="bar_ghg_lot" style="width: 100%; height: 400px; border: 0"></iframe>
+            </div>
+        </div>
+    </section>
 
     <footer>
-   <p>OFEN - Reuse-LCA (SI/502190-01) - HEIG-VD - Institut des &Eacute;nergies</p>
-   <div class="logo-container">
-       <a style="text-align: center" href="mailto:mija.frossard@heig-vd.ch?subject=Reuse-LCA%20Website%20contact">
-           <img src="../pictures/mail-logo.png" alt="Email contact" height="40px">
-       </a>
-       <a style="text-align: center" href="https://github.com/LESBAT-HEIG-VD/reuse-lca">
-           <img src="../pictures/view_on_github.png" height="50px" class="github-button" alt="Github repository">
-       </a>
-   </div>
-</footer>
+       <p>OFEN - Reuse-LCA (SI/502190-01) - HEIG-VD - Institut des &Eacute;nergies</p>
+       <div class="logo-container">
+           <a style="text-align: center" href="mailto:mija.frossard@heig-vd.ch?subject=Reuse-LCA%20Website%20contact">
+               <img src="../pictures/mail-logo.png" alt="Email contact" height="40px">
+           </a>
+           <a style="text-align: center" href="https://github.com/LESBAT-HEIG-VD/reuse-lca">
+               <img src="../pictures/view_on_github.png" height="50px" class="github-button" alt="Github repository">
+           </a>
+       </div>
+    </footer>
     <dialog class=custom-dialog id="reusetableDialog">
           <p>The table describes the reused products, their supply-chain activities and the associated GHG emissions.<br></p>
           <p><b><u>Select a set of columns</u> by clicking on the buttons with the '&#128269;' icon.</b></p>
@@ -328,8 +345,13 @@
         setActiveButtons("button_1_ad", "#button_1_ad, #button_1_nv");
         loadHtml('..\\html_tables\\Faraday_gwp_total.html', 'reuse_table');
         setActiveButtons('button_reuse_table_tot','#button_reuse_table_tot, #button_reuse_table_kg, #button_reuse_table_sqm')
-        loadHtml('..\\html_figures\\Faraday_impact_total_comparing_tonnes.html', 'bar_comparison');
-    setActiveButtons('button_comparison_gwp1','#button_comparison_gwp1, #button_comparison_gwp2, #button_comparison_gwp3');
+        loadHtml('..\\html_figures\\Faraday_impact_total_comparing_tonnes.html', 'bar_ghg_construction');
+        loadHtml('..\\html_figures\\Faraday_impact_total_bundle_tonnes.html', 'bar_ghg_bundle');
+        loadHtml('..\\html_figures\\Faraday_impact_total_lot_tonnes.html', 'bar_ghg_lot');
+        setActiveButtons('button_ghg_construction_tonnes','#button_ghg_construction_tonnes, #button_ghg_construction_kg_per_m2, #button_ghg_construction_kg_per_m2_per_year');
+        setActiveButtons('button_ghg_bundle_tonnes','#button_ghg_bundle_tonnes, #button_ghg_bundle_kg_per_m2, #button_ghg_bundle_kg_per_m2_per_year');
+        setActiveButtons('button_ghg_lot_tonnes','#button_ghg_lot_tonnes, #button_ghg_lot_kg_per_m2, #button_ghg_lot_kg_per_m2_per_year');
+
       }
 
       function range(start, end) {

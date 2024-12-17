@@ -43,13 +43,13 @@
                     <h3>Stored biogenic carbon</h3>
                 </div>
                 <div>
-                    <p>{mat_intensity}</p><span>kg/m&sup2</span>
+                    <p>{mat_intensity}</p><span>kg/m&sup2 ERA</span>
                 </div>
                 <div>
-                    <p>{ghg_total}</p><span>kg CO2-eq./m&sup2</span>
+                    <p>{ghg_total}</p><span>kg CO<sub>2</sub>-eq./m&sup2 ERA</span>
                 </div>
                 <div>
-                    <p>{stored_bio_carb}</p><span>kgC/m&sup2</span>
+                    <p>{stored_bio_carb}</p><span>kg C/m&sup2 ERA</span>
                 </div>
             </section>
             </div>
@@ -74,7 +74,7 @@
                     <h3>Ex-situ reuse supply distance</h3>
                 </div>
                 <div>
-                    <p>{avoided_ghg}</p><span>kg CO2-eq./m&sup2</span>
+                    <p>{avoided_ghg}</p><span>kg CO<sub>2</sub>-eq./m&sup2 ERA</span>
                 </div>
                 <div>
                     <p>{share_reused}</p><span>% of total mass</span>
@@ -118,8 +118,7 @@
             <iframe id="material_sankey" style="width: 100%; height: 700px; border: 0"></iframe>
         </div>
     </div>
-</section>
-
+    </section>
     <section class="building-impacts">
         <div class="card">
             <div class="card-content">
@@ -156,22 +155,20 @@
             <div>
             </div>
             <iframe id="bar_comparison" style="width: 100%; height: 400px; border: 0"></iframe>
+            </div>
         </div>
-    </div>
-</div>
-
-
+    </section>
     <footer>
-   <p>OFEN - Reuse-LCA (SI/502190-01) - HEIG-VD - Institut des &Eacute;nergies</p>
-   <div class="logo-container">
-       <a style="text-align: center" href="mailto:mija.frossard@heig-vd.ch?subject=Reuse-LCA%20Website%20contact">
-           <img src="../pictures/mail-logo.png" alt="Email contact" height="40px">
-       </a>
-       <a style="text-align: center" href="https://github.com/LESBAT-HEIG-VD/reuse-lca">
-           <img src="../pictures/view_on_github.png" height="50px" class="github-button" alt="Github repository">
-       </a>
-   </div>
-</footer>
+       <p>OFEN - Reuse-LCA (SI/502190-01) - HEIG-VD - Institut des &Eacute;nergies</p>
+       <div class="logo-container">
+           <a style="text-align: center" href="mailto:mija.frossard@heig-vd.ch?subject=Reuse-LCA%20Website%20contact">
+               <img src="../pictures/mail-logo.png" alt="Email contact" height="40px">
+           </a>
+           <a style="text-align: center" href="https://github.com/LESBAT-HEIG-VD/reuse-lca">
+               <img src="../pictures/view_on_github.png" height="50px" class="github-button" alt="Github repository">
+           </a>
+       </div>
+    </footer>
     <dialog class=custom-dialog id="reusetableDialog">
           <p>The table describes the reused products, their supply-chain activities and the associated GHG emissions.<br></p>
           <p><b><u>Select a set of columns</u> by clicking on the buttons with the '&#128269;' icon.</b></p>

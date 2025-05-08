@@ -123,3 +123,10 @@ def sankey(Building):
         print(f"Erreur lors de la création du Sankey pour {Building.case}: {e}")
         return None
 
+if __name__ == "__main__":
+    from reuselca import *
+
+    case_name = "Faraday"
+    Building = utils.Building(case_name)
+    sankey(Building)
+
